@@ -1,0 +1,82 @@
+.headers {
+	color: silver;
+	text-decoration: underline;
+	font-family: "Bank Gothic";
+}
+
+.intro {
+	background-image: url(../img/technology-background2.jpg);
+	font-family: "Bank Gothic";
+	color: silver;
+}
+
+h1 {
+	text-align: center;
+	font-size: 48px;
+}
+h2 {
+	color: steelblue ;
+	text-decoration: underline;
+	font-family: "Bank Gothic";
+	font-size: 25px;
+	margin: left;
+}
+
+body {
+	background-image: url(../img/vintage-leaves.png);
+	background-color: ivory;
+	font-family: "Play";
+	font-size: 18px;
+}
+
+div>img:nth-child(1), {
+	margin: right;
+	margin: 10px;
+	position: absolute;
+}
+ div>img:nth-child(2) {
+	float: bottom;
+	margin: 10px;
+	position: relative;
+}
+
+p>img:nth-child(1) {
+	margin: 10px;
+	position: absolute;
+}
+
+p>img:nth-child(2) {
+	float: bottom;
+	margin: 10px;
+	position: relative;
+}
+
+.bullet1 {
+	list-style-type: square;
+}
+
+.bullet2 {
+	list-style-type: square;
+}
+
+table {
+	border-spacing: 2em;
+	border-style: double;
+	font-family: "Play";
+}
+
+th {
+	font-weight: bold;
+	font-size: 18px;
+	text-align: center;
+	border-bottom: double;
+	border-bottom-color: steelblue;
+}
+
+td {
+	font-size: 1em;
+	padding: 2px;
+	margin: left;
+}
+
+	

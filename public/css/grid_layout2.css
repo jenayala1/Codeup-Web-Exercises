@@ -1,0 +1,57 @@
+* 
+html {
+	box-sizing: border-box;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+.container {
+	margin: 0 auto;
+	/*height: 1000px;*/
+	width: 80%;
+	max-width: 1200px;	
+}
+
+.row {
+	width: 100%;
+}
+
+.row:after; {
+	content: "";
+    display: table;
+    clear: both;
+}
+.column {
+    float: left;
+    padding: 10px;
+    margin: 0px;
+}
+
+.column.one-half {
+    width: 50%;
+}
+
+.column.one-third {
+	width: 33.33%;
+}
+
+.column.one-quarter {
+	width: 25%;
+}
+
+.column.one-fifth {
+	width: 20%;
+}
+
+.column.one-sixth {
+	width: 16.66%;
+}
+
+.column.one-eigth {
+	width: 12.5%;
+}
+
+.column.one-tenth {
+	width: 10%;
