@@ -51,8 +51,8 @@ body {
 	}
 
 	.summary {
-		background-color: ivory;
-		color: dimgrey;
+		background-color: antiquewhite;
+		color: black;
 		width: 100%;
 		font: "Bank Gothic";
 		font-weight: bold;
@@ -63,11 +63,11 @@ body {
 	.row-summary {
 		font: "play";
 		font-size: 16px;
-		background-color: ivory;
+		background-color: antiquewhite;
 	}
 
 	.header1 {
-		color: steelblue;
+		color: black;
 		text-decoration: underline;
 		font-family: "Bank Gothic";
 		font-weight: bold;
@@ -75,7 +75,7 @@ body {
 		text-align: center;
 		padding-bottom: 10px;
 		width: 100%;
-		background-color: ivory;
+		background-color: antiquewhite;
 	}
 	.headerd {
 		font-family: "play";
@@ -83,7 +83,7 @@ body {
 		border-color: white;
 		padding: 10px;
 		margin: bottom;
-		background-color: ivory;
+		background-color: antiquewhite;
 		width: 100%;
 		text-indent: right
 
@@ -98,20 +98,20 @@ body {
 		text-align: center;
 		padding-bottom: 10px;
 		width: 100%;
-		background-color: ivory;
+		background-color: antiquewhite;
 	}
 
 	.intro {
 		background-image: url(../img/technology-background2.jpg);
 		font-family: "Bank Gothic";
-		color: silver;
+		color: black;
 	}
 
 	h1, h2, h3, h4 {
 		text-align: center;
 		font-family: "Bank Gothic";
 		color: steelblue;
-		background-color: ivory;
+		background-color: antiquewhite;
 		margin: bottom;
 	}
 
@@ -144,7 +144,7 @@ body {
 		border-spacing: 2em;
 		border-style: double;
 		font-family: "Play";
-		background-color: ivory;
+		background-color: antiquewhite;
 		
 	}
 
@@ -209,12 +209,12 @@ body {
 		font-weight: normal;
 		padding-bottom: 5px;
 		padding-top: 10px;
-		background-color: ivory;
+		background-color: antiquewhite;
 
 	}
 	
 	.work {
-		background-color: ivory;
+		background-color: antiquewhite;
 		border-style: none;
 		font: "play";
 	}
@@ -225,7 +225,7 @@ body {
 		font-weight: bold;
 		padding-bottom: 5px;
 		padding-top: 10px;
-		background-color: ivory;
+		background-color: antiquewhite;
 		
 	}
 	.column-job-title {
@@ -233,7 +233,7 @@ body {
 		font-size: 16px;
 		font-weight: normal;
 		font-style: italic;
-		background-color: ivory;
+		background-color: antiquewhite;
 	}
 
 	.column-date-range {
@@ -241,14 +241,14 @@ body {
 		font-size: 14px;
 		font-weight: normal;
 		font-style: italic;
-		background-color: ivory;
+		background-color: antiquewhite;
 	}
 	.column-description {
 		width: 100%;
 		font-size: 14px;
 		font-weight: normal;
 		padding-bottom: 5px;
-		background-color: ivory;
+		background-color: antiquewhite;
 	}
 
 	.column-accomplishments {
@@ -265,7 +265,7 @@ body {
 		font-size: 14px;
 		font-weight: normal;
 		padding-bottom: 5px;
-		background-color: ivory;
+		background-color: antiquewhite;
 		font-weight: normal;
 		list-style-type: square;
 		font-family: "play";
@@ -276,7 +276,7 @@ body {
 		font-size: 14px;
 		font-weight: normal;
 		padding-bottom: 5px;
-		background-color: white;
+		background-color: antiquewhite;
 		font-weight: normal;
 		list-style-type: square;
 		
@@ -286,7 +286,7 @@ body {
 		font-size: 14px;
 		font-weight: normal;
 		padding-bottom: 5px;
-		background-color: white;
+		background-color: antiquewhite;
 		font-weight: normal;
 		list-style-type: square;
 		font-family: "play";
