@@ -12,31 +12,33 @@ var color = colors[Math.floor(Math.random()*colors.length)];
 var color = prompt("What is your favorite color?");
 
 var favorite = 'indigo'; 
-	if (color === 'red') {
+
+console.log("the random color chosen is " + color)
+
+	if (color === "red") {
 		console.log("Strawberries are red");
 
-	} else if (color ==='orange') {
+	} else if (color === "orange") {
 		console.log("Gerber daisies are orange");
 
-	} else if (color === 'yellow') {
+	} else if (color === "yellow") {
 		console.log ("Sunflowers are yellow");
 
-	} else if (color==='green') {
+	} else if (color=== "green") {
 		console.log("Asparagus is green");
 
-	} else if (color==='blue') {
+	} else if (color=== "blue") {
 		 console.log("My water bottle is blue");
 
-	} else if (color==='indigo' || 'violet') {
-		console.log("Flowers have that color");
-
 	} else {
-		console.log(color + " I don't know of anything with that color");
+		console.log(" I don't know of anything with that color");
 	}
 
-	(color != favorite) ? (color + " is my favorite color") {
-	     console.log(color + " is not my favorite color");
-	}
+	console.log("My favorite color is " + favorite);
+
+	var outcome =(color === favorite) ? "the random color matches" : "Random and favorite colors are different";
+	
+	console.log(outcome);
 
 // TODO #2: Create a block of if/else statements to check for every color except indigo and violet.
 
