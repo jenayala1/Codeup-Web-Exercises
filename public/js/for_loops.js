@@ -67,10 +67,10 @@
 	// var randomNumber
 	
 	// for(var 1 = 1; i<= 10; i++) {
-	// 	var randomNumber = MAth.floor(Math.random() * (max - min)) + min;
+	// 	var randomNumber = Math.floor(Math.random() * (max - min)) + min;
 	// 	if(randomNumber % 2 == 0) {
 	// 		console.log(randomNumber + " is even");
-	// 	}else {
+	// 	} else {
 	// 		console.log(randomNumber + " is odd")
 	// 	}
 
