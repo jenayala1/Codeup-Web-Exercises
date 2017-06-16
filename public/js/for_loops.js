@@ -88,8 +88,16 @@
 //  0000000000
 
 //INSTRUCTOR SOLUTION #1:
-
-
+//	console.log(1);
+//  console.log(22);
+//  console.log(333);
+//  console.log(4444);
+//  console.log(55555);
+//  console.log(666666);
+//  console.log(7777777);
+//  console.log(88888888);
+//  console.log(999999999);
+//  console.log(0000000000);
 
 
 // SOLUTION #2:
@@ -101,7 +109,6 @@
 	// 	} else if (i == 3) {
 	// 		console.log(i.toString() + i + i);
 	// }
-
 
 // SOLUTION #3:
 	// var stringNumber;
@@ -138,12 +145,12 @@
 
 //var x = 100;
 
-	for(var x = 100; x >= 5; x--) {
-		console.log("Number is " + x);
-	}
+	// for(var x = 100; x >= 5; x--) {
+	// 	console.log("Number is " + x);
+	// }
 
 	//INSTRUCTOR SOLUTION:
 
-		// for(var i = 100; i >= 5; i = i - 5) {
-		// 	console.log(i);
-		// }
+		for(var i = 100; i >= 5; i = i - 5) {
+			console.log(i);
+		}
