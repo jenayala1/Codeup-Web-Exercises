@@ -24,7 +24,7 @@
   	
   	});
 
-    //BONUS
+    //ARRAY BONUS
     //Create a simple mad libs game which prompts the user to provide parts of speech to complete missing 
     //words of phrases for 3-4 silly sentences.  Add each word or phrase from each prompt to single array.
     //Once a user has entered all the Mad Libs, alert the results.
@@ -33,4 +33,16 @@
     //functions.
 
     //Bonus answer: MAD LIBS//
+
+
+    //ITERATING ARRAY BONUS:
+    //Create a temperature conversion application using the user interaction methods
+    //(alert, confirm, propmt) to take in a list of temperatures, as the user which 
+    //conversion to make (farenheit to Celcius or vice versa) return the user a list
+    //of converted temperatures.  Extra bonus: add Kelvin.
+
+    //ITERATING ARRAY BONUS SOLUTION:
+    var farenheit
+    var celsius
+    
 })();
