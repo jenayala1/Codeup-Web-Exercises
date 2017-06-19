@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+
+		<title>Iterating Arrays JS</title>	
+	</head>
+	<body>
+		
+		<script>
+			var names = ["Vincent", "Ian", "Calista", "Giada"];
+			console.log("There are " + names.length + " names in the names array");
+
+			for (var i = 0; i < names.length; i++) {
+				console.log("Name at index: " + i + " is " + names[i]);
+			}
+
+			console.log("forEach loop");
+
+			names.forEach(function (element, index, array) {
+				console.log("Name at index: " + index + " is " + element);
+			});
+		</script>
+
+    	<script type="text/javascript"></script>
+	</body>
+</html>
