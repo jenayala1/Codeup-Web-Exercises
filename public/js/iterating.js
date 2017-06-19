@@ -37,12 +37,12 @@
 
     //ITERATING ARRAY BONUS:
     //Create a temperature conversion application using the user interaction methods
-    //(alert, confirm, propmt) to take in a list of temperatures, as the user which 
+    //(alert, confirm, propmt) to take in a list of temperatures, ask the user which 
     //conversion to make (farenheit to Celcius or vice versa) return the user a list
     //of converted temperatures.  Extra bonus: add Kelvin.
 
     //ITERATING ARRAY BONUS SOLUTION:
     var farenheit
     var celsius
-    
+
 })();
