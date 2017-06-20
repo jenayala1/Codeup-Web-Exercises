@@ -19,7 +19,7 @@
     var circle = {
         radius: 5,
         getArea: function () {
-            return Math.PI* (circle.radius * circle.radius);
+            return Math.PI * (circle.radius * circle.radius);
         },
         logInfo: function (doRounding) {
 
@@ -42,7 +42,6 @@
    
     
 // TODO: #2: return the proper value
-    
 
         
         
@@ -77,4 +76,23 @@ console.log("Area of a circle with radius: " + circle.radius + ", is: " + (Math.
 
 
 // Finally, save your work, commit the changes to your git repository, and push to GitHub.
+
+
+//Instuctor Solution:
+ var circle = {
+        radius: 5,
+        getArea: function () {
+            return Math.PI * Math.pow(this.radius, 2);
+        },
+
+        logInfo: function (doRounding) {
+
+            if (doRounding == true) { 
+                console.log(Math.round(circle.getArea()));
+                console.log(circle.getArea());
+            } else {    
+                console.log(circle.getArea());
+            }
+        }
+     };
 

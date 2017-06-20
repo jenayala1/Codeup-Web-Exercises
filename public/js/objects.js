@@ -164,7 +164,7 @@
     // var author;
     // var first;
     // var last;
-
+    var timeReturn = date
  
     var books = [
     {
@@ -174,6 +174,9 @@
             first: "Stephen",
             last: "King",
         }
+        keywords: "horror", "fiction", "suspense",
+        available: true,
+        dateAvailable: 
     },
     {
         num: 2,
@@ -182,6 +185,9 @@
             first: "Dean",
             last: "Koontz",
         }
+        keywords: "horror", "fiction", "suspense"
+        available: true,
+        dateAvailable: 
     },
     {
         num: 3,
@@ -190,6 +196,9 @@
             first: "Denise",
             last: "Mina",
         }
+        keywords: "mystery", "fiction", "suspense", "detective",
+        available: true,
+        dateAvailable: 
     },
     {
         num: 4,
@@ -198,6 +207,9 @@
             first: "Stephen",
             last: "King",
         }
+        keywords: "horror", "fiction", "suspense",
+        available: true,
+        dateAvailable: 
     },
     {
         num: 5,
@@ -206,6 +218,9 @@
             first: "Yehiel",
             last: "De-Nur",
         }
+        keywords: "non-fiction", "biography", "adult"
+        available: true,
+        dateAvailable: 
     }
 
     ]
@@ -233,10 +248,10 @@ console.log(books);
 // Loop through the array of books using .forEach and print out the specified information about each one.
 // start loop here
 
-console.log("Book #" + num);
-console.log("Title: " + title);
-console.log("Author: " + first + " " + last);
-});
+// console.log("Book #" + num);
+// console.log("Title: " + title);
+// console.log("Author: " + first + " " + last);
+// });
 //console.log("---");
 
 //end loop here
@@ -244,50 +259,50 @@ console.log("Author: " + first + " " + last);
 
 //INSTRUCTOR SOLUTION:
 
-var books = [
-{
-    title: "Title 1",
-    author: {
-        firstName: "first name 1",
-        lastName: "last name 1"
-    }
+// var books = [
+// {
+//     title: "Title 1",
+//     author: {
+//         firstName: "first name 1",
+//         lastName: "last name 1"
+//     }
 
-},
+// },
 
-{
-    title: "Title 2",
-    author: {
-        firstName: "first name 2",
-        lastName: "last name 2"
-    }
-},
+// {
+//     title: "Title 2",
+//     author: {
+//         firstName: "first name 2",
+//         lastName: "last name 2"
+//     }
+// },
 
-{
-    title: "Title 3",
-    author: {
-        firstName: "first name 3",
-        lastName: "last name 3"
-    }
-},
+// {
+//     title: "Title 3",
+//     author: {
+//         firstName: "first name 3",
+//         lastName: "last name 3"
+//     }
+// },
 
-{
-    title: "Title 4",
-    author: {
-        firstName: "first name 4",
-        lastName: "last name 4"
-    }
-},
+// {
+//     title: "Title 4",
+//     author: {
+//         firstName: "first name 4",
+//         lastName: "last name 4"
+//     }
+// },
 
-{
-    title: "Title 5",
-    author: {
-        firstName: "first name 5",
-        lastName: "last name 5"
-        } 
-}
-];
+// {
+//     title: "Title 5",
+//     author: {
+//         firstName: "first name 5",
+//         lastName: "last name 5"
+//         } 
+// }
+// ];
 
-console.log(books);
+// console.log(books);
 
 books.forEach(function(book, index, array) {
     console.log("book #" + (index + 1));
