@@ -6,33 +6,52 @@
 </head>
 <body>
 
-<h2 id="message">This BOM will self destruct in <span id="timer">1</span> seconds...</h2>
+<h2 id="message">This BOM will self destruct in <span id="timer">5</span> seconds...</h2>
 <button id="defuser">Defuse the BOM</button>
 
 <script>
 (function() {
     "use strict";
 
-    var detonationTimer = 1;
+    var detonationTimer = 5;
 
     // TODO: This function needs to be called once every second
     function updateTimer() {
         if (detonationTimer == 0) {
             alert('EXTERMINATE!');
-            document.body.innerHTML = '';
+            document.body.innerHTML = ''; //sending to an empty string
         } else if (detonationTimer > 0) {
             document.getElementById('timer').innerHTML = detonationTimer;
         }
+        //original solution - unncessary function
+        // var timer = setTimer(function() {
+        //     console.log(i);
+        //     timer++
+        // },
+     
 
+     //Instructor Solution:
         detonationTimer--;
+        console.log(detonationTimer);
     }
+
+    var intervalID = setInterval(updateTimer, 1000); 
+
 
     // TODO: When this function runs, it needs to
     // cancel the interval/timeout for updateTimer()
     function defuseTheBOM() {
 
-    }
-
+        //my original strategy - only need to use the existing predefined function of updateTimer with setInterval function & 
+        // var timer = setInterval(function() {
+        //     timer --
+        //     if(timer == 1) {
+        //      clearInterval();    
+        
+        //Instructor Solution:
+        clearInterval(intervalID);
+        }
+    
     // Don't modify anything below this line!
     //
     // This causes the defuseTheBOM() function to be called
@@ -41,6 +60,8 @@
     var defuser = document.getElementById('defuser');
     defuser.addEventListener('click', defuseTheBOM);
 })();
+
 </script>
+
 </body>
 </html>
