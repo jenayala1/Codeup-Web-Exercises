@@ -134,6 +134,38 @@
 //             }
 //          }
 
+//DOM EVENTS LESSON/LECTURE:
+//Finding an event listener:
+//EX: get HTML text from GIT HUB
+	var makePink = document.getElementById('pink');
+	var makeBlue = document.getElementById('blue');
+
+//Add EvenListener: - can only be created off a single element
+makePink.addEventListener("click", function() {
+	var pinks = document.getByClassName("pink");
+	pinks[0].style['background-color'] = "red"; //changes the divs to this color when button is clicked
+});
+//a return is not usually provided, unless a respose is required, like "submitted sucessfully" if true
+document.getElementById("nuke").addEventListener("click", function() {
+	document.getElementsByTagName('body')[0].innerHTML = "You've Been Nuked" //loads a new page with this message when button is clicked
+}
+
+//creating an anonymous function instead of an event listener would generally be used when the function will be needed more than once
+
+//Recover from "Nuke"
+
+document.getElementById("nuke").addEventListener("click", function() {
+	document.body.innerHTML('body')[0].innerHTML = "You've Been Nuked..click anywhere to return to normal..";
+
+	setTimeout(function() {
+		document.getElementsByTagName("html")[0].addEventListener("dblclick", function(){
+			location.reload();
+		});
+	}, 6;
+}
+
+//handler = function of the event that triggers JavaScript to react to the event
+
 
 
 	</script>
