@@ -42,7 +42,7 @@ D. Write function statements
 	2. function to retrieve input from HTML buttons pushed (0-9), returned as numerical values into the left operand field
 	3. function to retrieve input from HTML buttons pushed (+, -, *, /), returned as mathematical values in the middle operator field
 	4. function to retrieve input from HTML buttons pushed (0-9), returned as numerical values in the right operand field
-	5. function to calculate the all three input fields (left to right) when the "=" button is pushed
+	5. function to calculate all three input fields (left to right) when the "=" button is pushed
 	6. function to clear the fields when the "C" button is pushed
 E. Build style in CSS
 
