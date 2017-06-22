@@ -1,0 +1,19 @@
+button {
+	size: 50px;
+	background-color: blue;
+	color: white;
+	padding: 5px;
+	margin: 5px;
+}
+
+table {
+	border-style: solid grey;
+	background-color: ivory;
+	color: navy;
+}
+	.td {
+		size: 60px;
+	}
+
+}
+
