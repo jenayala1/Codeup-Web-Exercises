@@ -3,7 +3,7 @@
 <head>
 	 <meta charset="UTF-8">
 	<title>Calculator</title>
-	<link href="css/bootstrap.css" rel="stylesheet">
+<!-- 	<link href="css/bootstrap.css" rel="stylesheet"> -->
 	<link href="css/calculator.css" rel="stylesheet">
 </head>
 <body>
@@ -17,7 +17,7 @@
 				<input id="leftinput" type="number" value="">
 			</div>
 			<div>
-				<input id="moperator" type="number" value="">
+				<input id="moperator" type="text" value="">
 			</div>
 			<div>
 				<input id="rightinput" type="number" value="">
@@ -25,27 +25,31 @@
 		<br>
 		</container>
 		<br>
-		<form>
+		<form class="calculator">
 			
-			<input type="button" value="1" id="one">
-			<input type="button" value="2" id="two">
-			<input type="button" value="3" id="three">
-			<input type="button" value="+" id="bplus">
-			<br>
-			<input type="button" value="4" id="four">
-			<input type="button" value="5" id="five">
-			<input type="button" value="6" id="six">
-			<input type="button" value="-" id="bsubtract">
+			<input type="button" value="C" id="clear">
+			<input type="button" value="+-" id="plusminus">
+			<input type="button" value="%" id="bpercent">
+			<input type="button" value=" / " id="bdivide">
 			<br>
 			<input type="button" value="7" id="seven">
 			<input type="button" value="8" id="eight">
 			<input type="button" value="9" id="nine">
-			<input type="button" value="*" id="bmultiply">
+			<input type="button" value=" * " id="bmultiply">
 			<br>
-			<input type="button" value="clear" id="clear">
+			<input type="button" value="4" id="four">
+			<input type="button" value="5" id="five">
+			<input type="button" value="6" id="six">
+			<input type="button" value=" - " id="bsubtract">
+			<br>
+			<input type="button" value="1" id="one">
+			<input type="button" value="2" id="two">
+			<input type="button" value="3" id="three">
+			<input type="button" value=" + " id="bplus">
+			<br>
 			<input type="button" value="0" id="zero">
-			<input type="button" value="=" id="bequal">
-			<input type="button" value="/" id="bdivide">
+			<input type="button" value="." id="bdecimal">
+			<input type="button" value=" = " id="bequal">
 		</form>
 	<br>
 

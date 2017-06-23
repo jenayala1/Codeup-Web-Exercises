@@ -7,6 +7,8 @@
 var rightinput = document.getElementById("rightinput");
 var moperator = document.getElementById("moperator");
 var leftinput = document.getElementById("leftinput");
+var ddecimal = document.getElementById("bdecimal");
+var bpercent = document.getElementById("bpercent");
 
 //2. command to begin cursor in the left operand field & disallow entry in next fields until populated
 //3. function to retrieve input from HTML buttons pushed (0-9), returned as numerical values into the left operand field
@@ -67,23 +69,30 @@ var nine = document.getElementById("nine");
 //returned as mathematical values in the middle operator field
 var bmultiply = document.getElementById("bmultiply");
 	bmultiply.addEventListener("click", function() {
-	moperator.value = 
+	moperator.value = "multiply";
 	});
 
 var bplus = document.getElementById("bplus");
 	bplus.addEventListener("click", function() {
-	moperator.value = 
+	moperator.value = "add";
 	});
 
 var bequal = document.getElementById("bequal");
 	bequal.addEventListener("click", function() {
-	moperator.value = 
+	moperator.value = "equal";
 	});
 
-var bdivide = document.getElementById("bdivide");
-	bdivide.addEventListener("click", function() {
-	moperator.value = 
-	});
+// var bdivide = document.getElementById("bdivide");
+// 	bdivide.addEventListener("click", function() {
+// 	moperator.value = "divide";
+// 	});
+
+var bsubtract = document.getElementById("bsubtract");
+	bsubtract.addEventListener("click", function() {
+	moperator.value = "subtract";
+	});	
+
+//var calculate = document.get
 
 
 //5. Function to retrieve input from HTML buttons pushed (0-9), returned as numerical values in the right operand field

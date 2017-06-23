@@ -1,7 +1,8 @@
-button {
-	size: 50px;
-	background-color: blue;
-	color: white;
+.button {
+	size: 60px;
+	background-color: grey;
+	border: solid navy;
+;	color: white;
 	padding: 5px;
 	margin: 5px;
 }
@@ -17,6 +18,23 @@ table {
 
 }
 
-#inputs {
-	size: 50px;
+#container {
+	width: 500px
+	margin: auto;
+	background-color: ivory;
+
+}
+
+form {
+	background-color: grey;
+	color: steelblue;	
+	padding: 2px;
+	max-width: 200px;
+
+}
+
+#container {
+	size: 500px;
+	padding: 2px;
+	border: solid ivory;
 }
