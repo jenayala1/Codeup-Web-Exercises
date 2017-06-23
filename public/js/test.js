@@ -1,4 +1,3 @@
-
 "use strict";
 
 //D. Write function statements
@@ -12,12 +11,8 @@ var operator = document.getElementsByClassName("operator");
 var answer;
 var bequal = document.getElementById("bequal");
 var clear = document.getElementById("clear");
-var percent
 
-//for loop thru operators & numbers to set event listener by class - 
-//this enables the click functionality to apply to all elements defined by the specified class, 
-//instead of creating an add event listener to each individual element
-
+//for loop thru operators & numbers to set event listener by class
 for (var i = 0; i < number.length; i++) {
 	number[i].addEventListener("click", buttonHandler);
 }
@@ -28,6 +23,9 @@ for (var i = 0; i < operator.length; i++) {
 
 //establish function for each input using if/else statement, beginning with operator
 function buttonHandler() {
+	var leftinputNumber = parseFloat(leftinput.getAttribute("value")); //converting string to numerical value
+	var rightinputNumber = parseFloat(rightinput.getAttribute("value"));
+
 	if (this.className.includes("operator")) {
 		moperator.setAttribute("value", this.value);
 		console.log(moperator);
@@ -42,9 +40,10 @@ function buttonHandler() {
 		leftinput.setAttribute("value", displayInfo);
 		console.log(displayInfo);
 	}
+	
 }
 	
-//clear all values, by element id
+//clear each value, by element id
 clear.addEventListener("click", function() {
 	leftinput.setAttribute("value", "");
 	moperator.setAttribute("value", "");
@@ -52,11 +51,8 @@ clear.addEventListener("click", function() {
 
 });
 
-//calculate function for "=" to get answer:
+
 bequal.addEventListener("click", function() {
-	var rightinputNumber = parseFloat(rightinput.getAttribute("value"));
-	var leftinputNumber = parseFloat(leftinput.getAttribute("value")); //converting string to numerical value
-	
 	switch(moperator.value) {
 		case "+":
 		answer = leftinputNumber + rightinputNumber;
@@ -81,14 +77,3 @@ bequal.addEventListener("click", function() {
 	moperator.setAttribute("value", "");
 	console.log(leftinput.value);
 });
-
-//function for percentage: needs to be accessible after other arithmetic functions:
-//i.e - 20.00 - 15% =
-// function percentage(leftinput)
-
-
-//function "+/-" to convert number to positive or negative
- 
-
-
-

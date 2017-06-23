@@ -1,49 +1,81 @@
-.button {
-	size: 60px;
-	background-color: grey;
-	border: solid navy;
-;	color: white;
-	padding: 5px;
-	margin: 5px;
+body {
+	font-family: "oswald";
+
 }
 
-.inputs {
-	max-width: 10em;
-	padding: 2px;
-	
+#leftinput {
+	height: 33px;
+	width: 74px;
+	padding: 12px;
+	border: solid lightgrey;
+	text-align: center;
+	margin: bottom;
+	border-style: inset;
+	font-size: 16px;
+	font-family: "oswald";
+	border-right-color: transparent;
 }
 
-form {
-	background-image: url(../img/vintage-leaves.png);
-	background-color: grey;
-	color: steelblue;	
+#rightinput {
+	height: 33px;
+	width: 74px;
+	padding: 12px;
+	border: solid lightgrey;
+	text-align: center;
+	margin: bottom;
+	border-style: inset;
+	font-size: 16px;
+	font-family: "oswald";
+	border-right-color: lightgrey;
+	border-left-color: transparent;
+}
+
+#moperator {
+	height: 33px;
+	width: 30px;
+	padding: 12px;
+	border: solid lightgrey;
+	text-align: center;
+	margin: bottom;
+	border-style: inset;
+	font-size: 16px;
+	font-family: "oswald";
+	border-right-color: transparent;
+	border-left-color: transparent;
+}
+
+input[type="button"] {
+	border: solid lightgrey;
+	border-style: inset;
+	width: 66px;
+	height: 66px;
+	box-shadow: 1px, 1px, rgba (0, 0, 0, 0.4);
+	margin: 20px, 20px, 20px, 20px;
+	font-size: 16px;
+	font-family: "oswald";
 	padding: 2px;
-	max-width: 400px;
-	height: 200px;
-
-
+		
 }
 	.number {
 		background-color: ivory;
-		color: navy;
-		border: solid grey;
+		color: black;
 
 	}
 
 	.operator {
-		background-color: ivory;
-		color: navy;
-		border: solid grey;
+		background-color: teal;
+		color: white;
+	
 	}
 
 	#clear {
 		background-color: ivory;
 		color: navy;
-		border: solid grey;
+		
 	}
 
 	#bequal {
-		background-color: ivory;
-		color: navy;
-		border: solid grey;
+		background-color: teal;
+		color: white;
+		
 	}
