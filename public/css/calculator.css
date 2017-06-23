@@ -7,34 +7,43 @@
 	margin: 5px;
 }
 
-table {
-	border-style: solid grey;
-	background-color: ivory;
-	color: navy;
-}
-	.td {
-		size: 60px;
-	}
-
-}
-
-#container {
-	width: 500px
-	margin: auto;
-	background-color: ivory;
-
+.inputs {
+	max-width: 10em;
+	padding: 2px;
+	
 }
 
 form {
+	background-image: url(../img/vintage-leaves.png);
 	background-color: grey;
 	color: steelblue;	
 	padding: 2px;
-	max-width: 200px;
+	max-width: 400px;
+	height: 200px;
+
 
 }
+	.number {
+		background-color: ivory;
+		color: navy;
+		border: solid grey;
 
-#container {
-	size: 500px;
-	padding: 2px;
-	border: solid ivory;
-}
+	}
+
+	.operator {
+		background-color: ivory;
+		color: navy;
+		border: solid grey;
+	}
+
+	#clear {
+		background-color: ivory;
+		color: navy;
+		border: solid grey;
+	}
+
+	#bequal {
+		background-color: ivory;
+		color: navy;
+		border: solid grey;
+	}
