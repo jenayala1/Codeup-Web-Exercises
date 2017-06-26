@@ -11,6 +11,7 @@ var operator = document.getElementsByClassName("operator");
 var answer;
 var bequal = document.getElementById("bequal");
 var clear = document.getElementById("clear");
+var percent = document.getElementById("percent");
 
 //for loop thru operators & numbers to set event listener by class
 for (var i = 0; i < number.length; i++) {
@@ -23,8 +24,6 @@ for (var i = 0; i < operator.length; i++) {
 
 //establish function for each input using if/else statement, beginning with operator
 function buttonHandler() {
-	var leftinputNumber = parseFloat(leftinput.getAttribute("value")); //converting string to numerical value
-	var rightinputNumber = parseFloat(rightinput.getAttribute("value"));
 
 	if (this.className.includes("operator")) {
 		moperator.setAttribute("value", this.value);
@@ -38,8 +37,9 @@ function buttonHandler() {
 		var displayInfo = leftinput.getAttribute("value");
 		displayInfo += this.value; 
 		leftinput.setAttribute("value", displayInfo);
-		console.log(displayInfo);
+		console.log(this.value);
 	}
+
 	
 }
 	
@@ -51,8 +51,21 @@ clear.addEventListener("click", function() {
 
 });
 
+percent.addEventListener("click", function fpercentStr(number, percentString) {
+	var percent = new Number(percentString.replace("%", ""));
+	return fpercent("number", percent);
+}
+
+	function fpercent(number, percent) {
+	return number * percent / 100;
+	}
+console.log(answer);
+});
 
 bequal.addEventListener("click", function() {
+var leftinputNumber = parseFloat(leftinput.getAttribute("value")); //converting string to numerical value
+var rightinputNumber = parseFloat(rightinput.getAttribute("value"));
+
 	switch(moperator.value) {
 		case "+":
 		answer = leftinputNumber + rightinputNumber;

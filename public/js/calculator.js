@@ -1,8 +1,10 @@
 
 "use strict";
 
-//D. Write function statements
-//1. identify the variables
+//STEPS:
+
+//1. identify the variables ----------------------------
+
 
 var rightinput = document.getElementById("rightinput");
 var moperator = document.getElementById("moperator");
@@ -12,11 +14,16 @@ var operator = document.getElementsByClassName("operator");
 var answer;
 var bequal = document.getElementById("bequal");
 var clear = document.getElementById("clear");
-var percent
+var bpercent = document.getElementById("bpercent");
+var plusminus = document.getElementById("plusminus");
+var displayInfo
 
-//for loop thru operators & numbers to set event listener by class - 
-//this enables the click functionality to apply to all elements defined by the specified class, 
-//instead of creating an add event listener to each individual element
+
+///STEP 2: FIGURE OUT CONDITIONS & FUNCTION STATEMENTS
+//-----#2A: 
+//-------For loop: thru operators & numbers to set event listener by class ------------
+//-------NOTES---this enables the click functionality to apply to all elements defined by the specified class ------- 
+//-------instead of creating an add event listener to each individual element -------------------------------
 
 for (var i = 0; i < number.length; i++) {
 	number[i].addEventListener("click", buttonHandler);
@@ -26,7 +33,11 @@ for (var i = 0; i < operator.length; i++) {
 	operator[i].addEventListener("click", buttonHandler);
 }
 
-//establish function for each input using if/else statement, beginning with operator
+
+//------#2B: Establish function to insert data into the input fields by clicking number & operator buttons----
+//----------- Using if/else statement, beginning with operator:
+//----------the left input will only be poplulated if the other two input fields are empty ---------
+
 function buttonHandler() {
 	if (this.className.includes("operator")) {
 		moperator.setAttribute("value", this.value);
@@ -40,11 +51,11 @@ function buttonHandler() {
 		var displayInfo = leftinput.getAttribute("value");
 		displayInfo += this.value; 
 		leftinput.setAttribute("value", displayInfo);
-		console.log(displayInfo);
+		console.log(this.value);
 	}
 }
 	
-//clear all values, by element id
+//-------STEP #3: Create function to clear all values (by element id) -------
 clear.addEventListener("click", function() {
 	leftinput.setAttribute("value", "");
 	moperator.setAttribute("value", "");
@@ -52,10 +63,12 @@ clear.addEventListener("click", function() {
 
 });
 
-//calculate function for "=" to get answer:
+
+//--------STEP #4 - Calculation function to get answer when "=" is clicked, using switch -------
+
 bequal.addEventListener("click", function() {
 	var rightinputNumber = parseFloat(rightinput.getAttribute("value"));
-	var leftinputNumber = parseFloat(leftinput.getAttribute("value")); //converting string to numerical value
+	var leftinputNumber = parseFloat(leftinput.getAttribute("value")); //converts string to numerical value
 	
 	switch(moperator.value) {
 		case "+":
@@ -75,19 +88,25 @@ bequal.addEventListener("click", function() {
 		break;
 
 	}
-
+//-----clear the input fields to only display the answer in the leftinput field: -----------
 	leftinput.setAttribute("value", answer);
 	rightinput.setAttribute("value", "");
 	moperator.setAttribute("value", "");
 	console.log(leftinput.value);
 });
 
-//function for percentage: needs to be accessible after other arithmetic functions:
-//i.e - 20.00 - 15% =
-// function percentage(leftinput)
+
+// --------PENDING STEPS --------------------------------
+
+//---------STEP #5 - CORRECT ERRORS: ----------
+// leftinput field not allowing multiple entry input, only single digit numbers, right input field accepts multiple digits and decimal
 
 
-//function "+/-" to convert number to positive or negative
+//---------STEP #6 - Percentage: needs to be accessible before & after number or operator class is clicked into input fields
+//i.e: 20.00 - 15% =
+
+
+//---------STEP #7 - "+/-" to convert number to positive or negative
  
 
 

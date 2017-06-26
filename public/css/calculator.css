@@ -1,5 +1,23 @@
 body {
 	font-family: "oswald";
+	padding-bottom: 10px;
+	margin-left: 10px;
+
+}
+
+h1 {
+	font-family: "oswald";
+	color: blue;
+	text-align: center;
+}
+
+section {
+	width: 300px;
+	border-style: solid;
+	border-color: grey;
+	margin: 10px;
+	background-color: silver;
+
 
 }
 
@@ -9,7 +27,8 @@ body {
 	padding: 12px;
 	border: solid lightgrey;
 	text-align: center;
-	margin: bottom;
+	margin-bottom: 10px;
+	margin-left: 10px;
 	border-style: inset;
 	font-size: 16px;
 	font-family: "oswald";
@@ -46,36 +65,52 @@ body {
 
 input[type="button"] {
 	border: solid lightgrey;
-	border-style: inset;
 	width: 66px;
 	height: 66px;
 	box-shadow: 1px, 1px, rgba (0, 0, 0, 0.4);
-	margin: 20px, 20px, 20px, 20px;
+	margin: 20px, 20px, 20px, 40px;
 	font-size: 16px;
 	font-family: "oswald";
-	padding: 2px;
+	padding: 8px;
+	border-style: inset;
+
 		
 }
 	.number {
-		background-color: ivory;
-		color: black;
+		background-color: grey;
+		color: white;
 
 	}
 
 	.operator {
-		background-color: teal;
-		color: white;
+		background-color: goldenrod;
+		color: navy;
 	
 	}
 
 	#clear {
-		background-color: ivory;
+		background-color: goldenrod;
 		color: navy;
 		
 	}
 
 	#bequal {
-		background-color: teal;
-		color: white;
+		background-color: goldenrod;
+		color: navy;
 		
 	}
+
+	#bottomrow {
+		margin-bottom: 10px;
+	}
+
+	#plusminus {
+		background-color: goldenrod;
+		color: navy;
+	}
+
+	#bpercent {
+		background-color: goldenrod;
+		color: navy;
+	}
+
