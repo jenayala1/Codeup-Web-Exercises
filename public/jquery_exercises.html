@@ -3,7 +3,6 @@
 	<head>
 		<meta charset="utf-8">
 		<title>jQuery Exercises</title>
-		<link href='https://fonts.google.com/specimen/Play' rel='stylesheet' type'text/css'>
 		<style>
 
 			h1 {
@@ -24,7 +23,6 @@
 			body {
 				font-family: "play";
 				color: black;
-				background-image: url(img/vintage-leaves.png);
 			}
 
 			ul {
@@ -79,7 +77,8 @@
 		<img class="codeup" src="https://www.google.com/images/srpr/logo1w.png" alt="Google">
 		<h2>My Dream Vehicle <em>(one of them anyway)</em></h2>
 		<p id="paragraphs">The beautiful Avantic Studebaker was short lived, but defined as "America's Only 4 Passenger High-Performance Personal Car." Making it's debut in 1962, it would be discontinued from manufacturer Studebaker in 1963 with the closure of their factory.  Other manufacturers replicated the model under the "Avanti" name, but nothing beats the original.</p>
-		<img src="img/1963-StudebakerAvanti.jpeg" alt="1963 Avanti>"
+		<img id="dreamcar" src="img/1963-StudebakerAvanti.jpeg" alt="1963 Avanti">
+		<br>
 		<a href="#top">Go to the top of the page</a>
 		<h2>Decimal to Hexadecimal Conversion Chart</h2>
 		<div id="tables">
@@ -165,19 +164,24 @@
 				alert( 'The DOM has finished loading!' );
 			});
 
-
-			$('#tables').css('background-color', "ivory");
-				alert( 'The table is now ivory');
+			$('#tables');
+			//Use jQuery to select an element by the id. Alert the contents of the element -instructor solution:
+			
+			// 	alert($('#div").html());
+			// }
 
 			$('#paragraphs').css('text-align', "centered");
-				alert( 'Text is now centered');
 
-			$('.codeup').css('border', '4px solid #F00');
-				alert( 'Codeup has borders!');
+			$('.codeup').css('border', '1px solid #F00');
 
-			$('li').css('font', '20px');
+			$('li').css('font-size', '20px');
 
-			$('h1, p, li').css.('background-color', '#EFO');
+			$('h1, p, li').css('background-color', 'yellow');
+				alert( 'Elements h1, paragraph, & list items highlighted');
+			$('#dreamcar').css('width', '200px');
+				alert('dreamcar resized');
+
+			$('body').css('background-image', 'url(img/vintage-leaves.png)');
 
 		</script>
 
