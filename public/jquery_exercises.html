@@ -39,8 +39,15 @@
 				color: blue;	
 			}
 		</style>
-
 		<h1>Hello World</h1>
+		<nav>
+			<div class="constrain">
+				<ul class="projects"></ul>
+					<li>
+						<a href="http://plugins.jquery.com/">Plugins</a>
+					</li>
+					<li class="dropdown"> </li>
+						<a href="http://contribute.jquery.org/">Contribute</a>
 		<p class="codeup">My name is Jennifer, to my kids I'm <em>Mom</em> or <br><strong>WONDER MOM</strong> when they're trying to buy themselves favor</br></p>
 		<h2>My Favorite Quote</h2>
 		<blockquote>"Our greatest glory is not in never falling, but in rising every time we fall" -Confucius</blockquote>
@@ -159,29 +166,23 @@
 		<script src="js/jquery-3.2.1.js"></script> 
 		<script>
 			"use strict";
+			$('body').css('background-image', 'url(img/vintage-leaves.png)');
 
-			$(document).ready(function() {
-				alert( 'The DOM has finished loading!' );
+			$('h1').click(function() {
+				$('h1').css("background-color", "red");
 			});
 
-			$('#tables');
-			//Use jQuery to select an element by the id. Alert the contents of the element -instructor solution:
-			
-			// 	alert($('#div").html());
-			// }
+			$('p').dblclick(function() {
+				$(this).css("font-size", "18px");
+			});
 
-			$('#paragraphs').css('text-align', "centered");
-
-			$('.codeup').css('border', '1px solid #F00');
-
-			$('li').css('font-size', '20px');
-
-			$('h1, p, li').css('background-color', 'yellow');
-				alert( 'Elements h1, paragraph, & list items highlighted');
-			$('#dreamcar').css('width', '200px');
-				alert('dreamcar resized');
-
-			$('body').css('background-image', 'url(img/vintage-leaves.png)');
+			$('li').hover(function() {
+					$(this).css("color", "red");
+				},
+				function() {
+					$(this).css("color", "white");
+				}		
+			);
 
 		</script>
 

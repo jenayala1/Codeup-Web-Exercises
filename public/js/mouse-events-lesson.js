@@ -55,11 +55,7 @@
 //---- #H --- EXERCISES:
 
 //---- #1 --- Use the file jquery_exercises.html for these exercises. Commit your changes to GitHub.
-
-
-
 //--- #2 --- Remove your custom jQuery code from previous exercises.
-
 
 //--- #3 --- Add jQuery code that will change the background color of a h1 element when clicked.
 
@@ -69,7 +65,22 @@
 
 //--- #5 --- Set all li text color to red when the mouse is hovering, reset to white when it is not.
 			
+//--- BONUS #1:
 
+// Recreate the nav bar at the top of the jQuery docs website (just the links floated to the right):
+// - Each link in the nav bar may link to the jQuery docs homepage
+// - Change the font color to red and make the text bold for a given link on click
+
+
+//--- BONUS #2:
+
+// Begin developing a functional tic-tac-toe game:
+// - Create a game board with tiles that when clicked, turn either red or blue depending on the turn
+// - The tiles before being clicked should be grey with a black border
+// - The opacity of a given tile should visibly decrease on hover
+// - Display on the page if it is the red or blue player’s turn
+// - Tiles may only be clicked once
+// - Create a button on the page that when clicked, resets the board
 
 
 
