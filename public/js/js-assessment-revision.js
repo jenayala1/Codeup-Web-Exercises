@@ -35,10 +35,11 @@
 //  average([1, 2, 3]) // 2
 //  average([4, 6, 8, 10, 12]) // 8
 
+
 	//----SOLUTION #2------// STILL IN PROCESS
 	// var numbers = ["1", "2", "3", "4", "5"]
 	// var i = 0
-	// function average(numbers) {
+	// function arrayAvg(numbers) {
 		
 	// 	console.log(average);
 	// }
@@ -66,22 +67,20 @@
 //  convertNameToObject('Ron Weasley') // {firstName: 'Ron', lastName: 'Weasley'}
 
 	//----SOLUTION #4------//
-	var firstName;
-	var lastName;
+	
+	//  var nameString = "Harry Potter"
 
-	var names = [
-	 	{	firstName: "Harry",
-	 		lastName: "Potter",
-	 	},
-	 	{
-	 		firstName: "Ron",
-	 		lastName: "Weasley"
-	 	}
-	 ];	
+	
+	// function convertNameToObject(nameString) {
+	//  	var nameObject = {};
+	//  	var names = nameString.split(" ");
+	//  		nameObject.firstName = names[0];
+	// 			nameObject.lastName = names[1];
+	//  	return nameObject
+	// }
 
-	 function convertNameToObject (names) {
-	 	return (firstName + "" + lastName);
-	 }
+	// console.log(convertNameToObject(nameString));
+
 
 // ---#5 -- Write a function named fiveTo that accepts a number and returns an array of the integers from 5 up to (but not including) the passed number.
 
@@ -91,16 +90,17 @@
 			//----SOLUTION #5------//
 
 
+
 // ---#6 -- Write a function named upperCaseLastNames that accepts an array of objects where each object has properties firstName and lastName and returns the same array of objects with each last name capitalized
 
-	//  var names = [
-	//      {firstName: 'Harry', lastName: 'Potter'},
-	//      {firstName: 'Ron', lastName: 'weasley'},
-	//      {firstName: 'Hermione', lastName: 'granger'}
-	//  ];
+	var nameArray = [
+	    {firstName: 'Harry', lastName: 'Potter'},
+	    {firstName: 'Ron', lastName: 'weasley'},
+	    {firstName: 'Hermione', lastName: 'granger'}
+	 ];
 	//  upperCaseLastNames(names);
 	 /*
-	 [
+	[
 	    {firstName: 'Harry', lastName: 'Potter'},
 	    {firstName: 'Ron', lastName: 'Weasley'},
 	    {firstName: 'Hermione', lastName: 'Granger'}
@@ -108,23 +108,28 @@
 	  */
 
 		  //----SOLUTION #6------//
+		  //---STILL IN PROCESS----
+
+	function upperCaseLastNames(nameArray) {
+		var nameString = {};
+		var names = nameArray.toUpperCase;
+		return upperCaseLastNames;
+	}	
+	console.log(upperCaseLastNames(nameArray));
+	
 
 
-	 //  	var names = [
-		// 	{	firstName: "Harry",
-		// 		lastName: "Potter",
-		// 	},
-		// 	{
-		// 		firstName: "Ron",
-		// 		lastName: "weasley"
-		// 	},
-		// 	{
-		// 		firstName: "Hermione",
-		// 		lastName: "granger"
-		// 	}
-		// ];
 
-		// names.forEach(function(upperCaseLastNames) {
-		// 	names.lastName.toUpperCase();
-		// 	console.log("Names are " + firstName + "" + lastName);
-		// });
+
+
+
+
+
+
+
+
+
+
+
+
+

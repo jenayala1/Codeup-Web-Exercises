@@ -11,30 +11,25 @@
 //--- ENTER KEY = 13
 
 var keycode = ["38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13"];
-var userInput = document.getElementByID("userInput");
+// var userInput = document.getElementByID("userInput");
 
-function submit() {
-	userInput.getAttribute("value", this.value);
-	console.log(event.keyCode);
-	alert("You pressed" + event.keyCode
+// function submit() {
+// 	userInput.getAttribute("value", this.value);
+// 	console.log(event.keyCode);
+// 	alert("You pressed" + event.keyCode
 
-});
-
+// });
 
 
 
 ///
-// function inputHandler() {
-// 	if (this.id.includes("keyCode")) {
-// 		userInput.setAttribute("value", this.value);
-// 		console.log(keyCode);
-// 	} else if
+//function inputHandler() {
+ 	//if (this.id.includes("key
 	
 //  $('#submit').click(function(inputHandler);
 	        
-POSSIBLE SOLUTIONS:
+//POSSIBLE SOLUTIONS:
  
-         $('userInput').prompt("Enter the keycode");
 
          $(document).keydown(function(event){
          	keyCode.forEach(function(element, index, arrary)

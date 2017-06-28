@@ -1,3 +1,14 @@
+BASIC FUNCTION LAYOUT:
+
+var someTestInput = someValue;
+
+function someFunctionName(someInput) {
+	var output = {}; // the empty {}, depends on the data type, in this example it represents an empty object 
+	return output;
+}
+
+
+
 // #1. Write a function called `identity(input)` 
 //that takes in an argument called input and returns that input.
 
@@ -25,12 +36,12 @@
 // #3. Write a function called `first(input)` that returns the first character in the provided string. 
 
 ///---ANSWER-----////
-	var input = "joy"
-	var x = 
+	// var input = "joy"
+	// var x = 
 
-	function first(input) {
-		return x;
-	}
+	// function first(input) {
+	// 	return x;
+	// }
 
 
 // #4. Write a fuction called `last(input)` that returns the last character of a string
