@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>National Park FAQS</title>
+
+</head>
+<body>
+
+<style>
+	body {
+		background-color: beige;
+	}
+
+	.invisible {
+		display: none;
+	}
+
+	.hover {
+
+	}
+
+	.highlight {
+		background-color: yellow;
+	}
+
+	#rockies {
+		opacity: 60%;
+	}
+
+</style>
+
+<h1 class="titles">Rocky Mountain National Park</h1>
+<img id="rockies" src="img/rockies.jpg" width="500px" height="300px">
+
+<h3>FACTS, TERMS, DEFINITIONS</h3>
+<dl>
+	<dt> Elevation </dt>
+	<dd>Elevations ranging from 8,000 feet in the wet, grassy valleys to 14,259 feet at the weather-ravaged top of Longs Peak.</dd>
+</dl>
+<span class="lispace"></span>
+<dl>
+	<dt> Amenities </dt>
+	<dd> Difficulty Levels: Advanced, Beginner, Intermediate</dd>
+</dl>
+<span class="lispace"></span>
+<dl>
+	<dt> Facility Amenities </dt>
+	<dd> ADA-compliant, Amphitheater, Campsites, Concessions, Gift Shop, Handicapped Parking, Maps & Brochures Available, Naturalist on site, Parking on site, Picnic Area, Restaurant on site, Restrooms, Visitor Center on site</dd>
+</dl>
+<span class="lispace"></span>
+<dl>
+	<dt> General Information </dt>
+	<dd> Hours of Operation: Rocky National Park is open 24 hours a day year round.</dd>
+</dl>
+<span class="lispace"></span>
+<dl>
+	<dt> On-site Activities: </dt>
+	<dd> Biking, Birding, Camping, Cross-country Skiing, Fishing, Hiking/Backpacking, Horseback Riding, Ice Climbing, Nature/Interpretive Trail, Rock Climbing/Rappelling, Scenic Drive, Scenic Overlook, Snowshoeing, Wildlife Viewing</dd>
+</dl>
+<span class="lispace"></span>
+<dl>
+	<dt> Rate Information:</dt>
+	<dd> Cost of Admission: $20 per vehicle</dd>
+</dl>
+<span class="lispace"></span>
+<dl>
+	<dt> On-site Lodging </dt>
+	<dd> Group Camp, RV Sites, Tent Sites</dd>
+</dl>
+<span class="lispace"></span>
+<dl>
+	<dt> Tour Information </dt>
+	<dd> Guided Tours</dd>
+</dl>
+<span class="lispace"></span>
+<dl>
+	<dt> CONTACT </dt>
+	<dd> 970-586-1206</dd>
+</dl>
+<span class="lispace"></span>
+<dl>
+	<dt> EMAIL </dt>
+	<dd> ROMO_Information@nps.gov</dd>
+</dl>
+<button>Toggle</button>
+
+<script type="text/javascript"></script>
+<script src="js/jquery-3.2.1.js"></script> 
+<script>
+"use strict";
+
+//EXERCISE #3 -- Add a class to all dd elements named invisible.
+$('dd').addClass('invisible');
+
+
+//EXERCISE #5 -- Update the page with jQuery to add a link that toggles the class invisible on and off for all dd elements. 
+$('dd').click(
+	function() {
+		$(this).toggleClass('invisible');
+	});
+
+		//- can also use a button
+		$('button').click(
+			function() {
+				$('dd').toggleClass('invisible');
+			});
+
+//EXERCISE BONUS --- When any one dt is clicked, the element that was clicked should be highlighted.
+
+$('dt').click(
+	function() {
+		$(this).toggleClass('highlight');
+	});
+
+		//--can also use event function that targets the element instead of class:
+		$('dt').click(function() {
+				$(this).css('background', 'yellow');
+			});
+
+</script>
+</body>
+</html>dl
