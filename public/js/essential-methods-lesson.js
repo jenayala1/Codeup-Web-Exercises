@@ -86,13 +86,13 @@ $('h1').dblclick(function() {
 
 //Lesson Examples: need to add in the HTML text
 // Highlight all the sections
-$('section').css('background-color', 'yellow');
+	$('section').css('background-color', 'yellow');
 
 // Highlight all the articles
-$('article').css('background-color', 'yellow');
+	$('article').css('background-color', 'yellow');
 
 // Highlight the 1st article
-$('article').first().css('background-color', 'yellow'); //.first specifies the element
+	$('article').first().css('background-color', 'yellow'); //.first specifies the element
 
 // Highlight the nested element inside all the article elements
 $('article').children().css('background-color', 'yellow');
@@ -102,4 +102,53 @@ $('article').children().first.css('background-color', 'yellow');
 
 // Highlight the 2nd list items of the all ordered lists
 $('ol').children().next().css.('background-color', 'yellow');
+
+//Each - similar to forEach
+$('p').each(function(index, paragraph) { //"paragraph" is the element, reverse from javascript for loop order of element, index
+	$(paragraph).css('background-color', 'red'); //the $() turns paragraph into a jquery object
+});
+
+//Can apply event listeners to arrays
+
+$('p').click(function(){
+	$(this).css('background-color', 'blue'); //apply the function only to the specific element selected, rather than all (in this case, paragraphs)
+});
+
+//first element
+$('li').first()
+
+//parent - will get the direct parent if selector is not passed - only goes up one level
+$('li').first().parent()
+
+
+$('li').parents() ///all the parents
+
+$('p').first().next() /// - the next sibling selector
+
+
+
+
+///hide & show
+$('li').hide(8000) ///the 8000 indicates the milliseconds specified for the selected content to be hidden
+
+$('li').toggle(3000, function() {
+	console.log("your lis have been toggled"); //
+})
+
+//easing - how something disappears, in a more natural flow - good for side-bar & navbar styling
+	//linear - constant speed
+	//swing - slower at start & speeds up at the end
+
+	$('li').toggle(3000, linear, function() {
+		console.log("your lis have been toggled"); //linear easing
+	})
+
+	$('li').fadeIn (1000) //changes opacity until fully displayed
+	$('li').fadeOut (1000) //changes opacity until content fully disappears
+
+	$('li').fadeToggle(1000)
+
+	$('li').slideUp(5000) 
+
+
 
