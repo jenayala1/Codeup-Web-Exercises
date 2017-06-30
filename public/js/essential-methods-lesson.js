@@ -16,9 +16,6 @@
 </head>
 <body>
 
-
-
-
 	<h1 id="codeup"</h1>
 	 
 	<div class="my-element"></div>
@@ -29,8 +26,6 @@
 <script src="js/jsfile.js"></script> 
 </body>
 </html>
-
-
 
 
 
@@ -77,8 +72,6 @@ $('h1').dblclick(function() {
 	$(this).toggleClass('awesomeFont'); //returns a boolean
 	var hasAwesomeFont = $('h1').hasClass('awesomeFont');
 	console.log(hasAwesomeFont); // returns true or false in this example - on double click it applies the change & then returns the new value (false)
-
-
 });
 
 //Traversing (Traversal) Methods:
@@ -126,8 +119,6 @@ $('li').parents() ///all the parents
 $('p').first().next() /// - the next sibling selector
 
 
-
-
 ///hide & show
 $('li').hide(8000) ///the 8000 indicates the milliseconds specified for the selected content to be hidden
 
@@ -145,9 +136,7 @@ $('li').toggle(3000, function() {
 
 	$('li').fadeIn (1000) //changes opacity until fully displayed
 	$('li').fadeOut (1000) //changes opacity until content fully disappears
-
 	$('li').fadeToggle(1000)
-
 	$('li').slideUp(5000) 
 
 

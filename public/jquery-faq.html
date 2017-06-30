@@ -3,13 +3,16 @@
 <head>
 	<meta charset="UTF-8">
 	<title>National Park FAQS</title>
-
 </head>
 	<body>
-
 		<style>
 			body {
-				background-color: beige;
+				background-color: papyawhip;
+			}
+
+			h1 {
+				border-style: inset;
+				text-align: center;
 			}
 
 			.invisible {
@@ -29,21 +32,21 @@
 			}
 
 			.hideit {
-
+				display: none;
+				color: red;
 			}
 
 		</style>
 		<h1>NATIONAL PARK INFORMATION</h1>
 		<br>
 		<div id="pageintro">
-			<h1>Would you like to sign up for our newsletter?</h1>
+			<h2>Would you like to sign up for our newsletter?</h2>
 			<span id="xmark"> X </span>
 		</div>
-		<div class="hideit">Please register with us!</div>
+		<div class="hideit"><h2>Please register with us!</h2></div>
 		<h2 class="titles">Rocky Mountain National Park</h2>
 		<img id="rockies" src="img/rockies.jpg" width="500px" height="300px">
-
-		<h3>FACTS, TERMS, DEFINITIONS</h3>
+		<h3>FACTS</h3>
 		<dl>
 			<dt> Elevation </dt>
 			<dd>Elevations ranging from 8,000 feet in the wet, grassy valleys to 14,259 feet at the weather-ravaged top of Longs Peak.</dd>
@@ -93,35 +96,35 @@
 			<dt> EMAIL </dt>
 			<dd> ROMO_Information@nps.gov</dd>
 		</dl>
-		<button>Toggle</button>
 		<section id="washington">
 			<h3> Washington State Parks </h3>
-			<img src="img/steamboatrock.jpeg" width="500px" height="300px">
 			<ul> 
 				<li>Turn Island Marine State Park is a 35-acre marine camping park with 16,000 feet of shoreline </li>
 				<li>Steamboat Rock will impress the most seasoned of travelers, rising 800 feet and spanning 600 acres </li>
 				<li>Kopachuck State Park is a 109-acre day-use marine park with 5,600 feet of saltwater shoreline on Henderson Bay. One portion of the park, Cutts Island, is a half mile from shore and reachable only by boat. </li>
 				<li>Lake Sylvia State Park is a wooded 252-acre camping park with 15,000 feet of freshwater shoreline. </li>
 			</ul>
+			<img src="img/steamboatrock.jpeg" width="500px" height="300px">
 		</section>
 		<br>
 		<section id="colorado">
 			<h3> Colorado State Parks </h3>
-			<src="img/colorado.jpg" width="500px" height="300px">
 			<ul> 
-				<li> North Park is considered the moose viewing capital of Colorado, with over 600 moose to be observed year-round.</li>
-				<li> fact 2 </li>
-				<li> fact 3 </li>
-				<li> fact 4 </li>
+				<li> North Park is considered the moose viewing capital of Colorado, with over 600 moose to be observed year-round</li>
+				<li>The Moose Visitor Center is near the town of Gould on Highway 14</li>
+				<li>Lone Mesa State Park lies 23 miles north of the town of Dolores and encompasses 11,760 acres of incredibly scenic land, ranging in elevation from about 7,200 feet to just over 9,000 feet</li>
+				<li>Colorado Parks and Wildlife Headquarters - 303-297-1192​ </li>
 			</ul>
+			<img src="img/colorado.jpg" width="500px" height="300px">
 			<br>
 			<h3> Utah State Parks </h3>
 			<ul> 
-				<li> fact 1 </li>
-				<li> fact 2 </li>
-				<li> fact 3 </li>
-				<li> fact 4 </li>
+				<li>Utah’s largest freshwater lake provides fishing access for channel catfish, walleye, white bass, black bass, and several species of panfish. Spend an evening RV or tent camping, then powerboat, canoe, or sail the day away on Utah Lake.</li>
+				<li>Play 18-holes of golf, paddle or troll on Palisade Reservoir, then set up the perfect campsite. This park offers something for everyone, from its desert canyon golf course, RV and tent camping, to access for off-highway vehicle riding in nearby Six-Mile Canyon.</li>
+				<li>Great Salt Lake State Marina is home to the Great Salt Lake Yacht Club, which boasts the saltiest sailorson earth. Visitors will enjoy the beautiful views of Great Salt Lake, nearby Antelope Island State Park, and Black Rock. In 1980, the marina was enlarged with new boat docks. Opened to the public as a state park in 1978. Park Elevation: 4,200 feet</li>
+				<li>Discover artifacts, petroglyphs, and pictographs left behind by the Fremont Indians. During construction of Interstate 70, the largest known Fremont Indian village was uncovered. This museum preserves treasures from the site, including pottery, baskets, and arrowheads. Spend a day at the museum, take a hike on the trails, and then camp at nearby Castle Rock Campground or Sam Stowe Campground.</li>
 			</ul>
+			<img src="img/utah.jpeg" width="500px" height="300px">
 		</section>
 		<br>
 		<button class="lastitem">Last Item</button>
@@ -131,26 +134,20 @@
 		<script>
 		"use strict";
 
-
-
 		$('dd').click(
 			function() {
 				$(this).toggleClass('invisible');
 			});
-
 				//- can also use a button
 				// $('button').click(
 				// 	function() {
 				// 		$('dd').toggleClass('invisible');
 				// 	});
 
-
-
 		$('dt').click(
 			function() {
 				$(this).toggleClass('highlight');
 			});
-
 				//--can also use event function that targets the element instead of class:
 				// $('dt').click(function() {
 				// 	$(this).css('background', 'yellow');
@@ -176,11 +173,12 @@
 		});
 
 		$('h3').click(function(){
-			$('ul').slideToggle(3000);
+			$('ul').each(function (index, ul) {
+				$(this).children().slideToggle(3000);
+			});
 		});
 
-
-
+		$('.hideit').fadeIn(8000) 
 		</script>
 	</body>
 </html>
