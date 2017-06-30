@@ -1,6 +1,6 @@
-// Animate Lesson Notes
+//===== ANIMATE LESSON NOTES
 
-// -- Animating a single style change: (with an HTML button, "DO SOMETHING") - The simplest way to use .animate() is to pass it a JavaScript object of CSS properties and a duration:
+//===== Animating a single style change: (with an HTML button, "DO SOMETHING") - The simplest way to use .animate() is to pass it a JavaScript object of CSS properties and a duration:
 
 	$('#animate').click(function (){
 	    $('div').animate(); //the jQuery object to pass the changes through the function
@@ -8,7 +8,7 @@
 
 		}, 5000; //the specified duration
 
-// -- Defining a function associated with a click function
+//===== Defining a function associated with a click function
 
 	function getBigger(){
 		$('div').animate({
@@ -19,8 +19,7 @@
 
 	$('#bigger').click(getBigger); //designating the button that calls the "getBigger" function on button click
 
-// -- Completion Callback
-// --source is an h3 element set as an in-line element
+//===== Completion Callback (the example source is an h3 element set as an in-line element)
 
 	$('h3').click(function(){
 		$('h3').animate({
@@ -31,9 +30,9 @@
 		});
 	});
 	
-//--Chaining Animation - sequence
+//===== Chaining Animation - sequence
 
-	$('#animat').click(function(){
+	$('#animate').click(function(){
 		$('div').animate({
 			left: "400px",
 			width: "400px",

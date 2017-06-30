@@ -1,30 +1,28 @@
 "use strict";
 
-//jQuery Essential Methods Lesson Notes
+//---- jQuery Essential Methods Lesson Notes ----
+//----- Attribute Methods--functions similar to bootstrap
 
-//Attribute Methods:
-//--functions similarily to bootstrap
-
-//TEST HTML PAGE//
+//======TEST HTML PAGE=============//
 
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="UTF-8">
-	<title>JS Assessment</title>
-	<link href="css/bootstrap.css" rel="stylesheet">
-</head>
-<body>
+	<head>
+		<meta charset="UTF-8">
+		<title>JS Assessment</title>
+		<link href="css/bootstrap.css" rel="stylesheet">
+	</head>
+	<body>
 
-	<h1 id="codeup"</h1>
-	 
-	<div class="my-element"></div>
+		<h1 id="codeup"</h1>
+		 
+		<div class="my-element"></div>
 
-	<button id="small>Make Samll">
+		<button id="small>Make Samll">
 
-<script type="text/javascript"></script>
-<script src="js/jsfile.js"></script> 
-</body>
+		<script type="text/javascript"></script>
+		<script src="js/jsfile.js"></script> 
+	</body>
 </html>
 
 
