@@ -10,9 +10,18 @@
 				background-color: papyawhip;
 			}
 
-			h1 {
+			.heading {
 				border-style: inset;
 				text-align: center;
+			}
+
+			button {
+				border-style: inset;
+				width: 100px;
+				height: 50px;
+				font-weight: bold;
+				font-size: 12px;
+				font-family: "oswald"
 			}
 
 			.invisible {
@@ -37,10 +46,10 @@
 			}
 
 		</style>
-		<h1>NATIONAL PARK INFORMATION</h1>
+		<h1 class="heading" >NATIONAL PARK INFORMATION</h1>
 		<br>
 		<div id="pageintro">
-			<h2>Would you like to sign up for our newsletter?</h2>
+			<h1>Would you like to sign up for our newsletter?</h1>
 			<span id="xmark"> X </span>
 		</div>
 		<div class="hideit"><h2>Please register with us!</h2></div>
@@ -117,6 +126,8 @@
 			</ul>
 			<img src="img/colorado.jpg" width="500px" height="300px">
 			<br>
+		</section>
+		<section>
 			<h3> Utah State Parks </h3>
 			<ul> 
 				<li>Utah’s largest freshwater lake provides fishing access for channel catfish, walleye, white bass, black bass, and several species of panfish. Spend an evening RV or tent camping, then powerboat, canoe, or sail the day away on Utah Lake.</li>
@@ -173,12 +184,13 @@
 		});
 
 		$('h3').click(function(){
-			$('ul').each(function (index, ul) {
-				$(this).children().slideToggle(3000);
+			$(this).next(function (index, ul) {
+				$(this).children().slideToggle(5000);
 			});
 		});
 
-		$('.hideit').fadeIn(8000) 
+		$('.hideit').delay(8000).fadeIn() 
+
 		</script>
 	</body>
 </html>
@@ -215,12 +227,17 @@
 
 //- Bonus
 
-// - #1 - Use a bootstrap alert for the dismissable message that shows on page load.
+// - #1 - Use a bootstrap alert for the dismissable message that shows on page load. -->
 
-// - #2 - Use a bootstrap modal for the message that fades in after 8 seconds. You may find that you can use bootstrap's modal methods to achieve the fading effect.
+	$('#alert').hide().delay(2000).fadeIn();
 
+// - #2 - Use a bootstrap modal for the message that fades in after 8 seconds. You may find that you can use bootstrap's modal methods to achieve the fading effect. //--!>
 
-
+	
+	setTimeout(function(){
+		$("#mymodal").modal('show');
+		(2000);
+	}) 
 
 
 
