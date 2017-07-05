@@ -30,6 +30,14 @@
             "tool"
         ],
         "price": 10
+     }, {
+        "title": "Nailgun",
+        "quantity": 5,
+        "categories": [
+            "tool",
+            "powered"
+        ],
+        "price": 100
     }
 ]
 

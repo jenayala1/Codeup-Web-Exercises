@@ -112,14 +112,15 @@ $.ajax("/some-url").done(function(data,
 			console.log(error);
 		});
 	}
-
+		var 
 
 
 	</body>
 
 </html>
 
-
+// ==========================================
+JSON is a string of data, no functions
 
 
 

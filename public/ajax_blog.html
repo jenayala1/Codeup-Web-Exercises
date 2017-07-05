@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/blog-css.css" rel="stylesheet">
+        <title>AJAX BLOG</title>
+    </head>
+    <body>
+    	<h1>BLOG ENTRIES</h1>
+    	<br>
+    	<img id="img1" src="img/ScarletWitch.jpg" alt="Image Placeholder">
+    	<div id="posts">
+    		<h2 id="title"></h2>
+    		<p id="content"></p>
+    		<h4 id="category"></h4>
+    		<span id="date"></span>
+    		<br>
+    	</div>
+    	<br>	
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    	<script>
+    	(function() {
+            "use strict";
+
+	        $.ajax('data/blog.json').done(function(data, status, jqXhr){
+      
+		    
+
+		    // function addContent(blog) {
+		    //         var blogPost = data [0] 
+		    //     }
+		             data.forEach(function(blog){
+		                 $("#posts").append(
+		                	"<h2>" + blog.title + "</h2>" +
+		                 	"<p>" + blog.content + "</p>" +
+		                	"<h4>" + blog.categories + "</h4>" +
+		                	"<span>" + blog.date + "</span>"
+		            );
+		        });
+
+	        	console.log(data);     
+	     	}).fail(function(jqXhr, status, error){
+	                console.log(jqXhr);
+	                console.log("Response status: " + status);
+	                console.log("Error object: " + error);
+	                console.log(data);
+	        });
+
+	        console.log(posts);
+	    
+	    })();
+
+        </script>
+    </body>
+</html>
+
+
+<!-- ============== BLOG BONUSES =================================
+
+    - #1 - Continue styling your blog and make it mobile responsive
+
+    - #2 - Using the logic from the completed search bar debug activity, incorporate a search bar in your blog to search by keyword
+
+    - #3 - Create links that arrange the blog entries in the following ways: 
+        chronological / reverse chronological order
+        content length (shortest to longest entry or longest to shortest) -->
+
+
+
+
+
+
+
