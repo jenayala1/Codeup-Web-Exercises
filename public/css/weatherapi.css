@@ -1,0 +1,47 @@
+body {
+	background-color: aliceblue;
+
+}
+
+table {
+	border-style: inset;
+	margin-bottom: 20px;
+}
+
+h1 {
+	text-align: center;
+}
+
+
+h2 {
+	font-size: 18px;
+	text-decoration: underline;
+}
+
+tr {
+	border-bottom-style: solid;
+	border-right-style: solid;
+	border-color: lightgrey;
+}
+
+
+.map {
+	margin-left: 20px;
+}
+
+#current {
+	margin-bottom: 20px;	
+}
+
+#today {
+	width: 30px;
+}
+
+#latitude {
+	border-style: inset;
+}	
+
+#longitude {
+	border-style: inset;
+}
+

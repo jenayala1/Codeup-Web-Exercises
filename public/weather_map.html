@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
- 
-	 <head>
+	<head>
 	  	<meta charset="utf-8">
 	 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	 	<link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon"> 
-	   
-	 	<title>Weather Map API</title>
-	 
 	 	<!-- Bootstrap CSS -->
 	 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
- 		
+	 	<link href="css/weatherapi.css" rel="stylesheet">
+	 	<title>Weather Map API</title>
  	</head>
  
  	<body>
@@ -19,11 +16,37 @@
  		<style>
 
  		</style>
+ 		<h1> MINI WEATHER UPDATE</h1>
+	    <main class="map">
 
-	    <main class="location">
-	    	<p id="forecast">
-	    		<div id=""
-	     	
+	    	<h2>Current Temperature</h2>
+	    	<section id="current">
+	    		<p id="location">
+	    			<div id="today"></div> <!-- insert date -->
+	    			<div id="tempc"></div> <!-- current imperial temperature -->
+	    			<div id="humidityc"></div> <!--current humidity -->
+	    			<img class="img2" src="" alt="Image Placeholder" width="450px", height="250px">
+	    		</p>
+	    		<button id="refreshc">REFRESH CURRENT</button> <!--reload the current weather - add clickfunction to run the getCurrent function -->
+	    	</section>
+	    	<br>
+	    	<section id="forecast">	
+	    		<h2>3 Day Forecast</h2>
+	    			<table>
+	    				<tr>
+	    					<th>Day 1</th>
+	    					<th>Day 2</th>
+	    					<th>Day 3</th>
+	    				</tr>
+	    				<br>
+	    				<tr>
+	    			</table>
+	    		<input id="latitude" type="text" width="40px" value="">
+	    		<input id="longitude" type="text" width="40px" value="">
+	    		<br>
+	     		<button id="refresh3">LOAD 3 DAY FORECAST</button> <!-- load the 3 day forecast weather, add click function to run-->
+	     		<button id="latlong">Latitude/Longitude</button>
+	     	</section>
 	    </main>
  
    <!-- jQuery Version 2.2.4 -->
@@ -34,31 +57,85 @@
 	 
 	    <!-- Custom JS -->
 	     <script>
-     	
 		    $(document).ready(function() {
 		     	"use strict";
 
-			$.get("http://api.openweathermap.org/data/2.5/weather?id=2172797", {
-				APPID: "40ba7777b52dad7589a9efb71eceb30a",
-				q: "San Antonio, TX"
-			
-				}).done(function(data) {
-	    				console.log(data); 
-	    		}).fail(function(jqXhr, status, error) {
-	                    console.log(jqXhr);
-	                    console.log("Response status: " + status);
-	                    console.log("Error " + error);
-	                    console.log(data);
-	            });
-            });
-	 
+				//function getCurrent(data) { //current temperature
+			/*		$.get("http://api.openweathermap.org/data/2.5/weather?id=2172797", {
+					 		APPID: "40ba7777b52dad7589a9efb71eceb30a",
+					 		q: "San Antonio, TX",
+							units: "imperial"
+
+						}).done(function(data) {
+					 		console.log(data.main.temp);
+
+			     		}).fail(function(data, status, error) {
+			                     console.log("Error " + error);
+			                     console.log(data);
+			            });	
+			        });	  */
+
+		    		// data.forEach(function(data){
+		      //               $("#current").append(
+		      //               	"<p>" + data.weather + 
+		      //               	"<div>" + data.city.name + "</div>" +
+		      //               	"<div>" + data.dt + "</div>" +
+		      //               	"<div>" + data.main.temp + "</div>" +
+		      //               	"<div>" + data.main.humidity + "</div>" +
+		      //               	"</p>"
+		      //               );
+        //             	}); 
+
+		
+            		
+					// $.("#refreshc").click(function(data){
+			  //    	     location.reload();
+				 //       	});
+					// });
+
+				$.get("http://api.openweathermap.org/data/2.5/forecast/daily?q=San Antonio,200&cnt=3", {
+  		       		APPID: "40ba7777b52dad7589a9efb71eceb30a",
+					q: "San Antonio, TX",
+					units: "imperial",
+					lat: "29.4241",
+					lon: "-98.4937",
+					cnt: 3
+
+					}).done(function(data) {
+			   				console.log(data);
+			   				console.log(data.city.name); 
+			   				console.log(data.city.coord);
+			   				console.log(data.list[0].temp);
+			   				getForecast(data);
+
+			   		}).fail(function(data, status, error) {
+			   				console.log("Error " + error);
+			   				console.log(data);
+			   		});
+
+				   		function getForecast(data){
+			                $("#forecast").append(
+			                   "<input>" + data.object.lat
+			                );
+	                 	}; 
+	              	
 
 
-	    </script>
-	 
+			     	
+		   		});
+         </script>
 	 </body>
+	 
  
- </html>
+ </html>  
+	
+<!-- 		code for 3 day forecast
+			function getForecast(data) { 
+
+-->
+		
+
+
 
 
 <!-- ===================== EXERCISE ASSIGNMENT ==============================
@@ -72,7 +149,7 @@
 
 	* Identify required data elements from the API:
 		* "weather" - id, main, description, & icon
-		* "main" - temp, humidity, pressure, temp_min, temp_max
+		* "main" - temp, humidity, pressure, temp_min, temp_max (set to Imperial for Fahrenheit)
 		* "wind" - speed, deg
 		* "rain"
 		* "clouds"
@@ -89,6 +166,13 @@ Hint: The URLs for OpenWeatherMap's icons are formatted http://openweathermap.or
 	q: "San Antonio, TX"
 
 4. Create input boxes for "Latitude" and "Longitude" and a <button> that will take the values from those inputs and feed them into your API request. Use Google Maps to find the coordinates for different places around the world and test this out.
+
+//lat & lon for San Antonio
+	lat: 29.4241
+	lon:-98.4937
+
+api.openweathermap.org/data/2.5/forecast/daily?q=San Antonio,200&cnt=3"
+use for the function to get data & click event function for the button
 
 5.Go back to your Google Maps API exercise. Recreate the map below your 3 day forecast. Read through the documentation for the Google Maps API and figure out how to allow the user to drop a pin on any place on the map. Once the user drops a pin, grab its coordinates and feed those into your OpenWeatherMap API. Update the three day forecast with the information from those coordinates (you should also get rid of your input boxes at this point).
 

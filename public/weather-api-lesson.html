@@ -32,15 +32,16 @@
 			}).done(function(data) {
     				console.log(data.weather[0].description);  /*retrieving description of the specified city.state, need to specify the array and the index*/
 
+    		
+
+
+
 			}).fail(function(jqXhr, status, error) {
                     console.log(jqXhr);
                     console.log("Response status: " + status);
                     console.log("Error object: " + error);
                     console.log(data);
-        });))
-
-
-
+        });
 
 
 		</script>
