@@ -1,0 +1,46 @@
+<!-- Weather Map API Lesson Notes: -->
+
+<!DOCTYPE html>
+<html lang="en">
+	 <head>
+	  	<meta charset="utf-8">
+	 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	 	<link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon"> 
+	   
+	 	<title>lesson notes</title>
+	 
+	 	<!-- Bootstrap CSS -->
+	 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+ 
+ 	</head>
+ 
+ 	<body>
+ 
+	    <main class="container">
+	     	<div id="name"></div>
+	 		<div id="color"></div>
+	 		<div id="age"></div>
+	 		<br>
+	    </main>
+   		<script>
+
+			"use strict"
+
+			$.get("https://openweathermap.org/data/2.5/weather", {
+				APPID: "c66968e340ab3c75ff622d91dae73b31",
+				q: "San Antonio, TX"
+			}).done(function(data) {
+    				console.log(data.weather[0].description);  /*retrieving description of the specified city.state, need to specify the array and the index*/
+
+			}).fail(function(jqXhr, status, error) {
+                    console.log(jqXhr);
+                    console.log("Response status: " + status);
+                    console.log("Error object: " + error);
+                    console.log(data);
+        });))
+
+
+
+
+
+		</script>

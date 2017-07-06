@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+	 <head>
+	  	<meta charset="utf-8">
+	 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	 	<link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon"> 
+	   
+	 	<title>Weather Map API</title>
+	 
+	 	<!-- Bootstrap CSS -->
+	 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+ 		
+ 	</head>
+ 
+ 	<body>
+ 
+ 		<style type="text/css"></style>
+ 		<style>
+
+ 		</style>
+
+	    <main class="location">
+	    	<p id="forecast">
+	    		<div id=""
+	     	
+	    </main>
+ 
+   <!-- jQuery Version 2.2.4 -->
+   		<script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+ 
+    <!-- Bootstrap JS -->
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	 
+	    <!-- Custom JS -->
+	     <script>
+     	
+		    $(document).ready(function() {
+		     	"use strict";
+
+			$.get("http://api.openweathermap.org/data/2.5/weather?id=2172797", {
+				APPID: "40ba7777b52dad7589a9efb71eceb30a",
+				q: "San Antonio, TX"
+			
+				}).done(function(data) {
+	    				console.log(data); 
+	    		}).fail(function(jqXhr, status, error) {
+	                    console.log(jqXhr);
+	                    console.log("Response status: " + status);
+	                    console.log("Error " + error);
+	                    console.log(data);
+	            });
+            });
+	 
+
+
+	    </script>
+	 
+	 </body>
+ 
+ </html>
+
+
+<!-- ===================== EXERCISE ASSIGNMENT ==============================
+1. Create a new html file called weather_map.html.
+2. Using HTML, CSS, jQuery, ajax, and the OpenWeatherMap API, start by showing the current conditions for San Antonio on your page.
+
+	* Make a get request to include the APPID
+		API CALL: "https://api.openweathermap.org/data/2.5/weather?lat=35&lon=139"
+		APPID: c66968e340ab3c75ff622d91dae73b31
+		q: "San Antonio, TX"
+
+	* Identify required data elements from the API:
+		* "weather" - id, main, description, & icon
+		* "main" - temp, humidity, pressure, temp_min, temp_max
+		* "wind" - speed, deg
+		* "rain"
+		* "clouds"
+		* "dt"
+		* "id"
+		* "name"
+		* "cod"
+
+
+3. Update your layout and ajax request(s) to display a three day forecast for San Antonio that looks like the screenshot below. 
+Hint: The URLs for OpenWeatherMap's icons are formatted http://openweathermap.org/img/w/[icon].png where [icon] comes from the API request.
+	API CALL: api.openweathermap.org/data/2.5/forecast/daily?q={city name},{country code}&cnt={cnt}
+	APPID KEY: c66968e340ab3c75ff622d91dae73b31
+	q: "San Antonio, TX"
+
+4. Create input boxes for "Latitude" and "Longitude" and a <button> that will take the values from those inputs and feed them into your API request. Use Google Maps to find the coordinates for different places around the world and test this out.
+
+5.Go back to your Google Maps API exercise. Recreate the map below your 3 day forecast. Read through the documentation for the Google Maps API and figure out how to allow the user to drop a pin on any place on the map. Once the user drops a pin, grab its coordinates and feed those into your OpenWeatherMap API. Update the three day forecast with the information from those coordinates (you should also get rid of your input boxes at this point).
+
+-->
+
+
+
+
