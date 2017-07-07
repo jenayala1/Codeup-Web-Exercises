@@ -17,49 +17,23 @@
 
  		</style>
  		<h1>WEATHER APPLICATION</h1>
- 			<h3 id="location"></h3>
-	    	<section class="container1">	
-	    		<div class="row">
-					<div class="column one-third" id="temp1"> </div>
-					<div class="column one-third" id="temp2"> </div>
-					<div class="column one-third" id="temp3"> </div>
-				</div> 
-			</section>
-			<section class="container2">
-	    		<div class="row">
-					<div class="column one-third" id="clouds1">  </div>
-					<div class="column one-third" id="clouds2">  </div>
-					<div class="column one-third" id="clouds3">  </div>
-				</div> 
-			</section>
-			<section class"container3">
-	 			<div class="row">
-					<div class="column one-third" id="humidity1">  </div>
-					<div class="column one-third" id="humidity2">  </div>
-					<div class="column one-third" id="humidity3">  </div>
-				</div> 
-			</section>
-			<section>
-	    		<div class="row">
-					<div class="column one-third" id="wind1">  </div>
-					<div class="column one-third" id="wind2">  </div>
-					<div class="column one-third" id="wind3">  </div>
-				</div> 	
-			</section>
-			<section>
-	 			<div class="row">
-					<div class="column one-third" id="pressure1">  </div>
-					<div class="column one-third" id="pressure2">  </div>
-					<div class="column one-third" id="pressure3">  </div>
-				</div> 
-	    	</main>		
-	    	<section id="inputs">
-	    		<label for="lat">Latitude</label>
-		    	<input id="lat" type="text" width="40px" value="">
-		    	<label for="lon">Longitude</label>
-		    	<input id="lon" type="text" width="40px" value="">
-		    </section>
-	    	<br>
+
+ 		<section id="inputs">
+    		<label for="lat">Latitude</label>
+	    	<input id="lat" type="text" width="40px" value="">
+	    	<label for="lon">Longitude</label>
+	    	<input id="lon" type="text" width="40px" value="">
+		</section>
+	    <br>
+	    <container id="forecast">
+	    	<h2 id="location"></h2>
+	    	<p id ="temp"></p>
+	    	<div id="clouds"></div>
+	    	<content id="humidity"></content>
+	    	<span id="wind"></span>
+	    	<div id="pressure"></div>
+	    </container>
+ 		<br>
      		<button id="refresh3">LOAD 3 DAY FORECAST</button> <!-- load the 3 day forecast weather, add click function to run-->
      		<button id="latlong">Latitude/Longitude</button>
      		<button id="clear"> Clear Screen</button>
@@ -82,13 +56,14 @@
 					units: "imperial",
 					lat: "29.428074",
 					lon: "-98.489158",
-					cnt: 3
 
 					}).done(function(data) {
 			   				console.log(data);
 			   				console.log(data.city.name); 
 			   				console.log(data.city.coord);
 			   				console.log(data.list[0].temp);
+			   				console.log(data.city.coord.lat);
+			   				console.log(data.city.coord.lon);
 			   				getForecast(data);
 
 			   		}).fail(function(data, status, error) {
@@ -96,16 +71,19 @@
 			   				console.log(data);
 			   		});
 
-				   		function getForecast(data){
-			                $(".container").append(
-			                   "<div>" + data.list[0].temp + "</div>" +
-			                   "<div>" + data.list[0].clouds + "</div>" +
-			                   "<div>" + data.list[0].humidity + "</div>" +
-			                   "<div>" + data.wind + "</div>" +
-			                   "<div>" + data.list[0].pressure + "</div>"
+			   		function getForecast(data){
+			            $(".container").append(
+			                "<h2>" + data.city + "</h2>" +
+			                "<p>" + data.list.temp + "</p>" +
+			                "<div>" + data.list[0].clouds + "</div>" +
+			                "<content>" + data.list[0].humidity + "</content>" +
+			                "<span>" + data.list.speed + "</span" +
+			                "<div>" + data.list[0].pressure + "</div>"
 			                );
 	                 	}; 	
-	                clear.addEventListener("click", function() {
+
+
+			   		clear.addEventListener("click", function() {
 						lat.setAttribute("value", "");
 						lon.setAttribute("value", "");
 					
@@ -120,9 +98,3 @@
         
 	 </body> 
  </html>  
-	
-
-
-
-
-

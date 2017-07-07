@@ -1,77 +1,17 @@
+================================= EXERCISE ASSIGNMENT ==============================
+1. Create a new html file called weather_map.html.
 
-==================NOTES==================
+2. Using HTML, CSS, jQuery, ajax, and the OpenWeatherMap API, start by showing the current conditions for San Antonio on your page.
 
-  		function getCurrent(weather) {
-            var weather = data [0] 
-       }
-            data.forEach(function(weather){
-                    
-       );
+3. Update your layout and ajax request(s) to display a three day forecast for San Antonio that looks like the screenshot below. 
+Hint: The URLs for OpenWeatherMap's icons are formatted http://openweathermap.org/img/w/[icon].png where [icon] comes from the API request.
 
+4. Create input boxes for "Latitude" and "Longitude" and a <button> that will take the values from those inputs and feed them into your API request. Use Google Maps to find the coordinates for different places around the world and test this out.
 
-example API:
-api.openweathermap.org/data/2.5/forecast/daily?lat=35&lon=139&cnt=3
+5.Go back to your Google Maps API exercise. Recreate the map below your 3 day forecast. Read through the documentation for the Google Maps API and figure out how to allow the user to drop a pin on any place on the map. Once the user drops a pin, grab its coordinates and feed those into your OpenWeatherMap API. Update the three day forecast with the information from those coordinates (you should also get rid of your input boxes at this point).
+*/
 
-=======WORKING STATEMENT TO RETRIEVE CURRENT WEATHER:===================
-
-	$.get("http://api.openweathermap.org/data/2.5/weather?id=2172797", {
-		APPID: "40ba7777b52dad7589a9efb71eceb30a",
-		q: "San Antonio, TX",
-		units: "imperial"
-
-		}).done(function(data) {
-			console.log(data.main.temp);	
-
-		}).fail(function(data, status, error) {
-	        console.log("Error " + error);
-	        console.log(data);
-        });	
-    });	
-========================================================================
-
-ADDITIONAL NOTES:
-
-<script>
-        
-    $.ajax("http://api.openweathermap.org/data/2.5/forecast/daily", {
-    data: {
-        APPID: "a9f54c1676a97f64d7aeeea392274f52",
-        lat:    29.423017,
-        lon:   -98.48527,
-        units: "imperial"
-    }
-    }).done(function(data) {
-        console.log(data.list[0].temp.min);
-        console.log(data.list[0].temp.max);
-        loadBox(data);
-   });
-    
-    function loadBox(data){
-        var content = "";
-            content += "<h4>" + data.list[0].temp.max;
-            content += "/" + data.list[0].temp.min + "</h4>";
-            content
-            content... etc.
-            $('#panel').html(content); 
-      
-    }
- 
-    </script>
-
-==========================================
-	function getForecast(data){
-			                $("#current").append(
-			                    "<p>" + data.weather + 
-			                   	"<div>" + data.city.name + "</div>" +
-			                    "<div>" + data.dt + "</div>" +
-			                  	"<div>" + data.list.temp + "</div>" +
-			                	"<div>" + data.list.humidity + "</div>" +
-			                	"</p>"
-			                );
-	                 	}; 
-
-
-================================= OPEN WEATHER MAP / GOOGLE MAPS PROJECT STEPS
+================================= OPEN WEATHER MAP / GOOGLE MAPS PROJECT STEPS ====================
 
 // MAKE THE WEATHER FORECAST
 
@@ -122,3 +62,162 @@ ADDITIONAL NOTES:
 // WIRE UP GOOGLE MAP TO WEATHER API
 
 	// add the function call that makes the Weather API request to the marker drag event and pass in the lat and lon values of the marker to the Weather API request function
+
+
+==============================================================================================
+PSEUDO CODE PLANNING
+
+#2. Using HTML, CSS, jQuery, ajax, and the OpenWeatherMap API, start by showing the current conditions for San Antonio on your page.
+
+	* Make a get request to include the APPID
+		API CALL: "https://api.openweathermap.org/data/2.5/weather?lat=35&lon=139"
+		APPID: c66968e340ab3c75ff622d91dae73b31
+		q: "San Antonio, TX"
+
+	* Identify required data elements from the API:
+		* "weather" - id, main, description, & icon
+		* "main" - temp, humidity, pressure, temp_min, temp_max (set to Imperial for Fahrenheit)
+		* "wind" - speed, deg
+		* "rain"
+		* "clouds"
+		* "dt"
+		* "id"
+		* "name"
+		* "cod"
+
+
+#3. Update your layout and ajax request(s) to display a three day forecast for San Antonio that looks like the screenshot below. 
+Hint: The URLs for OpenWeatherMap's icons are formatted http://openweathermap.org/img/w/[icon].png where [icon] comes from the API request.
+	
+	API CALL: api.openweathermap.org/data/2.5/forecast/daily?q={city name},{country code}&cnt={cnt}
+	APPID KEY: c66968e340ab3c75ff622d91dae73b31
+	q: "San Antonio, TX"
+
+4. Create input boxes for "Latitude" and "Longitude" and a <button> that will take the values from those inputs and feed them into your API request. Use Google Maps to find the coordinates for different places around the world and test this out.
+
+			lat & lon for San Antonio:
+				lat: 29.4241
+				lon:-98.4937
+
+			api.openweathermap.org/data/2.5/forecast/daily?q=San Antonio,200&cnt=3"
+--(use for the function to get data & click event function for the button)
+
+5.Go back to your Google Maps API exercise. Recreate the map below your 3 day forecast. Read through the documentation for the Google Maps API and figure out how to allow the user to drop a pin on any place on the map. Once the user drops a pin, grab its coordinates and feed those into your OpenWeatherMap API. Update the three day forecast with the information from those coordinates (you should also get rid of your input boxes at this point).
+*/
+
+
+==================NOTES==================
+ICON EXAMPLE:
+http://openweathermap.org/img/w/10d.png
+
+example API for 3 day forecast:
+api.openweathermap.org/data/2.5/forecast/daily?lat=35&lon=139&cnt=3
+
+API for map: (is the X & Y the latitude & longitude)
+"http://tile.openweathermap.org/map/temp_new/19/{x}/{y}.png?appid=40ba7777b52dad7589a9efb71eceb30a"
+
+====================== DRAFTS =======================
+
+  		function getCurrent(weather) {
+            var weather = data [0] 
+       }
+            data.forEach(function(weather){
+                    
+       );
+	//function getCurrent(data) { //current temperature
+			/*		$.get("http://api.openweathermap.org/data/2.5/weather?id=2172797", {
+					 		APPID: "40ba7777b52dad7589a9efb71eceb30a",
+					 		q: "San Antonio, TX",
+							units: "imperial"
+
+						}).done(function(data) {
+					 		console.log(data.main.temp);
+
+			     		}).fail(function(data, status, error) {
+			                     console.log("Error " + error);
+			                     console.log(data);
+			            });	
+			        });	  */
+
+		    		// data.forEach(function(data){
+		      //               $("#current").append(
+		      //               	"<p>" + data.weather + 
+		      //               	"<div>" + data.city.name + "</div>" +
+		      //               	"<div>" + data.dt + "</div>" +
+		      //               	"<div>" + data.main.temp + "</div>" +
+		      //               	"<div>" + data.main.humidity + "</div>" +
+		      //               	"</p>"
+		      //               );
+        //             	}); 
+
+		============================================================
+            		
+					// $.("#refreshc").click(function(data){
+			  //    	     location.reload();
+				 //       	});
+					// });
+
+
+
+=======WORKING STATEMENT TO RETRIEVE CURRENT WEATHER:===================
+
+	$.get("http://api.openweathermap.org/data/2.5/weather?id=2172797", {
+		APPID: "40ba7777b52dad7589a9efb71eceb30a",
+		q: "San Antonio, TX",
+		units: "imperial"
+
+		}).done(function(data) {
+			console.log(data.main.temp);	
+
+		}).fail(function(data, status, error) {
+	        console.log("Error " + error);
+	        console.log(data);
+        });	
+    });	
+========================================================================
+<script src="js/weather-api.js"></script> 
+
+
+ADDITIONAL EXAMPLES:
+
+<script>
+        
+    $.ajax("http://api.openweathermap.org/data/2.5/forecast/daily", {
+    data: {
+        APPID: "a9f54c1676a97f64d7aeeea392274f52",
+        lat:    29.423017,
+        lon:   -98.48527,
+        units: "imperial"
+    }
+    }).done(function(data) {
+        console.log(data.list[0].temp.min);
+        console.log(data.list[0].temp.max);
+        loadBox(data);
+   });
+    
+    function loadBox(data){
+        var content = "";
+            content += "<h4>" + data.list[0].temp.max;
+            content += "/" + data.list[0].temp.min + "</h4>";
+            content
+            content... etc.
+            $('#panel').html(content); 
+      
+    }
+ 
+    </script>
+
+==========================================
+	function getForecast(data){
+			                $("#current").append(
+			                    "<p>" + data.weather + 
+			                   	"<div>" + data.city.name + "</div>" +
+			                    "<div>" + data.dt + "</div>" +
+			                  	"<div>" + data.list.temp + "</div>" +
+			                	"<div>" + data.list.humidity + "</div>" +
+			                	"</p>"
+			                );
+	                 	}; 
+
+
+
