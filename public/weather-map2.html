@@ -27,18 +27,19 @@
 	    <br>
 	    <section id="forecast">
 	    	<h2 id="location"></h2>
-	    	<div id ="temp"></div>
-	    	<div id ="icon"></div>
-	    	<div id="clouds"></div>
-	    	<div id="humidity"></div>
-	    	<div id="wind"></div>
-	    	<div id="pressure"></div>
+	    	<container id="weatherd">
+		    	<div id ="temp"></div>
+		    	<div id ="icon"></div>
+		    	<div id="clouds"></div>
+		    	<div id="humidity"></div>
+		    	<div id="wind"></div>
+		    	<div id="pressure"></div>
+		    </container>
 	    </section>
  		<br>
  		<container>
      		<button id="refresh3">LOAD 3 DAY FORECAST</button> <!-- load the 3 day forecast weather, add click function to run-->
      		<button id="latlong">Latitude/Longitude</button>
-     		<button id="clear"> Clear Screen</button>
      	</container>
 	     	<br>
 	    <section id="map">
@@ -66,7 +67,6 @@
 						lat: lat,
 						lon: lon
 
-		
 						}).done(function(data) {
 				   				console.log(data);
 				   				console.log(data.city.name); 
@@ -91,8 +91,6 @@
 					getWeatherOption();
 
 				});
-
-
 			   		function getForecast(data){
 			            $("#forecast").append(
 			            	"<h2>" + data.city.name + "</h2>" +
@@ -126,20 +124,12 @@
 			                );
 	                 }; 	
 
-	             
-
-			   		clear.addEventListener("click", function() {
-						lat.setAttribute("value", "");
-						lon.setAttribute("value", "");
-					
-
-					});
-			   });
-
-		   	
+			});
 
         </script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRtk2_yv1C325eivocP6h7HvHd9NZ_gFw"></script>
+        <script type="text/javascript"></script>
+		<script src="js/weather-api.js"></script> 
         
 	 </body> 
  </html>  
