@@ -20,15 +20,15 @@
 
  		<section class="inputs">
     		<label for="lat">Latitude</label>
-	    	<input id="lat" type="text" width="40px" value="36.600238">
+	    	<input id="lat" type="text" width="40px" value="">
 	    	<label for="lon">Longitude</label>
-	    	<input id="lon" type="text" width="40px" value="-121.894676">
+	    	<input id="lon" type="text" width="40px" value="">
 		</section>
 	    <br>
 	    <section id="forecast">
 	    	<h2 id="location"></h2>
-	    	<div id ="temp" font-weight="bold"></div>
-	    	<img>
+	    	<div id ="temp"></div>
+	    	<div id ="icon"></div>
 	    	<div id="clouds"></div>
 	    	<div id="humidity"></div>
 	    	<div id="wind"></div>
@@ -55,42 +55,51 @@
 		    $(document).ready(function() {
 		     	"use strict";
 
+		     	var lat = "36.600238";
+				var lon = "-121.894676";	
 
-		    var lat = $("#lat").attr("value");
-			var lon = $("#lon").attr("value");
+				function getWeatherOption(){
+					$.get("http://api.openweathermap.org/data/2.5/forecast/daily?", {
+	  		       		APPID: "40ba7777b52dad7589a9efb71eceb30a",
+	  		       		units: "imperial",
+	  		       		cnt: "3",
+						lat: lat,
+						lon: lon
 
-				
+		
+						}).done(function(data) {
+				   				console.log(data);
+				   				console.log(data.city.name); 
+				   				console.log(data.city.coord);
+				   				console.log(data.list[0].temp);
+				   				console.log(data.city.coord.lat);
+				   				console.log(data.city.coord.lon);
+				   				getForecast(data);
 
-				$.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
-  		       		APPID: "40ba7777b52dad7589a9efb71eceb30a",
-					units: "imperial",
-					lat: lat,
-					lon: lon,
-					cnt: "3"
+				   		}).fail(function(data, status, error) {
+				   				console.log("Error " + error);
+				   				console.log(data);
+				   		});
+				};
 
+				getWeatherOption();
 
-					}).done(function(data) {
-			   				console.log(data);
-			   				console.log(data.city.name); 
-			   				console.log(data.city.coord);
-			   				console.log(data.list[0].temp);
-			   				console.log(data.city.coord.lat);
-			   				console.log(data.city.coord.lon);
-			   				getForecast(data);
+				$("#latlong").click(function(){
+					lat = $("#lat").val();
+					lon = $("#lon").val();
+					$("#forecast").html("");
+					getWeatherOption();
 
-			   		}).fail(function(data, status, error) {
-			   				console.log("Error " + error);
-			   				console.log(data);
-			   		});
+				});
 
-			   		
 
 			   		function getForecast(data){
 			            $("#forecast").append(
 			            	"<h2>" + data.city.name + "</h2>" +
 			            	"<div class='col-md-4'>" + "TODAY" +
 			                "<div>" + data.list[0].temp.min + "°" + "/ " + data.list[0].temp.max + "°" + "</div>" +
-			                "<div>" + data.list[0].weather[0].main + ":" + data.list[0].weather[0].description + "</div>" +
+			                "<div>" + data.list[0].weather[0].main + ":" + " " + data.list[0].weather[0].description + "</div>" +
+			                "<div>" + "<img src=http://openweathermap.org/img/w/" + data.list[0].weather[0].icon + ".png>" + "</div>" +
 			                "<div>" + "Humidity: " + data.list[0].humidity + "</div>" +
 			                "<div>" + "Wind: " + data.list[0].speed + "</div>" +
 			                "<div>" + "Pressure: " + data.list[0].pressure + "</div>" +
@@ -98,7 +107,8 @@
 			                
 			            	"<div class='col-md-4'>" + "TOMORROW" +
 			                "<div>" + data.list[1].temp.min + "°" + "/ " + data.list[1].temp.max + "°" + "</div>" +
-			                "<div>" + data.list[1].weather[0].main + ":" + data.list[1].weather[0].description + "</div>" +
+			                "<div>" + data.list[1].weather[0].main + ":" + " " + data.list[1].weather[0].description + "</div>" +
+			                 "<div>" + "<img src=http://openweathermap.org/img/w/" + data.list[1].weather[0].icon + ".png>" + "</div>" +
 			                "<div>" + "Humidity: " + data.list[1].humidity + "</div>" +
 			                "<div>" + "Wind: " + data.list[1].speed + "</div>" +
 			                "<div>" + "Pressure: " + data.list[1].pressure + "</div>" +
@@ -107,18 +117,16 @@
 
 			                "<div class='col-md-4'>" + "DAY 3" +
 			                "<div>" + data.list[2].temp.min + "°" + "/ " + data.list[2].temp.max + "°" + "</div>" +
-			                "<div>" + data.list[2].weather[0].main + ":" + data.list[2].weather[0].description + "</div>" +
+			                "<div>" + data.list[2].weather[0].main + ":" + " " + data.list[2].weather[0].description + "</div>" +
+			                 "<div>" + "<img src=http://openweathermap.org/img/w/" + data.list[2].weather[0].icon + ".png>" + "</div>" +
 			                "<div>" + "Humidity: " + data.list[2].humidity + "</div>" +
 			                "<div>" + "Wind: " + data.list[2].speed + "</div>" +
 			                "<div>" + "Pressure: " + data.list[2].pressure + "</div>" +
 			                "</div>" 
 			                );
-	                 	}; 	
-  
+	                 }; 	
 
 	             
-
-	                 // })
 
 			   		clear.addEventListener("click", function() {
 						lat.setAttribute("value", "");
@@ -126,9 +134,9 @@
 					
 
 					});
+			   });
 
-
-		   		});
+		   	
 
         </script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRtk2_yv1C325eivocP6h7HvHd9NZ_gFw"></script>
