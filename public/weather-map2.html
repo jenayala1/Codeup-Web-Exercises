@@ -27,18 +27,23 @@
 	    <br>
 	    <section id="forecast">
 	    	<h2 id="location"></h2>
-	    	<p id ="temp"></p>
+	    	<div id ="temp" font-weight="bold"></div>
+	    	<img>
 	    	<div id="clouds"></div>
-	    	<content id="humidity"></content>
-	    	<span id="wind"></span>
+	    	<div id="humidity"></div>
+	    	<div id="wind"></div>
 	    	<div id="pressure"></div>
 	    </section>
  		<br>
+ 		<container>
      		<button id="refresh3">LOAD 3 DAY FORECAST</button> <!-- load the 3 day forecast weather, add click function to run-->
      		<button id="latlong">Latitude/Longitude</button>
      		<button id="clear"> Clear Screen</button>
+     	</container>
 	     	<br>
-	    <div id="map-canvas"></div>
+	    <section id="map">
+	    	<div id="map-canvas"></div>
+	    <section>
    <!-- jQuery Version 2.2.4 -->
    		<script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
  
@@ -73,12 +78,31 @@
 
 			   		function getForecast(data){
 			            $("#forecast").append(
-			                "<h2>" + data.city + "</h2>" +
-			                "<p>" + data.list.temp + "</p>" +
-			                "<div>" + data.list[0].clouds + "</div>" +
-			                "<content>" + data.list[0].humidity + "</content>" +
-			                "<span>" + data.list.speed + "</span" +
-			                "<div>" + data.list[0].pressure + "</div>"
+			            	"<h2>" + data.city.name + "</h2>" +
+			            	"<div class='col-md-4'>" + "TODAY" +
+			                "<div>" + data.list[0].temp.min + "°" + "/ " + data.list[0].temp.max + "°" + "</div>" +
+			                "<div>" + data.list[0].weather[0].main + ":" + data.list[0].weather[0].description + "</div>" +
+			                "<div>" + "Humidity: " + data.list[0].humidity + "</div>" +
+			                "<div>" + "Wind: " + data.list[0].speed + "</div>" +
+			                "<div>" + "Pressure: " + data.list[0].pressure + "</div>" +
+			                "</div>" +
+			                
+			            	"<div class='col-md-4'>" + "TOMORROW" +
+			                "<div>" + data.list[1].temp.min + "°" + "/ " + data.list[1].temp.max + "°" + "</div>" +
+			                "<div>" + data.list[1].weather[0].main + ":" + data.list[1].weather[0].description + "</div>" +
+			                "<div>" + "Humidity: " + data.list[1].humidity + "</div>" +
+			                "<div>" + "Wind: " + data.list[1].speed + "</div>" +
+			                "<div>" + "Pressure: " + data.list[1].pressure + "</div>" +
+			                "</div>" +
+			               
+
+			                "<div class='col-md-4'>" + "DAY 3" +
+			                "<div>" + data.list[2].temp.min + "°" + "/ " + data.list[2].temp.max + "°" + "</div>" +
+			                "<div>" + data.list[2].weather[0].main + ":" + data.list[2].weather[0].description + "</div>" +
+			                "<div>" + "Humidity: " + data.list[2].humidity + "</div>" +
+			                "<div>" + "Wind: " + data.list[2].speed + "</div>" +
+			                "<div>" + "Pressure: " + data.list[2].pressure + "</div>" +
+			                "</div>" 
 			                );
 	                 	}; 	
 

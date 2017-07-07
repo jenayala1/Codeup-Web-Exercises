@@ -28,13 +28,35 @@ tr {
 
 button {
 	margin-bottom: 20px;
-	margin-left: 20 px;
+	margin-left: 20px;
+	margin-top: 20px;
+	padding: 5px;
 }
+
+#forecast {
+	margin-bottom: 20px;
+}
+
+
 #map-canvas {
-            width: 770px;
-            height: 481px;
+    width: 770px;
+    height: 481px;
  }
  
+.col-md-4 {
+	border-style: solid;
+	padding-bottom: 5px;
+	margin-bottom: 20px;
+	text-align: center;
+
+}
+
+#temp {
+	font-weight: bold;
+	font-size: 16px;
+
+}
+
 .map {
 	margin-left: 20px;
 }
