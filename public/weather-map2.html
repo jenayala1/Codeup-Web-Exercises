@@ -25,14 +25,14 @@
 	    	<input id="lon" type="text" width="40px" value="">
 		</section>
 	    <br>
-	    <container id="forecast">
+	    <section id="forecast">
 	    	<h2 id="location"></h2>
 	    	<p id ="temp"></p>
 	    	<div id="clouds"></div>
 	    	<content id="humidity"></content>
 	    	<span id="wind"></span>
 	    	<div id="pressure"></div>
-	    </container>
+	    </section>
  		<br>
      		<button id="refresh3">LOAD 3 DAY FORECAST</button> <!-- load the 3 day forecast weather, add click function to run-->
      		<button id="latlong">Latitude/Longitude</button>
@@ -72,7 +72,7 @@
 			   		});
 
 			   		function getForecast(data){
-			            $(".container").append(
+			            $("#forecast").append(
 			                "<h2>" + data.city + "</h2>" +
 			                "<p>" + data.list.temp + "</p>" +
 			                "<div>" + data.list[0].clouds + "</div>" +
