@@ -20,9 +20,9 @@
 
  		<section class="inputs">
     		<label for="lat">Latitude</label>
-	    	<input id="lat" type="text" width="40px" value="">
+	    	<input id="lat" type="text" width="40px" value="36.600238">
 	    	<label for="lon">Longitude</label>
-	    	<input id="lon" type="text" width="40px" value="">
+	    	<input id="lon" type="text" width="40px" value="-121.894676">
 		</section>
 	    <br>
 	    <section id="forecast">
@@ -55,12 +55,19 @@
 		    $(document).ready(function() {
 		     	"use strict";
 
-				$.get("http://api.openweathermap.org/data/2.5/forecast/daily?q=San Antonio,200&cnt=3", {
+
+		    var lat = $("#lat").attr("value");
+			var lon = $("#lon").attr("value");
+
+				
+
+				$.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
   		       		APPID: "40ba7777b52dad7589a9efb71eceb30a",
-					q: "San Antonio, TX",
 					units: "imperial",
-					lat: "29.428074",
-					lon: "-98.489158",
+					lat: lat,
+					lon: lon,
+					cnt: "3"
+
 
 					}).done(function(data) {
 			   				console.log(data);
@@ -75,6 +82,8 @@
 			   				console.log("Error " + error);
 			   				console.log(data);
 			   		});
+
+			   		
 
 			   		function getForecast(data){
 			            $("#forecast").append(
@@ -105,43 +114,7 @@
 			                "</div>" 
 			                );
 	                 	}; 	
-
-
-	                  
-
-	                $("latlong").click(function(searchLatLon){
-	                	var lat = document.getElementById("lat");
-	                   	var lon = document.getElementById("lon");
-	                	getForecast;
-	                })
-
-	    //             function buttonHandler(){
-	    //             	if (this.class.includes=("inputs")) {
-	                		
-	    //             	}
-	    //             }
-	                
-	    //             function searchLatLon(data){
-	    //              	$.get("api.openweathermap.org/data/2.5/forecast/daily?lat=36.600238&lon=-121.894676&cnt=3", {
-	    //              		APPID: "40ba7777b52dad7589a9efb71eceb30a",
-	    //              		units: "imperial",
-
-	    //              	}).done(function(data) {
-			  //  				console.log(data);
-			  //  				console.log(data.city.name); 
-			  //  				console.log(data.city.coord);
-			  //  				console.log(data.list[0].temp);
-			  //  				console.log(data.city.coord.lat);
-			  //  				console.log(data.city.coord.lon);
-			  //  				getForecast(data);
-
-				 //   		}).fail(function(data, status, error) {
-				 //   				console.log("Error " + error);
-				 //   				console.log(data);
-				 //   		 		getForecast(data);
-	    //         	 	});
-					// };
-
+  
 
 	             
 

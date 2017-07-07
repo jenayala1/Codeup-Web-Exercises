@@ -98,6 +98,7 @@ Hint: The URLs for OpenWeatherMap's icons are formatted http://openweathermap.or
 			lat & lon for San Antonio:
 				lat: 29.4241
 				lon:-98.4937
+	use a (document.getElementById) to retrieve the data elements from the input fields
 
 			api.openweathermap.org/data/2.5/forecast/daily?q=San Antonio,200&cnt=3"
 --(use for the function to get data & click event function for the button)
@@ -175,6 +176,62 @@ API for map: (is the X & Y the latitude & longitude)
         });	
     });	
 ========================================================================
+WORKING CODE TO CAPTURE 3 DAY FORECAST IN SAN ANTONIO:
+
+$.get("http://api.openweathermap.org/data/2.5/forecast/daily?q=San Antonio,200&cnt=3", {
+  		       		APPID: "40ba7777b52dad7589a9efb71eceb30a",
+					q: "San Antonio, TX",
+					units: "imperial",
+					lat: "29.428074",
+					lon: "-98.489158",
+
+					}).done(function(data) {
+			   				console.log(data);
+			   				console.log(data.city.name); 
+			   				console.log(data.city.coord);
+			   				console.log(data.list[0].temp);
+			   				console.log(data.city.coord.lat);
+			   				console.log(data.city.coord.lon);
+			   				getForecast(data);
+
+			   		}).fail(function(data, status, error) {
+			   				console.log("Error " + error);
+			   				console.log(data);
+			   		});
+
+			   		function getForecast(data){
+			            $("#forecast").append(
+			            	"<h2>" + data.city.name + "</h2>" +
+			            	"<div class='col-md-4'>" + "TODAY" +
+			                "<div>" + data.list[0].temp.min + "°" + "/ " + data.list[0].temp.max + "°" + "</div>" +
+			                "<div>" + data.list[0].weather[0].main + ":" + data.list[0].weather[0].description + "</div>" +
+			                "<div>" + "Humidity: " + data.list[0].humidity + "</div>" +
+			                "<div>" + "Wind: " + data.list[0].speed + "</div>" +
+			                "<div>" + "Pressure: " + data.list[0].pressure + "</div>" +
+			                "</div>" +
+			                
+			            	"<div class='col-md-4'>" + "TOMORROW" +
+			                "<div>" + data.list[1].temp.min + "°" + "/ " + data.list[1].temp.max + "°" + "</div>" +
+			                "<div>" + data.list[1].weather[0].main + ":" + data.list[1].weather[0].description + "</div>" +
+			                "<div>" + "Humidity: " + data.list[1].humidity + "</div>" +
+			                "<div>" + "Wind: " + data.list[1].speed + "</div>" +
+			                "<div>" + "Pressure: " + data.list[1].pressure + "</div>" +
+			                "</div>" +
+			               
+
+			                "<div class='col-md-4'>" + "DAY 3" +
+			                "<div>" + data.list[2].temp.min + "°" + "/ " + data.list[2].temp.max + "°" + "</div>" +
+			                "<div>" + data.list[2].weather[0].main + ":" + data.list[2].weather[0].description + "</div>" +
+			                "<div>" + "Humidity: " + data.list[2].humidity + "</div>" +
+			                "<div>" + "Wind: " + data.list[2].speed + "</div>" +
+			                "<div>" + "Pressure: " + data.list[2].pressure + "</div>" +
+			                "</div>" 
+			                );
+	                 	}; 	
+======================================================================================================
+
+
+
 <script src="js/weather-api.js"></script> 
 
 
