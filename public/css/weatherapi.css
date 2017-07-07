@@ -69,11 +69,11 @@ button {
 	width: 30px;
 }
 
-#latitude {
+.latitude {
 	border-style: inset;
 }	
 
-#longitude {
+.longitude {
 	border-style: inset;
 }
 

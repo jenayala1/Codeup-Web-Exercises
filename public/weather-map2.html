@@ -18,7 +18,7 @@
  		</style>
  		<h1>WEATHER APPLICATION</h1>
 
- 		<section id="inputs">
+ 		<section class="inputs">
     		<label for="lat">Latitude</label>
 	    	<input id="lat" type="text" width="40px" value="">
 	    	<label for="lon">Longitude</label>
@@ -106,6 +106,46 @@
 			                );
 	                 	}; 	
 
+
+	                  
+
+	                $("latlong").click(function(searchLatLon){
+	                	var lat = document.getElementById("lat");
+	                   	var lon = document.getElementById("lon");
+	                	getForecast;
+	                })
+
+	    //             function buttonHandler(){
+	    //             	if (this.class.includes=("inputs")) {
+	                		
+	    //             	}
+	    //             }
+	                
+	    //             function searchLatLon(data){
+	    //              	$.get("api.openweathermap.org/data/2.5/forecast/daily?lat=36.600238&lon=-121.894676&cnt=3", {
+	    //              		APPID: "40ba7777b52dad7589a9efb71eceb30a",
+	    //              		units: "imperial",
+
+	    //              	}).done(function(data) {
+			  //  				console.log(data);
+			  //  				console.log(data.city.name); 
+			  //  				console.log(data.city.coord);
+			  //  				console.log(data.list[0].temp);
+			  //  				console.log(data.city.coord.lat);
+			  //  				console.log(data.city.coord.lon);
+			  //  				getForecast(data);
+
+				 //   		}).fail(function(data, status, error) {
+				 //   				console.log("Error " + error);
+				 //   				console.log(data);
+				 //   		 		getForecast(data);
+	    //         	 	});
+					// };
+
+
+	             
+
+	                 // })
 
 			   		clear.addEventListener("click", function() {
 						lat.setAttribute("value", "");
