@@ -47,11 +47,13 @@ button {
  
 .col-md-4 {
 	border-style: solid;
+	border-color: dimgrey;
 	padding-bottom: 5px;
+	padding-right: 10px;
 	margin-bottom: 20px;
 	text-align: center;
-	background-color: lightgrey;
-
+	background-color: silver;
+	max-width: 16.66666667%;
 }
 
 #temp {

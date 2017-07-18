@@ -49,6 +49,10 @@
             console.log(lat + lng);
         });
 
+        function updateCity(){
+                $("#location").text(location);
+            }
+
 })();
 
 
