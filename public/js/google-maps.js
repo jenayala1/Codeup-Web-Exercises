@@ -10,7 +10,7 @@
 //---#1 ---- Set map options -----
         var mapOptions = {
             // Set the zoom level
-            zoom: 19,
+            zoom: 10,
 
 //----#2 -----Sets center of the map 
             center: {

@@ -3,6 +3,7 @@
 
         var coordinates = {lat: 36.600238, lng: -121.894676}; 
         var location = "Monterey, CA 93944"; 
+
                     
         var mapOptions = {
             zoom: 12,
@@ -32,7 +33,7 @@
              position: coordinates,
              map: map,
              draggable: true,
-             animation: google.maps.Animation.DROP,
+             animation: google.maps.Animation.DROP,   
         });
 
         $("marker").click(function(getWeatherOption){
@@ -42,9 +43,9 @@
              getWeatherOption();
         });
 
-        google.maps.event.addListener(marker, 'draggable', function (event) {
+        google.maps.event.addListener(marker, 'dragend', function (event) {
             document.getElementById("lat").value = this.getPosition().lat();
-            document.getElementById("lon").value = this.getPosition().lng();
+            document.getElementById("lng").value = this.getPosition().lng();
             console.log(lat + lng);
         });
 

@@ -64,7 +64,21 @@ Hint: The URLs for OpenWeatherMap's icons are formatted http://openweathermap.or
 	// add the function call that makes the Weather API request to the marker drag event and pass in the lat and lon values of the marker to the Weather API request function
 
 
-==============================================================================================
+========================================================================
+================================= WEATHER MAP APP BONUSES
+
+- allow the user to search by place name, then move the map to that location and update the weather (will need to make a geocoding request, then use the results of the geocoding request in a call to the open weather api)
+
+- allow users to specify how many days they want a forecast for (e.g. users can specify if they want just today’s weather, a 3-day forecast, a 4-day forecast, a 5-day forecast, a 10-day forecast etc.)
+
+- use a google maps info window to display the current weather conditions above the marker for the place
+
+- allow users to choose how much detail they want in their forecast (just the high and low for the day? do they also want to see an icon? wind speed, humidity, etc)
+
+- when a geocoding request is made, google responds with a list of places (starting with the closest match). When the user searches for a location, show them all the results for that location in a `select` element, and when they change the `select`, update the map and the displayed weather accordingly
+
+
+======================
 PSEUDO CODE PLANNING
 
 #2. Using HTML, CSS, jQuery, ajax, and the OpenWeatherMap API, start by showing the current conditions for San Antonio on your page.
@@ -100,6 +114,8 @@ Hint: The URLs for OpenWeatherMap's icons are formatted http://openweathermap.or
 				lon:-98.4937
 	use a (document.getElementById) to retrieve the data elements from the input fields
 
+	API by lat/lon: 
+
 			api.openweathermap.org/data/2.5/forecast/daily?q=San Antonio,200&cnt=3"
 --(use for the function to get data & click event function for the button)
 
@@ -114,7 +130,7 @@ http://openweathermap.org/img/w/10d.png
 example API for 3 day forecast:
 api.openweathermap.org/data/2.5/forecast/daily?lat=35&lon=139&cnt=3
 
-API for map: (is the X & Y the latitude & longitude)
+API for map: (is the X & Y the latitude & longitude?)
 "http://tile.openweathermap.org/map/temp_new/19/{x}/{y}.png?appid=40ba7777b52dad7589a9efb71eceb30a"
 
 ====================== DRAFTS =======================
