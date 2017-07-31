@@ -1,7 +1,16 @@
 <?php
 
-	$favoriteThings = ['writing', 'music', 'art', 'my kids', 'electronics', 'art supplies', 'dogs', 'snakes', 'tarantulas', 'reading'];
+	function pageController(){
+		$favoriteThings = ['writing', 'music', 'art', 'my kids', 'electronics', 'art supplies', 'dogs', 'snakes', 'tarantulas', 'reading'];
 
+		$randomThing = $favoriteThings[array_rand($favoriteThings)];
+	
+		return [
+			'favoriteThings' => $favoriteThings,
+			'randomThing' => $randomThing,
+		];
+	}
+	extract(pageController());
 ?>
 
 <!DOCTYPE html>
@@ -21,12 +30,12 @@
 					<tr> My Favorite Things</tr>
 				</thead>
 				<tbody>	
-					<?php foreach($favoriteThings as $thing) { ?>
+					<?php foreach($favoriteThings as $thing): ?>
 					<tr> 
-						<td><?php echo $thing ?>
+						<td><?= $thing ?>
 						</td>
 					</tr>
-						<?php } ?> 
+					<?php endforeach; ?> 
 				</tbody>
 			</table>
 
