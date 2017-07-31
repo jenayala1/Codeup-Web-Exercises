@@ -1,0 +1,41 @@
+body {
+
+	font-family "Bank Gothic";
+
+	img {
+  		vertical-align: middle;
+  	}
+
+}
+
+table {
+	border-style: solid grey;
+	padding: 20px
+}
+
+thead {
+	font-size: 30px;
+	font-weight: bold;
+}
+
+tbody {
+	border-style: solid;
+}
+
+tr {
+	font-size: 24px;
+
+}
+
+
+td {
+	width: 50px;
+	height: 30px;
+	font-size: 18px;
+	margin-left: 10px;
+	
+}
+
+tr:nth-child(even) {
+	background-color: grey;
+}
