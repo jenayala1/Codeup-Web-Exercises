@@ -34,7 +34,7 @@ extract(pageController());
 
     <form>
         <h1> Counter: <?= $counter ?><h1>
-        <a href="/counter.php?counter=<?=($counter)+1?>"><?= $counter ?>UP</a>
-        <a href="/counter.php?counter=<?=($counter)-1?>"><?= $counter ?>DOWN</a>
+        <a href="?counter=<?=$counter +1 ?>">HIT</a>
+        <a href="?counter=<?=$counter ?>">MISS</a>
     </body>
 </html>
