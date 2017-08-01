@@ -1,6 +1,5 @@
 <?php
 
-
 // Require or include statements are allowed here. All other code goes in the pageController function.
 
 /**
@@ -9,13 +8,12 @@
  */
 function pageController()
 {
-    
+    // Initialize an empty data array.
     $data = array();
-    $data['counter'] = isset($_GET['counter']) ? $_GET['counter'] : 0; 
-    //performs the if/else function
 
     // Add data to be used in the html view.
-    
+    $data['message'] = 'Hello Codeup!';
+
     // Return the completed data array.
     return $data;
 }
@@ -31,10 +29,6 @@ extract(pageController());
         <title>PHP + HTML</title>
     </head>
     <body>
-
-    <form>
-        <h1> Counter: <?= $counter ?><h1>
-        <a href="/counter.php?counter=<?=($counter)+1?>"><?= $counter ?>UP</a>
-        <a href="/counter.php?counter=<?=($counter)-1?>"><?= $counter ?>DOWN</a>
+        <?php echo $message; ?>
     </body>
 </html>
