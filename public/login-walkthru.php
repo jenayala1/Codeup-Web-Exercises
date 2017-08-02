@@ -3,20 +3,28 @@
 	function pageController()
 	{
 		$data = [];
-		$username = (isset($_POST['username'])) ? $_POST['username'] : "undefined";
-		
-		$password = (isset($_POST['password'])) ? $_POST['password'] : "undefined";
+		$message = "";
 
-		$data['username'] = $username;
-			
-		//redirect to another page:
-		if ($username == "guest" && $password == "password") {
-			header("Location:/authorized.php");
-			die(); // must specify the code to end after the function runs
-		} else {
-			echo "LOGIN FAILED";
+		$username = (isset($_POST['username'])) ? $_POST['username'] : "";	
+		$password = (isset($_POST['password'])) ? $_POST['password'] : "";
+	
+
+		if(!empty($_POST)) {
+			if($username == "guest" && $password == "password"){
+				header("Location:/authorized.php");
+				die();
+			} else {
+				$message = "Invalid login!";
+			}
+
 		}
-		return $data;
+		$data = [
+		'username' => $username,
+		'password'=> $password,
+		'message' => $message
+		];
+		
+	return $data;
 	}
 
 extract(pageController());
@@ -33,6 +41,8 @@ extract(pageController());
 	    <title>Login Page</title>
 	</head>
 	<body>
+		<h1> PLEASE LOG IN FOR AUTHORIZATION </h1>
+		<p><?= $message ?></p>
 		<form method="POST">
 	        <label for="username">USERNAME</label>
 	        <input id="username" type="text" name="username">
