@@ -36,5 +36,6 @@ extract(pageController());
         <h1> Counter: <?= $counter ?><h1>
         <a href="/counter.php?counter=<?=$counter +1 ?>">UP</a>
         <a href="/counter.php?counter=<?=$counter -1 ?>">DOWN</a>
+        
     </body>
 </html>

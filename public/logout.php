@@ -1,18 +1,7 @@
 <?php
 
 session_start();
- 
-// $sessionId = session_id();
-//  //obtains a unique identifier associated to the session, not required-generally used to check the ID
 
-//  $viewCount = isset($_SESSION['view_count']) ? $_SESSION['view_count'] : 0;
-//  //initialize a view count variable, gets the key & assign it to the variable
-
-//  $viewCount++;
-//  //increments the counter - each time the page is loaded, even if the browser is closed & reopened without having to reintialize
-
-//  $_SESSION['view_count'] = $viewCount;
-//  //stores the new value to the key in the session - writing to the session
  
 if(isset($_GET['logout'])) {
 	logout();
