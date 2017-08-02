@@ -13,7 +13,7 @@ function pageController()
     $data = array();
     $data['counter'] = isset($_GET['counter']) ? $_GET['counter'] : 0; 
     //performs the if/else function
-
+    $message = "COUNTER RESET - GAME OVER";
     // Add data to be used in the html view.
     
     // Return the completed data array.
@@ -35,6 +35,6 @@ extract(pageController());
     <form>
         <h1> Counter: <?= $counter ?><h1>
         <a href="?counter=<?=$counter +1 ?>">HIT</a>
-        <a href="?counter=<?=$counter ?>">MISS</a>
+        <a href="?counter=<?=$message ?>">MISS</a>
     </body>
 </html>
