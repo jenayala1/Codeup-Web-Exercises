@@ -1,23 +1,53 @@
 <?php
-	
-	function pageController()
-	{
-		$data = [];
-		$username = (isset($_POST['username'])) ? $_POST['username'] : "undefined";
-		
-		$password = (isset($_POST['password'])) ? $_POST['password'] : "undefined";
 
-		$data['username'] = $username;
-			
-		//redirect to another page:
-		if ($username == "guest" && $password == "password") {
-			header("Location:/authorized.php");
-			die(); // must specify the code to end after the function runs
-		} else {
-			echo "LOGIN FAILED";
-		}
-		return $data;
+session_start();
+function logout()
+{
+ 	//need all 3 to stop the session, clear the data & erase session data:
+ 	session_unset(); //clears the session
+ 	session_regenerate_id(true); //destroys the data & erasing the session data from server
+ 	session_destroy(); //stops the session from running
+ 	session_start(); //start a new session
+}
+
+function pageController()
+{
+	$data = [];
+
+	if(isset($_SESSION['logged_in_user'])) {
+		header("Location: authorized.php");
+		die();
 	}
+	
+	$username = (isset($_POST['username'])) ? $_POST['username'] : "undefined";
+	$password = (isset($_POST['password'])) ? $_POST['password'] : "undefined";
+	$message = "";
+
+	$data = [
+		'username' => $username,
+		'password' => $password,
+		'message' => $message
+	];	
+
+	if (!empty($_POST)) {
+		if ($username == "guest" && $password == "password") {
+		$_SESSION['logged-in-user'] = $username;
+		header("Location:/authorized.php");
+		die(); 
+	
+		} else {
+			echo $message = "Invalid Login";
+		}
+	}
+
+	if(isset($_GET['logout'])) {
+			logout();
+			header("Location:/logout.php");
+			die();
+	}
+
+	return $data;
+}
 
 extract(pageController());
 ?>
@@ -37,13 +67,11 @@ extract(pageController());
 	        <label for="username">USERNAME</label>
 	        <input id="username" type="text" name="username">
 	        <br>
-
 	        <label for="password">PASSWORD</label>
 	        <input id="password" type="password" name="password">
 	        <br>
 	        <button type ='submit'>Submit</button>
-
+	    
 		</form>
-
 	</body>
 </html>

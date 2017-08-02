@@ -14,9 +14,7 @@ function pageController()
 
 		$userItem = (isset$_POST['newitem'])) ? $_POST['newitem'] : "";
 
-		if ($userItem !== "" {
-			
-		})
+
 
 		$data['allItems'] = $items;
 
@@ -35,7 +33,8 @@ extract(pageController());
     <h1>List of Items</h1>
     <ul>
     <?php foreach ($allItems as $item): ?>
-        <li><?php echo $item; ?></li>
+        <li><?php echo htmlspecialchars(strip_tags($item)); ?></li> 
+       <!--  still posts the data - without the tags & any code -->
     <?php endforeach; ?>
     </ul>
 

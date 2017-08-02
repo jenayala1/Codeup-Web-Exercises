@@ -23,7 +23,6 @@
 		'password'=> $password,
 		'message' => $message
 		];
-		
 	return $data;
 	}
 

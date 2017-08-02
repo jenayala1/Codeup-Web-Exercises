@@ -1,8 +1,26 @@
 <?php
 
 session_start();
+ 
+// $sessionId = session_id();
+//  //obtains a unique identifier associated to the session, not required-generally used to check the ID
 
-function logout()
+//  $viewCount = isset($_SESSION['view_count']) ? $_SESSION['view_count'] : 0;
+//  //initialize a view count variable, gets the key & assign it to the variable
+
+//  $viewCount++;
+//  //increments the counter - each time the page is loaded, even if the browser is closed & reopened without having to reintialize
+
+//  $_SESSION['view_count'] = $viewCount;
+//  //stores the new value to the key in the session - writing to the session
+ 
+if(isset($_GET['logout'])) {
+	logout();
+	header("Location:/login.php");
+	die();
+}
+
+ function logout()
  {
  	//need all 3 to stop the session, clear the data & erase session data:
  	session_unset(); //clears the session
@@ -20,7 +38,8 @@ function pageController()
 		$username = (isset($_POST['username'])) ? $_POST['username'] : "";	
 		$password = (isset($_POST['password'])) ? $_POST['password'] : "";
 	
-		if(empty($_POST)) {
+
+		if(!empty($_POST)) {
 			if($username == "guest" && $password == "password"){
 				header("Location:/authorized.php");
 				die();
@@ -35,9 +54,8 @@ function pageController()
 		'message' => $message
 		];
 
-		if(isset($_GET['logout'])) {
-			logout();
-			header("Location:/logout.php");
+		if(isset($_GET['login'])) {
+			header("Location:/login.php");
 			die();
 		}
 			
@@ -55,13 +73,12 @@ extract(pageController());
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 	    <link href="css/bootstrap.css" rel="stylesheet">
 	    <link href="css/login.css" rel="stylesheet">
-	    <title>AUTHORIZED</title>
+	    <title>LOG OUT</title>
 	</head>
 	<body>
 		<form>
-			<h1> AUTHORIZED!</h1>
-			<h2> Welcome <?=$username ?>!</h2>
-			<button type ='submit' name='logout'>Logout</button>
+			<h1> YOU HAVE SUCCESSFULLY LOGGED OUT!</h1>
+			<button type ='submit' name='login'>LOG IN</button>
 		</form>
 
 	</body>
