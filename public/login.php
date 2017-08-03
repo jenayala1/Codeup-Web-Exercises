@@ -1,6 +1,9 @@
 <?php
 
 session_start();
+
+require 'functions.php';
+
 function logout()
 {
  	//need all 3 to stop the session, clear the data & erase session data:
@@ -19,8 +22,8 @@ function pageController()
 		die();
 	}
 	
-	$username = (isset($_POST['username'])) ? $_POST['username'] : "undefined";
-	$password = (isset($_POST['password'])) ? $_POST['password'] : "undefined";
+	$username = (isset($_REQUEST['username'])) ? $_REQUEST['username'] : "undefined";
+	$password = (isset($_REQUEST['password'])) ? $_REQUEST['password'] : "undefined";
 	$message = "";
 
 	$data = [

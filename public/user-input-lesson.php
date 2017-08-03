@@ -5,7 +5,6 @@
 // Following best practices will help prevent malicious code from being injected in your site
 // 
 
-
 function pageController()
 	{
 		$data = [];
@@ -13,7 +12,6 @@ function pageController()
 		$items = array('Item One', 'Item Two', 'Item Three');
 
 		$userItem = (isset$_POST['newitem'])) ? $_POST['newitem'] : "";
-
 
 
 		$data['allItems'] = $items;

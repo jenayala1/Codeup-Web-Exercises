@@ -60,7 +60,7 @@ extract(pageController());
 	<body>
 		<form>
 			<h1> AUTHORIZED!</h1>
-			<h2> Welcome <?=$username ?>!</h2>
+			<h2> Welcome <?='username' ?>!</h2>
 			<button type ='submit' name='logout'>Logout</button>
 		</form>
 
