@@ -28,7 +28,7 @@ session_start();
 		<div class='container'>
 			<img src="/img/DSC_0726-698.jpg">
 		</div>
-		<div> PLACEHOLDER TEXT <
+		<div class="text"> PLACEHOLDER TEXT <
 			<p>
 				PHP Pandas is the book that aims to teach everyone how to be a web developer. You don't need any existing web development experience. The entire book is available online to encourage learning. If you like what you see, please consider buying a copy of the book to support my future writing efforts!
 				It's available in a number of awesome formats including PDF and eBook. It's also got a bunch of extras that you won't find on the site! Enjoy!
