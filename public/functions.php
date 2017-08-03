@@ -7,12 +7,13 @@
 // $_REQUEST[$variable]
 // gets the key=>value from either POST or GET
 
+//purpose - use as a template for functions that will be repeatedly used in other files
+
 function inputHas($key)
 {
 
 	return isset($_REQUEST[$key]);
 }
-
 
 function inputGet($key)
 {
@@ -22,7 +23,6 @@ function inputGet($key)
 		return $default;
 	}
 }
-
 
 function escape($input)
 {

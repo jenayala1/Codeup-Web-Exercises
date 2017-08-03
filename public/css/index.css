@@ -1,0 +1,36 @@
+
+body {
+	background-color: ghostwhite;
+	font-size: 18px;
+	font: white;
+}
+
+.container img {
+	position: relative;
+	width: 60%;
+	height: 60%;
+	margin-left: 10px;
+	padding: 20px;
+
+}
+h1 {
+	font-family: "Times New Roman";
+	font-size: 30px;
+	text-align: center;
+	font: white;
+
+}
+
+.navbar {
+	font-size: 14px;
+	font: dimgray;
+	background-color: aliceblue;
+}
+
+p {
+	font-size: 16px;
+}
+
+.text {
+	font-size: 24px;
+}
