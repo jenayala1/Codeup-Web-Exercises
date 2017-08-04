@@ -1,7 +1,9 @@
 <?php
 
 session_start();
-require_once "functions.php";
+require_once '../Auth.php';
+require_once '../Input.php';
+require_once '../Log.php';
 
 function logout()
  {
@@ -45,7 +47,7 @@ function pageController()
 	return $data;
 }
 extract(pageController());
-	
+var_dump($password);	
 ?>
 
 <!DOCTYPE html>
@@ -61,7 +63,7 @@ extract(pageController());
 	<body>
 		<form>
 			<h1> AUTHORIZED!</h1>
-			<h2> Welcome <?= escape($username) ?>!</h2>
+			<h2> Welcome <?= ($username) ?>!</h2>
 			<button type ='submit' name='logout'>Logout</button>
 		</form>
 

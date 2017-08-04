@@ -1,7 +1,9 @@
 <?php
 
 session_start();
-
+require_once '../Auth.php';
+require_once '../Input.php';
+require_once '../Log.php';
  
 if(isset($_GET['logout'])) {
 	logout();
