@@ -9,11 +9,13 @@
 
 //purpose - use as a template for functions that will be repeatedly used in other files
 
-function inputHas($key)
+function inputHas($key) 
 {
 
 	return isset($_REQUEST[$key]);
 }
+
+// takens in whatever key is provided, with a generic superglobal $_Request, returns a boolean
 
 function inputGet($key)
 {
@@ -23,6 +25,9 @@ function inputGet($key)
 		return $default;
 	}
 }
+
+//verifies in inputGet that inputHas key exists & returns the $key
+
 
 function escape($input)
 {
