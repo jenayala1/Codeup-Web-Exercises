@@ -11,6 +11,8 @@
 //	- a set of instructions
 //	- function that generates an object
 
+
+//std class - the standard class is a built in class that is limited because it doen
 // abstraction:
 // -- variables abstract values
 // -- conditionals abstract decisions
@@ -18,6 +20,7 @@
 // -- functions abstract process or sequence of step (behavior)
 // -- classes abstract behavior and state(status - i.e. on or off) together to enable treating it as one thing
 
+// --$this - self references the instance of the object
 
 //method is a name for a function that is on a class or an object, all methods are functions
 //===============================

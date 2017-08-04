@@ -2,6 +2,7 @@
 
 // require_once 'functions.php';
 require_once '/vagrant/sites/codeup.dev/Input.php';
+require_once 'functions.php';
 
 function pageController() {
     $data = [];
@@ -36,8 +37,8 @@ crossorigin="anonymous">
 <body>
     <main class="container">
         <h1>Ping!</h1>
-        <h1>Counter: <?= $count ?></h1>
-        <a class="btn btn-primary" href="pong.php?count=<?= $count +1 ?>">Hit</a>
+        <h1>Counter: <?= escape($count) ?></h1>
+        <a class="btn btn-primary" href="pong.php?count=<?= escape($count) +1 ?>">Hit</a>
         <a class="btn btn-primary" href="ping.php?count=0&lose=true">Miss</a>
     </main>
     <!-- minified jQuery -->
