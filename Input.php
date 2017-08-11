@@ -10,7 +10,7 @@ class Input
      */
     public static function has($key)
     {
-       return isset($_Request[$key]);
+       return isset($_REQUEST[$key]);
     }
 
     /**
