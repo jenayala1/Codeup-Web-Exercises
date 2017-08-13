@@ -1,8 +1,7 @@
+
 <?php
 require 'db_connect.php';
-
 $truncate = "TRUNCATE national_parks";
-
 $statement = 
 "INSERT INTO national_parks(name, location, date_established, area_in_acres)
 	VALUES
@@ -61,10 +60,9 @@ $statement =
 	('Virgin Islands','United States Virgin Islands','1956-08-02',14688.87),
 	('Voyageurs','Minnesota','1971-01-08',218200.17),
 	('Wind Cave','South Dakota','1903-01-09',28295.03),
-	('Wrangell–St. Elias','Alaska','1980-12-02',8323147.59),
+	('Wrangell–St. Elias','Alaska','1980-12-02',8323147.59),
 	('Yellowstone','Wyoming, Montana, Idaho','1872-03-01',2219790.71),
 	('Yosemite','California','1890-10-01',761266.19),
 	('Zion','Utah','1919-11-19',146597.60);";
-
-$dbc->exec($truncate);
-$dbc->exec($statement);
+$connection->exec($truncate);
+$connection->exec($statement);

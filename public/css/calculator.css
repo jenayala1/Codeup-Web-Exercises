@@ -12,11 +12,13 @@ h1 {
 }
 
 section {
-	width: 300px;
+	width: 350px;
+	height: 450px;
 	border-style: solid;
-	border-color: grey;
+	border-color: #99ffcc;
 	margin: 10px;
 	background-color: silver;
+	border-radius: 50px;
 
 
 }
@@ -64,16 +66,19 @@ section {
 }
 
 input[type="button"] {
-	border: solid lightgrey;
-	width: 66px;
-	height: 66px;
-	box-shadow: 1px, 1px, rgba (0, 0, 0, 0.4);
-	margin: 20px, 20px, 20px, 40px;
-	font-size: 16px;
+	border-width: 2px;
+	padding: 4px;
+	text-align: center;
+	margin: auto;
+	border-radius: 12px;
+	margin-top: 50px;
+	overflow: hidden;
+	background-color: #F3D8C7;
+	border-color: #00e673;
+	color: #695848;
+	font-weight: bold;
 	font-family: "oswald";
-	padding: 8px;
-	border-style: inset;
-
+	box-shadow:inset 2px 0px 5px 0px rgba(42,42,42,.75)
 		
 }
 	.number {

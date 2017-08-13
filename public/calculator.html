@@ -1,62 +1,61 @@
 <!DOCTYPE html>
 <html>
-<head>
-	 <meta charset="UTF-8">
-	<title>Calculator</title>
- 	<!-- <link href="css/bootstrap.min.css" rel="stylesheet">   --> 
-	<link href="css/calculator.css" rel="stylesheet">
+	<head>
+		 <meta charset="UTF-8">
+		<title>Calculator</title>
+	 	<!-- <link href="css/bootstrap.min.css" rel="stylesheet">   --> 
+		<link href="css/calculator.css" rel="stylesheet">
 
-</head>
+	</head>
 
-<body>
-	
-	<section id="container">
-		<div class="display"> 
-		<h1>CALCULATOR</h1>
-			<input id="leftinput" type="text" width="40px" value="">
-			<input id="moperator" type="text" value="">
-			<input id="rightinput" type="text" value="">
-		</div>
-		<br>
-		<br>
-		<div class="keys">
-			<span>
-				<input type="button" value="C" id="clear">
-				<input type="button" value="+/-" id="plusminus">
-				<input type="button" value="%" id="bpercent">
-				<input type="button" value="/" class="operator">
-			</span>
+	<body>
+		<section id="container">
+			<div class="display"> 
+			<h1>CALCULATOR</h1>
+				<input id="leftinput" type="text" width="40px" value="">
+				<input id="moperator" type="text" value="">
+				<input id="rightinput" type="text" value="">
+			</div>
 			<br>
-			<span>
-				<input type="button" value="7" class="number">
-				<input type="button" value="8" class="number">
-				<input type="button" value="9" class="number">
-				<input type="button" value="*" class="operator">
-			</span>
 			<br>
-			<span>
-				<input type="button" value="4" class="number">
-				<input type="button" value="5" class="number">
-				<input type="button" value="6" class="number">
-				<input type="button" value="-" class="operator">
-			</span>
-			<br>
-			<span>
-				<input type="button" value="1" class="number">
-				<input type="button" value="2" class="number">
-				<input type="button" value="3" class="number">
-				<input type="button" value="+" class="operator">
-			</span>
-			<br>
-			<span id="bottomrow">
-				<input type="button" value="0" style="width: 134px" class="number">
-				<input type="button" value="." class="number">
-				<input type="button" value="=" id="bequal">
-			</span>			
-		</div>
-	</section>
-<script type="text/javascript"></script>
-<script src="js/calculator.js"></script> 
+			<div class="keys">
+				<span>
+					<input type="button" value="C" id="clear">
+					<input type="button" value="-" class="number" id="plusminus">
+					<!-- <input type="button" value="%" id="bpercent"> -->
+					<input type="button" value="/" class="operator" id="divide">
+				</span>
+				<br>
+				<span>
+					<input type="button" value="7" class="number">
+					<input type="button" value="8" class="number">
+					<input type="button" value="9" class="number">
+					<input type="button" value="*" class="operator" id="multiply">
+				</span>
+				<br>
+				<span>
+					<input type="button" value="4" class="number">
+					<input type="button" value="5" class="number">
+					<input type="button" value="6" class="number">
+					<input type="button" value="-" class="operator" id="subtract">
+				</span>
+				<br>
+				<span>
+					<input type="button" value="1" class="number">
+					<input type="button" value="2" class="number">
+					<input type="button" value="3" class="number">
+					<input type="button" value="+" class="operator" id="add">
+				</span>
+				<br>
+				<span id="bottomrow">
+					<input type="button" value="0" style="width: 134px" class="number">
+					<input type="button" value="." class="number">
+					<input type="button" value="=" id="bequal">
+				</span>			
+			</div>
+		</section>
+		<script type="text/javascript"></script>
+		<script src="js/calculator.js"></script> 
 
-</body>
+	</body>
 </html>

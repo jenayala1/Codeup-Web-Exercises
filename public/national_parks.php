@@ -2,7 +2,6 @@
 
  require_once __DIR__ . '/../db_connect.php';
  require_once __DIR__ . "/../Input.php";
-
 	
 function pageController($connection) {
 	$data = [];
@@ -16,7 +15,6 @@ function pageController($connection) {
 	$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 	$data['results'] = $results;
 	$data['page'] = $page;
-
 
 return $data;
 			
@@ -58,7 +56,21 @@ extract(pageController($connection));
 					<td><?= $result['area_in_acres'] ?></td>
 				</tr>
 					<?php endforeach; ?>
-			</table>			
+			</table>	
+			<br>
+			<h3> Add a new entry </h3>
+			<form method="POST" action= >
+				<label> Park Name </label>
+				<input type="text" id="name" name="name" placeholder="parkName">
+				<label> Park Location </label>
+				<input type="text" id="location" name="location" placeholder="location">
+				<label> Date Established </label>
+				<input type="text" id="date_established" name="date_established" placeholder="date_established">
+				<label> Area (in acres) </label>
+				<input type="text" id="area_in_acres" name="area_in_acres" placeholder="area_in_acres">
+	
+				<button type="submit" value="add"> SUBMIT </button>
+			</form>		
 			<br>
 			<a class="btn-btn-primary" href="?page=<?= $page -1 ?>">PREVIOUS</a>
 			<a class="btn-btn-primary" href="?page=<?= $page +1 ?>">NEXT</a>

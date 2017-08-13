@@ -16,14 +16,14 @@ var bequal = document.getElementById("bequal");
 var clear = document.getElementById("clear");
 var bpercent = document.getElementById("bpercent");
 var plusminus = document.getElementById("plusminus");
-var displayInfo
+var displayInfo;
 
 
 ///STEP 2: FIGURE OUT CONDITIONS & FUNCTION STATEMENTS
-//-----#2A: 
-//-------For loop: thru operators & numbers to set event listener by class ------------
-//-------NOTES---this enables the click functionality to apply to all elements defined by the specified class ------- 
-//-------instead of creating an add event listener to each individual element -------------------------------
+//-- #2A: 
+//---- For loop: thru operators & numbers to set event listener by class ---
+//---- NOTES---this enables the click functionality to apply to all elements defined by the specified class --- 
+//---- instead of creating an add event listener to each individual element ---
 
 for (var i = 0; i < number.length; i++) {
 	number[i].addEventListener("click", buttonHandler);
@@ -34,9 +34,9 @@ for (var i = 0; i < operator.length; i++) {
 }
 
 
-//------#2B: Establish function to insert data into the input fields by clicking number & operator buttons----
-//----------- Using if/else statement, beginning with operator:
-//----------the left input will only be poplulated if the other two input fields are empty ---------
+//-- #2B: Establish function to insert data into the input fields by clicking number & operator buttons---
+//---- Using if/else statement, beginning with operator:
+//---- the left input will only be poplulated if the other two input fields are empty ---
 
 function buttonHandler() {
 	if (this.className.includes("operator")) {
@@ -55,7 +55,7 @@ function buttonHandler() {
 	}
 }
 	
-//-------STEP #3: Create function to clear all values (by element id) -------
+//-- STEP #3: Create function to clear all values (by element id) ---
 clear.addEventListener("click", function() {
 	leftinput.setAttribute("value", "");
 	moperator.setAttribute("value", "");
@@ -64,7 +64,7 @@ clear.addEventListener("click", function() {
 });
 
 
-//--------STEP #4 - Calculation function to get answer when "=" is clicked, using switch -------
+//-- STEP #4 - Calculation function to get answer when "=" is clicked, using switch ---
 
 bequal.addEventListener("click", function() {
 	var rightinputNumber = parseFloat(rightinput.getAttribute("value"));
@@ -88,7 +88,7 @@ bequal.addEventListener("click", function() {
 		break;
 
 	}
-//-----clear the input fields to only display the answer in the leftinput field: -----------
+//-- clear the input fields to only display the answer in the leftinput field: ---
 	leftinput.setAttribute("value", answer);
 	rightinput.setAttribute("value", "");
 	moperator.setAttribute("value", "");

@@ -9,8 +9,9 @@ $statement = "CREATE TABLE national_parks(
 		 	location VARCHAR(255),
 		 	date_established DATE,
 		 	area_in_acres DOUBLE(12, 2),
+		 	description VARCHAR(255),
 		 	PRIMARY KEY(id)
 		 );";
-$dbc->exec($drop);
-$dbc->exec($statement);
+$connection->exec($drop);
+$connection->exec($statement);
  
