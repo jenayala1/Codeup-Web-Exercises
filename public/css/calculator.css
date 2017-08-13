@@ -1,7 +1,7 @@
 body {
 	font-family: "oswald";
-	padding-bottom: 10px;
-	margin-left: 10px;
+	/*padding-bottom: 10px;
+	margin-left: 10px;*/
 
 }
 
@@ -14,95 +14,119 @@ h1 {
 section {
 	width: 350px;
 	height: 450px;
-	border-style: solid;
-	border-color: #99ffcc;
+	border-style: solid ;
+	border-color: #07e4ea;
 	margin: 10px;
-	background-color: silver;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #92d6ea), color-stop(1, #2e2d56));
+	background:-moz-linear-gradient(top, #92d6ea 5%, #2e2d56 100%);
+	background:-webkit-linear-gradient(top, #92d6ea 5%, #2e2d56 100%);
+	background:-o-linear-gradient(top, #92d6ea 5%, #2e2d56 100%);
+	background:-ms-linear-gradient(top, #92d6ea 5%, #2e2d56 100%);
+	background:linear-gradient(to bottom, #92d6ea 5%, #2e2d56 100%);
 	border-radius: 50px;
-
 
 }
 
 #leftinput {
-	height: 33px;
-	width: 74px;
+	height: 25px;
+	width: 60px;
 	padding: 12px;
-	border: solid lightgrey;
+	border: solid #07e4ea;
 	text-align: center;
 	margin-bottom: 10px;
-	margin-left: 10px;
+	margin-left: 40px;
 	border-style: inset;
 	font-size: 16px;
-	font-family: "oswald";
+
 	border-right-color: transparent;
+	border-radius: 20px;
 }
 
 #rightinput {
-	height: 33px;
-	width: 74px;
+	height: 25px;
+	width: 60px;
 	padding: 12px;
-	border: solid lightgrey;
+	border: solid #07e4ea;
 	text-align: center;
 	margin: bottom;
 	border-style: inset;
 	font-size: 16px;
-	font-family: "oswald";
-	border-right-color: lightgrey;
+	border-right-color: #07e4ea;
 	border-left-color: transparent;
+	border-radius: 20px;
 }
 
 #moperator {
-	height: 33px;
+	height: 25px;
 	width: 30px;
 	padding: 12px;
-	border: solid lightgrey;
+	border: solid #07e4ea;
 	text-align: center;
 	margin: bottom;
 	border-style: inset;
-	font-size: 16px;
-	font-family: "oswald";
+	font-size: 14px;
 	border-right-color: transparent;
 	border-left-color: transparent;
+	border-radius: 20px;
 }
 
 input[type="button"] {
+	width: 40px;
+	height: 35px;
 	border-width: 2px;
-	padding: 4px;
+	padding: 2px;
 	text-align: center;
-	margin: auto;
+	margin-left: 30px;
 	border-radius: 12px;
-	margin-top: 50px;
+	margin-top: 10px;
 	overflow: hidden;
-	background-color: #F3D8C7;
-	border-color: #00e673;
-	color: #695848;
-	font-weight: bold;
-	font-family: "oswald";
+	/*background-color: #8abbc9;
+	border-color: #07e4ea;*/
+	/*color: #e3f4f4;
+	font-weight: normal;*/
 	box-shadow:inset 2px 0px 5px 0px rgba(42,42,42,.75)
 		
 }
 	.number {
-		background-color: grey;
-		color: white;
-
+		-moz-box-shadow:inset 0px 1px 0px 0px #558792;
+		-webkit-box-shadow:inset 0px 1px 0px 0px #558792;
+		box-shadow:inset 0px 1px 0px 0px #558792;
+		background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #0c5363), color-stop(1, #36636d));
+		background:-moz-linear-gradient(top, #0c5363 5%, #36636d 80%);
+		background:-webkit-linear-gradient(top, #0c5363 5%, #36636d 80%);
+		background:-o-linear-gradient(top, #0c5363 5%, #36636d 80%);
+		background:-ms-linear-gradient(top, #0c5363 5%, #36636d 80%);
+		background:linear-gradient(to bottom, #0c5363 5%, #36636d 80%);
+		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#0c5363', endColorstr='#36636d',GradientType=0);
+		background-color:#02303a;
+		-moz-border-radius:6px;
+		-webkit-border-radius:6px;
+		border-radius:6px;
+		border:1px solid #268a16;
+		display:inline-block;
+		cursor:pointer;
+		color: #cfe7e7;
+		font-size:14px;
+		text-decoration:none;
+		text-shadow:0px 1px 0px #7cded2;
+		margin: 4px;
 	}
 
 	.operator {
-		background-color: goldenrod;
+		background-color: #4cb0a3;
+		color: navy;
+		
+	}
+
+	#clear {
+		background-color: #4cb0a3;
 		color: navy;
 	
 	}
 
-	#clear {
-		background-color: goldenrod;
-		color: navy;
-		
-	}
-
 	#bequal {
-		background-color: goldenrod;
-		color: navy;
-		
+		background-color: #4cb0a3;
+		color: navy;		
 	}
 
 	#bottomrow {
@@ -110,12 +134,12 @@ input[type="button"] {
 	}
 
 	#plusminus {
-		background-color: goldenrod;
+		background-color: #4cb0a3;
 		color: navy;
 	}
 
 	#bpercent {
-		background-color: goldenrod;
+		background-color: #4cb0a3;
 		color: navy;
 	}
 
