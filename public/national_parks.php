@@ -1,7 +1,7 @@
 <?php
  require_once __DIR__ . '/../db_connect.php';
  require_once __DIR__ . "/../Input.php";
- require_once __DIR__ . "/../Park.php";
+ // require_once __DIR__ . "/../Park.php";
 	
 function pageController($connection) {
 	$data = [];
@@ -15,7 +15,6 @@ function pageController($connection) {
     $stmt->bindValue(':offset', (int)$limit, PDO::PARAM_INT);
     $stmt->execute();
 	$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
 	$data['results'] = $results;
 	$data['page'] = $page;
 	return $data;

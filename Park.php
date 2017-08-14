@@ -39,15 +39,18 @@ class Park
      * our connection to the database
      */
     public static $connection = null;
+    public static $parks = 'national_parks';
            
     /**
      * establish a database connection if we do not have one
      */
     public static function dbConnect() {
-        if (! is_null(self::$connection)) {
+        require 'db_connect.php';
+
+        if (! is_null(self::$dbc)) {
             return;
         }
-        self::$connection = require 'db_connect.php';
+        self::$dbc = $connection;
     }
 
     /** * returns the number of records in the database*/
@@ -56,25 +59,37 @@ class Park
         // TODO: call dbConnect to ensure we have a database connection
         // TODO: use the $dbc static property to query the database for the
         //       number of existing park records
+        
+
         $countQuery = "SELECT COUNT(*) FROM national_parks";
-        $stmt = $connection->query($countQuery);
+        $stmt = self::query($countQuery);
         $count = (int)$stmt->fectchColumn();
 
         return $count;
-        var_dump(count);
-
     }
 
     /**
      * returns all the records
      */
-    public static function all() {
+    public static function all($connection) {
         // TODO: call dbConnect to ensure we have a database connection
         // TODO: use the $dbc static property to query the database for all the
         //       records in the parks table
         // TODO: iterate over the results array and transform each associative
         //       array into a Park object
         // TODO: return an array of Park objects
+        $data = [];
+        $query = $"SELECT * FROM national_parks limit $limit offset $offset";
+        $stmt = $this->$connection->prepare($query);
+        $stmt->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
+        $stmt->bindValue(':offset', (int)$limit, PDO::PARAM_INT);
+        $stmt->execute();
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        $data['results'] = $results;
+        $data['page'] = $page;
+        return $data;
+
     }
 
     /**
@@ -87,6 +102,10 @@ class Park
         // TODO: use the $dbc static property to query the database with the
         //       calculated limit and offset
         // TODO: return an array of the found Park objects
+            $pageNo = Input::get('page', 1);
+            $resultsPerPage = Input::get('quantity', 4);
+            $offset = ($page - 1) * $resultsPerPage;
+
     }
 
     /////////////////////////////////////
@@ -114,5 +133,16 @@ class Park
         //       the prepared statement
         // TODO: excute the statement and set the $id property of this object to
         //       the newly created id
+        $newPark = ('INSERT INTO national_parks (name, location, date_established, area_in_acres, description) VALUES (:name, :location, :date_established, :area_in_acres, :description)');
+        $stmt = $connection->prepare($newPark);
+        $stmt->bindValue(':name', $_POST['name'], PDO::PARAM_STR);
+        $stmt->bindValue(':location', $_POST['location'], PDO::PARAM_STR);
+        $stmt->bindValue(':date_established', $_POST['date_established'], PDO::PARAM_STR);
+        $stmt->bindValue(':area_in_acres', $_POST['area_in_acres'], PDO::PARAM_INT);
+        $stmt->bindValue(':description', $_POST['description'], PDO::PARAM_STR);
+        $stmt->execute();
+        return $newPark;
+
+
     }
 }

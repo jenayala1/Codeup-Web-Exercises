@@ -1,6 +1,5 @@
 <?php
 
-
 require_once "Park.php";
 
 $parks = Park::all();
