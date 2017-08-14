@@ -3,7 +3,7 @@
 require 'db_connect.php';
 $truncate = "TRUNCATE national_parks";
 $statement = 
-"INSERT INTO national_parks(name, location, date_established, area_in_acres)
+"INSERT INTO national_parks(name, location, date_established, area_in_acres, description)
 	VALUES
 	('Acadia','Maine','1919-02-26',47389.67),
 	('American Samoa','American Samoa','1988-10-31',9000.00),
