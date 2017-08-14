@@ -12,31 +12,34 @@
  		!empty($_POST['description'])) {
 
  		return true;
+ 	
  	}	else {
+        echo "Please enter valid information";
  		return false;
  	}
  }
 
- function addPark($connection) {
-   $add = ('INSERT INTO national_parks (name, location, date_established, area_in_acres, description) VALUES (:name, :location, :date_established, :area_in_acres, :description)');
-    $stmt = $connection->prepare($add);
+ function addPark($connection) 
+ {
+    $newPark = ('INSERT INTO national_parks (name, location, date_established, area_in_acres, description) VALUES (:name, :location, :date_established, :area_in_acres, :description)');
+    $stmt = $connection->prepare($newPark);
     $stmt->bindValue(':name', $_POST['name'], PDO::PARAM_STR);
     $stmt->bindValue(':location', $_POST['location'], PDO::PARAM_STR);
     $stmt->bindValue(':date_established', $_POST['date_established'], PDO::PARAM_STR);
     $stmt->bindValue(':area_in_acres', $_POST['area_in_acres'], PDO::PARAM_INT);
     $stmt->bindValue(':description', $_POST['description'], PDO::PARAM_STR);
-    
     $stmt->execute();
-
+    return $newPark;
 }
 
 function pageController($connection) {
-    $data = [];
-    if (!empty($_POST) && verifyInput()) {
+    $newPark = [];
+    if (!empty($_POST) && verifyInput(true)) {
         addPark($connection); 
     } 
-   return $data; 
+   return $newPark; 
 }
+
 extract(pageController($connection));
 ?>
 
@@ -56,12 +59,13 @@ extract(pageController($connection));
 		<br>
 		<h2> Add a Park! </h2>
 		<div class="container">    
-	        <form method="POST" action="/add-park.php">
-	           
+    
+	        <form method="POST">
                 <label for="name"> Park Name: </label>
                 <input class="form-control" type="text" id="name" name="name"></input>
 	      		<br>
                 <label for="location"> Location: </label>
+            
                 <input class="form-control" type="text" id="location" name="location"></input>
 	          	<br>
                 <label class="form-control" for="date_established"> Date Established: </label>
@@ -73,9 +77,11 @@ extract(pageController($connection));
                 <label for="descriptionTextBox">Description: </label>
                 <textarea class="form-control" id="description" name="description"></textarea>
 	            <br>
+                <button type="submit" class="btn-btn-primary"> SUBMIT </button>
+
 	        </form>
 	        <br>
-				<a class="btn-btn-primary" href="?addPark<?= 'addPark' ?>"> SUBMIT </a>
+				
 
 	 	<script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
 	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 

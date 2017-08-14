@@ -9,10 +9,14 @@ function pageController($connection) {
 	$limit = Input::get('quantity', 4);
 	$offset = ($page - 1) * $limit;
 
-	$query = "SELECT * FROM national_parks limit $limit offset $offset;";
-	 //$query = $connection->prepare("SELECT * FROM national_parks limit $limit offset $offset;");
-
+	$query = $connection->prepare("SELECT * FROM national_parks limit $limit offset $offset;");
 	$stmt = $connection->query($query);
+	$stmt->bindValue(':name', $_POST['name'], PDO::PARAM_STR);
+    $stmt->bindValue(':location', $_POST['location'], PDO::PARAM_STR);
+    $stmt->bindValue(':date_established', $_POST['date_established'], PDO::PARAM_STR);
+    $stmt->bindValue(':area_in_acres', $_POST['area_in_acres'], PDO::PARAM_INT);
+    $stmt->bindValue(':description', $_POST['description'], PDO::PARAM_STR);
+    $stmt->execute();
 	$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 	$data['results'] = $results;
 	$data['page'] = $page;
