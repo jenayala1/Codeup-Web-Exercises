@@ -28,5 +28,15 @@ form {
 
 	padding-left: 5px;
 	margin-left: 20px
+
+}
+
+.btn-btn-primary {
+	margin-left: 20px;
+	padding-right: 10px;
 	
+}
+button {
+	background-color: #45dbe7;
+	color:black;
 }

@@ -1,33 +1,32 @@
 <?php
 
-*
+
  // * A Class for interacting with the national_parks database table
- // *
- // * contains static methods for retrieving records from the database
- // * contains an instance method for persisting a record to the database
- // *
+    // -- contains static methods for retrieving records from the database
+    // -- contains an instance method for persisting a record to the database
+
  // * Usage Examples
- // *
+ 
  // * Retrieve a list of parks and display some values for each record
  
- $parks = Park::all();
-       foreach($parks as $park) {
-           echo $park->id . PHP_EOL;
-           echo $park->name . PHP_EOL;
-           echo $park->description . PHP_EOL;
-           echo $park->areaInAcres . PHP_EOL;
-       }
+ // $parks = Park::all();
+ //       foreach($parks as $park) {
+ //           echo $park->id . PHP_EOL;
+ //           echo $park->name . PHP_EOL;
+ //           echo $park->location . PHP_EOL;
+ //           echo $park->description . PHP_EOL;
+ //           echo $park->areaInAcres . PHP_EOL;
+ //       }
   
  // * Inserting a new record into the database
  
-        $park = new Park();
-        $park->name = 'Acadia';
-        $park->location = 'Maine';
-        $park->areaInAcres = 48995.91;
-        $park->dateEstablished = '1919-02-26';
+       //  $park = new Park();
+       //  $park->name = 'Acadia';
+       //  $park->location = 'Maine';
+       //  $park->areaInAcres = 48995.91;
+       //  $park->dateEstablished = '1919-02-26';
  
-       $park->insert();
- 
+       // $park->insert();
  
 class Park
 {
@@ -39,25 +38,31 @@ class Park
     /**
      * our connection to the database
      */
-    public static $dbc = null;
-
+    public static $connection = null;
+           
     /**
      * establish a database connection if we do not have one
      */
     public static function dbConnect() {
-        if (! is_null(self::$dbc)) {
+        if (! is_null(self::$connection)) {
             return;
         }
-        self::$dbc = require 'dbc.php';
+        self::$connection = require 'db_connect.php';
     }
 
-    /**
-     * returns the number of records in the database
-     */
-    public static function count() {
+    /** * returns the number of records in the database*/
+
+    public static function count($connection) {
         // TODO: call dbConnect to ensure we have a database connection
         // TODO: use the $dbc static property to query the database for the
         //       number of existing park records
+        $countQuery = "SELECT COUNT(*) FROM national_parks";
+        $stmt = $connection->query($countQuery);
+        $count = (int)$stmt->fectchColumn();
+
+        return $count;
+        var_dump(count);
+
     }
 
     /**

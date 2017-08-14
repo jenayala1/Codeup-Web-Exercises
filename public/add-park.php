@@ -49,7 +49,7 @@ extract(pageController($connection));
 	    <meta charset="utf-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	    <title>Add Park</title>
-	  <!--   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"> -->
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	    <link rel="stylesheet" type="text/css" href="/css/npark.css">
 	</head>
 
@@ -60,7 +60,7 @@ extract(pageController($connection));
 		<h2> Add a Park! </h2>
 		<div class="container">    
     
-	        <form method="POST">
+	        <form method="POST" action="add-park.php">
                 <label for="name"> Park Name: </label>
                 <input class="form-control" type="text" id="name" name="name"></input>
 	      		<br>
@@ -82,7 +82,6 @@ extract(pageController($connection));
 	        </form>
 	        <br>
 				
-
 	 	<script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
 	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
 	    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" 

@@ -1,24 +1,24 @@
 <?php
-
  require_once __DIR__ . '/../db_connect.php';
  require_once __DIR__ . "/../Input.php";
+ require_once __DIR__ . "/../Park.php";
 	
 function pageController($connection) {
 	$data = [];
 	$page = Input::get('page', 1);
 	$limit = Input::get('quantity', 4);
 	$offset = ($page - 1) * $limit;
-
+	
 	$query = "SELECT * FROM national_parks limit $limit offset $offset";
 	$stmt = $connection->prepare($query);
 	$stmt->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
     $stmt->bindValue(':offset', (int)$limit, PDO::PARAM_INT);
     $stmt->execute();
 	$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 	$data['results'] = $results;
 	$data['page'] = $page;
-
-return $data;
+	return $data;
 			
 }
 extract(pageController($connection));
@@ -64,7 +64,11 @@ extract(pageController($connection));
 			<br>
 			<br>
 			<a class="btn-btn-primary" href="/add-park.php"> ADD A PARK </a>
-			<a class="btn-btn-primary" href="?page=<?= $page -1 ?>">PREVIOUS</a>
+			<div class="prev">
+				<?php if ($page >1) : ?>
+					<a class="btn-btn-primary" href="?page=<?= $page -1 ?>">PREVIOUS</a>
+				<?php endif; ?>
+
 			<a class="btn-btn-primary" href="?page=<?= $page +1 ?>">NEXT</a>
 
 	    <script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
