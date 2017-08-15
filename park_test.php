@@ -3,16 +3,14 @@
 require_once "Park.php";
 
 
-// echo Park::count() .PHP_EOL;
 
-print_r(Park::all);
-
+//echo "There are " . Park::count() . " parks in the parks table.";
 
 // $parks = Park::all();
 
 
-	// Park::dbConnect();
-	// var_dump(Park::$connection);
+// 	Park::dbConnect();
+// 	var_dump(Park::$connection);
 
 
 // test Park::count()
@@ -30,8 +28,8 @@ print_r(Park::all);
 
 	// echo $allParks[0]->name . PHP_EOL;
 	// echo $allParks[0]->location . PHP_EOL;
-	// echo $allParks[0]->dateEstablished . PHP_EOL;
-	// echo $allParks[0]->areaInAcres . PHP_EOL;
+	// echo $allParks[0]->date_established . PHP_EOL;
+	// echo $allParks[0]->area_in_acres . PHP_EOL;
 	// echo $allParks[0]->description . PHP_EOL;
 
 
@@ -47,14 +45,14 @@ print_r(Park::all);
 
 // test inserting a new park
 
-// $park = new Park();
+$park = new Park();
 
-// $park->name = "Frio River Park";
-// $park->location = "Texas";
-// $park->areaInAcres = 700;
-// $park->dateEstablished = '1913-02-02';
-// $park->description = 'Yadda yadda';
-// $park->insert();
+$park->name = "Frio River Park";
+$park->location = "Texas";
+$park->area_in_acres = 700;
+$park->date_established = '1913-02-02';
+$park->description = 'Yadda yadda';
+$park->insert();
 
 
 

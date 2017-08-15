@@ -45,11 +45,12 @@ class Park
      * establish a database connection if we do not have one
      */
     public static function dbConnect() {
-        
+        require 'db_connect.php';
+
         if (! is_null(self::$connection)) {
             return;
         }
-        self::$connection = require 'db_connect.php';
+        self::$connection = $connection;
     }
 
     /** * returns the number of records in the database*/
@@ -90,9 +91,9 @@ class Park
             $park->date_established = $result['date_established'];
             $park->area_in_acres = $result['area_in_acres'];
             $park->description = $result['description'];
-            $parks = $park;
+            $parks[] = $park;
         }
-        return $parks;
+     
 
     }
 
@@ -156,8 +157,7 @@ class Park
         $stmt->bindValue(':description', $this->description, PDO::PARAM_STR);
         $stmt->execute();
         
-
-        $this->id = self::$connection->lastInsertId;
+        $this->id = self::$connection->lastInsertId();
 
     }
 }

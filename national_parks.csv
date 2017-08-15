@@ -58,14 +58,3 @@ Wrangell–​St. Elias,Alaska,1980-12-02,8323147.59,A description of Wrangell�
 Yellowstone,"Wyoming and Montana and Idaho",1872-03-01,2219790.71,A description of Yellowstone...blah blah blah
 Yosemite,California,1890-10-01,761266.19,A description of Yosemite...blah blah blah
 Zion,Utah,1919-11-19,146597.60,A description of Zion...blah blah blah
-Example entry:
-Park Name: Arkansas Headwaters Recreation Area
-Location: Chaffee
-Date Established: 12/31/1998
-Area In Acres: 6193
-Description: Most popular locations for whitewater rafting and kayaking on the Arkansas River
-
-
- <input><?=$stmt->bindValue(':name', $_POST['name'], PDO::PARAM_STR);?></input>
-
- <input><?=$stmt->bindValue(':location', $_POST['location'], PDO::PARAM_STR); ?></input>
