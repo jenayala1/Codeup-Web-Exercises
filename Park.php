@@ -109,7 +109,7 @@ class Park
         // TODO: return an array of the found Park objects
             self::dbConnect();
             $limit = $resultsPerPage;
-            $offset = ($pageNo * $resultsPerPage) - $resultsPerPage;
+            $offset = ($page * $resultsPerPage) - $resultsPerPage;
 
             $paginateQuery = "SELECT * from national_parks ORDER BY name LIMIT :limit OFFSET :offset";
             $preparedStmt = self::$connection->prepare($paginateQuery);
@@ -130,8 +130,8 @@ class Park
     public $id;
     public $name;
     public $location;
-    public $dateEstablished;
-    public $areaInAcres;
+    public $date_established;
+    public $area_in_acres;
     public $description;
 
     /**

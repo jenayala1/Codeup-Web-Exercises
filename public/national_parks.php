@@ -2,26 +2,36 @@
  require_once __DIR__ . '/../db_connect.php';
  require_once __DIR__ . "/../Input.php";
  require_once __DIR__ . "/../Park.php";
+
+
 	
 function pageController($connection) {
 	
 	$data = [];
-	$page = Input::get('page', 1);
-	$limit = Input::get('quantity', 4);
+
+  
+
+	$page = Input::escape(Input::get('page', 1));
+	$limit = Input::escape(Input::get('quantity', 4));
 	$offset = ($page - 1) * $limit;
+	$parks = Park::paginate($page, $recordsPerPage);
 	
-	$query = "SELECT * FROM national_parks limit $limit offset $offset";
+	//$query = "SELECT * FROM national_parks limit $limit offset $offset";
+
+
 	$stmt = $connection->prepare($query);
 
 	$stmt->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
     $stmt->bindValue(':offset', (int)$limit, PDO::PARAM_INT);
     $stmt->execute();
-	$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-	$data['results'] = $results;
+	$parks = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	
+	$data['parks'] = $parks;
 	$data['page'] = $page;
+	$data['parksCount'] = Park::count();
 	return $data;
-			
 }
+
 extract(pageController($connection));
 ?>
 
@@ -52,13 +62,13 @@ extract(pageController($connection));
 						<td> Description</td>
 					</tr>
 				</th>
-				<?php foreach ($results as $result)  : ?>					
+				<?php foreach ($parks as $park)  : ?>					
 				<tr>				
-					<td><?= htmlspecialchars(strip_tags($result['name'])) ?></td>
-					<td><?= htmlspecialchars(strip_tags($result['location'])) ?></td>
-					<td><?= htmlspecialchars(strip_tags($result['date_established'])) ?></td>
-					<td><?= htmlspecialchars(strip_tags($result['area_in_acres'])) ?></td>
-					<td><?= htmlspecialchars(strip_tags($result['description'])) ?></td>
+					<td><?= Input::escape($park->name) ?></td>
+					<td><?= Input::escape($park->location) ?></td>
+					<td><?= Input::escape($park->date_established) ?></td>
+					<td><?= Input::escape($park->area_in_acres) ?></td>
+					<td><?= Input::escape($park->description) ?></td>
 				</tr>
 					<?php endforeach; ?>
 			</table>	

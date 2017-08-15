@@ -1,8 +1,8 @@
 <?php
 
- require_once __DIR__ . '/../db_connect.php';
- require_once __DIR__ . '/../Park.php';
  require_once __DIR__ . "/../Input.php";
+ require_once __DIR__ . '/../Park.php';
+
 
  function verifyInput()
  {
@@ -20,28 +20,32 @@
  	}
  }
 
-//  function addPark($connection) 
-//  {
-//     $newPark = ('INSERT INTO national_parks (name, location, date_established, area_in_acres, description) VALUES (:name, :location, :date_established, :area_in_acres, :description)');
-//     $stmt = $connection->prepare($newPark);
-//     $stmt->bindValue(':name', $_POST['name'], PDO::PARAM_STR);
-//     $stmt->bindValue(':location', $_POST['location'], PDO::PARAM_STR);
-//     $stmt->bindValue(':date_established', $_POST['date_established'], PDO::PARAM_STR);
-//     $stmt->bindValue(':area_in_acres', $_POST['area_in_acres'], PDO::PARAM_INT);
-//     $stmt->bindValue(':description', $_POST['description'], PDO::PARAM_STR);
-//     $stmt->execute();
-//     return $newPark;
-// }
+ function addPark($connection) 
+ {
+
+    $name = Input::get('name');
+    $location = Input::get('location');
+    $date_established = Input::get('date_established');
+    $area_in_acres = Input::get('area_in_acres');
+    $description = Input::get('description');
+
+    if(!is_numeric($area_in_acres)) {
+        echo "Area in acres must be numeric";
+        return;
+    }
+    
+}
 
 function pageController($connection) {
     $newPark = new Park();
 
+
     if (!empty($_POST) && verifyInput(true)) {
-        Park::$name = Input::get($_POST['name'], PDO::PARAM_STR);
-        Park::$location = Input::get($_POST['location'], PDO::PARAM_STR);
-        Park::$date_established = Input::get($_POST['date_established'], PDO::PARAM_STR);
-        Park::$area_in_acres = Input::get($_POST['area_in_acres']);
-        Park::$description = Input::get($_POST['description']);
+        $park->name = $name;
+        $park->location = $location; 
+        $page->date_established = $date_established = Input::get('date_established');
+        Park::$area_in_acres = Input::get('area_in_acres');
+        Park::$description = Input::get('description');
     } 
    return $newPark; 
 }

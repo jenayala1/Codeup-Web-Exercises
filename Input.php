@@ -32,7 +32,10 @@ class Input
     }
 
 
-    
+    public static function escape($input)
+    {
+        return htmlspecialchars(strip_tags($input));
+    }
 
     ///////////////////////////////////////////////////////////////////////////
     //                      DO NOT EDIT ANYTHING BELOW!!                     //
