@@ -1,8 +1,9 @@
 <?php
+require_once "Park.php";
 
-require 'db_connect.php';
+Park:: dbConnect();
 
-$drop = "DROP TABLE IF EXISTS national_parks";
+Park::$connection->exec("DROP TABLE IF EXISTS national_parks");
 $statement = "CREATE TABLE national_parks(
 		 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
 		 	name VARCHAR(255),
@@ -12,6 +13,7 @@ $statement = "CREATE TABLE national_parks(
 		 	description VARCHAR(255),
 		 	PRIMARY KEY(id)
 		 );";
-$connection->exec($drop);
-$connection->exec($statement);
+
+Park::$connection->exec($statement);
+echo "parks table successfully created" . PHP_EOL;
  

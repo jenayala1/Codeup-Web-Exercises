@@ -33,6 +33,7 @@ foreach($parks as $park) {
 
 	$addPark->insert();
 
+	//refactor of previous prepared statements - renamed to above statements to point to the class
 	// $preparedStmt->bindValue(':name', $park[0], PDO::PARAM_STR);
 	// $preparedStmt->bindValue(':location', $park[1], PDO::PARAM_STR);
 	// $preparedStmt->bindValue(':date_established', $park[2], PDO::PARAM_STR);

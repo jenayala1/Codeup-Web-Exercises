@@ -1,6 +1,7 @@
 <?php
 
  require_once __DIR__ . '/../db_connect.php';
+ require_once __DIR__ . '/../Park.php';
  require_once __DIR__ . "/../Input.php";
 
  function verifyInput()
@@ -19,23 +20,28 @@
  	}
  }
 
- function addPark($connection) 
- {
-    $newPark = ('INSERT INTO national_parks (name, location, date_established, area_in_acres, description) VALUES (:name, :location, :date_established, :area_in_acres, :description)');
-    $stmt = $connection->prepare($newPark);
-    $stmt->bindValue(':name', $_POST['name'], PDO::PARAM_STR);
-    $stmt->bindValue(':location', $_POST['location'], PDO::PARAM_STR);
-    $stmt->bindValue(':date_established', $_POST['date_established'], PDO::PARAM_STR);
-    $stmt->bindValue(':area_in_acres', $_POST['area_in_acres'], PDO::PARAM_INT);
-    $stmt->bindValue(':description', $_POST['description'], PDO::PARAM_STR);
-    $stmt->execute();
-    return $newPark;
-}
+//  function addPark($connection) 
+//  {
+//     $newPark = ('INSERT INTO national_parks (name, location, date_established, area_in_acres, description) VALUES (:name, :location, :date_established, :area_in_acres, :description)');
+//     $stmt = $connection->prepare($newPark);
+//     $stmt->bindValue(':name', $_POST['name'], PDO::PARAM_STR);
+//     $stmt->bindValue(':location', $_POST['location'], PDO::PARAM_STR);
+//     $stmt->bindValue(':date_established', $_POST['date_established'], PDO::PARAM_STR);
+//     $stmt->bindValue(':area_in_acres', $_POST['area_in_acres'], PDO::PARAM_INT);
+//     $stmt->bindValue(':description', $_POST['description'], PDO::PARAM_STR);
+//     $stmt->execute();
+//     return $newPark;
+// }
 
 function pageController($connection) {
-    $newPark = [];
+    $newPark = new Park();
+
     if (!empty($_POST) && verifyInput(true)) {
-        addPark($connection); 
+        Park::$name = Input::get($_POST['name'], PDO::PARAM_STR);
+        Park::$location = Input::get($_POST['location'], PDO::PARAM_STR);
+        Park::$date_established = Input::get($_POST['date_established'], PDO::PARAM_STR);
+        Park::$area_in_acres = Input::get($_POST['area_in_acres']);
+        Park::$description = Input::get($_POST['description']);
     } 
    return $newPark; 
 }

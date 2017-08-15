@@ -69,7 +69,7 @@ class Park
     /**
      * returns all the records
      */
-    public static function all($connection) {
+    public static function all() {
         // TODO: call dbConnect to ensure we have a database connection
         // TODO: use the $dbc static property to query the database for all the
         //       records in the parks table
@@ -93,7 +93,7 @@ class Park
             $park->description = $result['description'];
             $parks[] = $park;
         }
-     
+            return $parks;     
 
     }
 
@@ -109,7 +109,6 @@ class Park
         // TODO: return an array of the found Park objects
             self::dbConnect();
             $limit = $resultsPerPage;
-            $pageNo = Input::get('page', 1);
             $offset = ($pageNo * $resultsPerPage) - $resultsPerPage;
 
             $paginateQuery = "SELECT * from national_parks ORDER BY name LIMIT :limit OFFSET :offset";
