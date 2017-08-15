@@ -39,33 +39,30 @@ class Park
      * our connection to the database
      */
     public static $connection = null;
-    public static $parks = 'national_parks';
+    // public static $parks = 'national_parks';
            
     /**
      * establish a database connection if we do not have one
      */
     public static function dbConnect() {
-        require 'db_connect.php';
-
-        if (! is_null(self::$dbc)) {
+        
+        if (! is_null(self::$connection)) {
             return;
         }
-        self::$dbc = $connection;
+        self::$connection = require 'db_connect.php';
     }
 
     /** * returns the number of records in the database*/
-
-    public static function count($connection) {
+    public static function count() {
         // TODO: call dbConnect to ensure we have a database connection
         // TODO: use the $dbc static property to query the database for the
         //       number of existing park records
         
+        self::dbConnect();
+        $stmt = self::$connection->query("SELECT count(id) FROM national_parks");
+        $count = $stmt->fetch(PDO::FETCH_NUM);
 
-        $countQuery = "SELECT COUNT(*) FROM national_parks";
-        $stmt = self::query($countQuery);
-        $count = (int)$stmt->fectchColumn();
-
-        return $count;
+        return $count[0];
     }
 
     /**
@@ -78,17 +75,24 @@ class Park
         // TODO: iterate over the results array and transform each associative
         //       array into a Park object
         // TODO: return an array of Park objects
-        $data = [];
-        $query = $"SELECT * FROM national_parks limit $limit offset $offset";
-        $stmt = $this->$connection->prepare($query);
-        $stmt->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
-        $stmt->bindValue(':offset', (int)$limit, PDO::PARAM_INT);
-        $stmt->execute();
+        self::dbConnect();
+       
+        $query = "SELECT * FROM national_parks";
+        $stmt = self::$connection->query($query);
+       
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        $data['results'] = $results;
-        $data['page'] = $page;
-        return $data;
+        $parks = [];
+        foreach($results as $result){
+            $park = new Park();
+            $park->id = $result['id'];
+            $park->name = $result['name'];
+            $park->location = $result['location'];
+            $park->date_established = $result['date_established'];
+            $park->area_in_acres = $result['area_in_acres'];
+            $park->description = $result['description'];
+            $parks = $park;
+        }
+        return $parks;
 
     }
 
@@ -102,10 +106,18 @@ class Park
         // TODO: use the $dbc static property to query the database with the
         //       calculated limit and offset
         // TODO: return an array of the found Park objects
+            self::dbConnect();
+            $limit = $resultsPerPage;
             $pageNo = Input::get('page', 1);
-            $resultsPerPage = Input::get('quantity', 4);
-            $offset = ($page - 1) * $resultsPerPage;
+            $offset = ($pageNo * $resultsPerPage) - $resultsPerPage;
 
+            $paginateQuery = "SELECT * from national_parks ORDER BY name LIMIT :limit OFFSET :offset";
+            $preparedStmt = self::$connection->prepare($paginateQuery);
+            $preparedStmt->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
+            $preparedStmt->bindValue(':offset', (int)$limit, PDO::PARAM_INT);
+            $preparedStmt->execute();
+
+            return $preparedStmt->fetchAll(PDO::FETCH_OBJ);
     }
 
     /////////////////////////////////////
@@ -133,16 +145,19 @@ class Park
         //       the prepared statement
         // TODO: excute the statement and set the $id property of this object to
         //       the newly created id
+        self::dbConnect();
+        
         $newPark = ('INSERT INTO national_parks (name, location, date_established, area_in_acres, description) VALUES (:name, :location, :date_established, :area_in_acres, :description)');
-        $stmt = $connection->prepare($newPark);
-        $stmt->bindValue(':name', $_POST['name'], PDO::PARAM_STR);
-        $stmt->bindValue(':location', $_POST['location'], PDO::PARAM_STR);
-        $stmt->bindValue(':date_established', $_POST['date_established'], PDO::PARAM_STR);
-        $stmt->bindValue(':area_in_acres', $_POST['area_in_acres'], PDO::PARAM_INT);
-        $stmt->bindValue(':description', $_POST['description'], PDO::PARAM_STR);
+        $stmt = self::$connection->prepare($newPark);
+        $stmt->bindValue(':name', $this->name, PDO::PARAM_STR);
+        $stmt->bindValue(':location', $this->location, PDO::PARAM_STR);
+        $stmt->bindValue(':date_established', $this->date_established, PDO::PARAM_STR);
+        $stmt->bindValue(':area_in_acres', $this->area_in_acres, PDO::PARAM_INT);
+        $stmt->bindValue(':description', $this->description, PDO::PARAM_STR);
         $stmt->execute();
-        return $newPark;
+        
 
+        $this->id = self::$connection->lastInsertId;
 
     }
 }
