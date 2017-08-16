@@ -37,6 +37,23 @@ class Input
         return htmlspecialchars(strip_tags($input));
     }
 
+    public static function getString($key)
+    {
+        if(!is_string($key)) {
+            throw new Exception('Entry must be a string value')
+        }
+        return $_GET[$key];
+    }
+
+    public static function getNumber($key)
+    {
+        if(!is_numeric($key)) {
+            throw new Exception('Entry must be a numeric value')
+        }
+        return $_GET[$key];
+    }
+
+
     ///////////////////////////////////////////////////////////////////////////
     //                      DO NOT EDIT ANYTHING BELOW!!                     //
     // The Input class should not ever be instantiated, so we prevent the    //
