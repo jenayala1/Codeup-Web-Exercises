@@ -1,38 +1,26 @@
 <?php
- require_once __DIR__ . '/../db_connect.php';
- require_once __DIR__ . "/../Input.php";
+ 
  require_once __DIR__ . "/../Park.php";
+ require_once __DIR__ . "/../Input.php";
 
 
-	
-function pageController($connection) {
+function pageController() 
+{
 	
 	$data = [];
 
-  
-
 	$page = Input::escape(Input::get('page', 1));
-	$limit = Input::escape(Input::get('quantity', 4));
-	$offset = ($page - 1) * $limit;
+	$recordsPerPage = Input::escape(Input::get('quantity', 4));
 	$parks = Park::paginate($page, $recordsPerPage);
-	
-	//$query = "SELECT * FROM national_parks limit $limit offset $offset";
-
-
-	$stmt = $connection->prepare($query);
-
-	$stmt->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
-    $stmt->bindValue(':offset', (int)$limit, PDO::PARAM_INT);
-    $stmt->execute();
-	$parks = $stmt->fetchAll(PDO::FETCH_ASSOC);
 	
 	$data['parks'] = $parks;
 	$data['page'] = $page;
 	$data['parksCount'] = Park::count();
+	$data['recordsPerPage'] = $recordsPerPage;
 	return $data;
 }
 
-extract(pageController($connection));
+extract(pageController());
 ?>
 
 <!DOCTYPE html>

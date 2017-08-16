@@ -100,7 +100,7 @@ class Park
     /**
      * returns $resultsPerPage number of results for the given page number
      */
-    public static function paginate($pageNo, $resultsPerPage = 4) {
+    public static function paginate($page, $resultsPerPage = 4) {
         // TODO: call dbConnect to ensure we have a database connection
         // TODO: calculate the limit and offset needed based on the passed
         //       values

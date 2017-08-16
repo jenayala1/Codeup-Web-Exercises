@@ -3,7 +3,6 @@
  require_once __DIR__ . "/../Input.php";
  require_once __DIR__ . '/../Park.php';
 
-
  function verifyInput()
  {
  	if (!empty($_POST['name']) &&
@@ -19,38 +18,49 @@
  		return false;
  	}
  }
-
- function addPark($connection) 
- {
-
+ 
+function addPark()
+{
     $name = Input::get('name');
     $location = Input::get('location');
-    $date_established = Input::get('date_established');
     $area_in_acres = Input::get('area_in_acres');
+    $date_established = Input::get('date_established');
     $description = Input::get('description');
-
-    if(!is_numeric($area_in_acres)) {
-        echo "Area in acres must be numeric";
-        return;
-    }
     
-}
+    $date_established = date('Y-m-d', strtotime($date_established));
 
-function pageController($connection) {
-    $newPark = new Park();
+   if(!is_numeric($area_in_acres)) {
+    echo "Please enter a numeric value for area in acres";
+    return;
+   } 
 
-
-    if (!empty($_POST) && verifyInput(true)) {
+   $park = new Park();
         $park->name = $name;
-        $park->location = $location; 
-        $page->date_established = $date_established = Input::get('date_established');
-        Park::$area_in_acres = Input::get('area_in_acres');
-        Park::$description = Input::get('description');
-    } 
-   return $newPark; 
+        $park->location = $location;
+        $park->area_in_acres = $area_in_acres;
+        $park->date_established = $date_established;
+        $park->description = $description;
+        $park->insert();
+     
 }
 
-extract(pageController($connection));
+function pageController() {
+   $data = [];
+        if(!empty($_POST)) {
+            addPark();
+        }
+        $page = Input::escape(Input::get('page', 1));
+        $recordsPerPage = Input::escape(Input::get('recordsPerPage', 4));
+        $parks = Park::paginate($page, $recordsPerPage);
+        $data["page"] = $page;
+        $data["parks"] = $parks;
+        $data["recordsPerPage"] = $recordsPerPage;
+        $data['parksCount'] = Park::count();
+       
+        return $data;
+}
+
+extract(pageController());
 ?>
 
 <!DOCTYPE html>
