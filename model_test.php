@@ -1,7 +1,8 @@
 <?php
 
 require __DIR__ . "/Model.php";
-require __DIR__ . "/User.php";
+require __DIR__ . "/Parks.php";
+
 
 // $item1 = new Model();
 

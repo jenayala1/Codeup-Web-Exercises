@@ -1,6 +1,8 @@
 <?php
- 
-class Park
+
+require_once "Model.php";
+
+class Park extends Model
 {
 
     ///////////////////////////////////
@@ -16,7 +18,8 @@ class Park
     /**
      * establish a database connection if we do not have one
      */
-    public static function dbConnect() {
+    public static function dbConnect()
+    {
         require 'db_connect.php';
 
         if (! is_null(self::$connection)) {
@@ -27,10 +30,8 @@ class Park
 
     /** * returns the number of records in the database*/
     public static function count() {
-        // TODO: call dbConnect to ensure we have a database connection
-        // TODO: use the $dbc static property to query the database for the
+        // TODO: call dbConnect to ensure we have a database connection  // TODO: use the $dbc static property to query the database for the
         //       number of existing park records
-
         self::dbConnect();
         $stmt = self::$connection->query("SELECT count(id) FROM national_parks");
         $count = $stmt->fetch(PDO::FETCH_NUM);
@@ -41,7 +42,8 @@ class Park
     /**
      * returns all the records
      */
-    public static function all() {
+    public static function all()
+    {
         // TODO: call dbConnect to ensure we have a database connection
         // TODO: use the $dbc static property to query the database for all the
         //       records in the parks table
@@ -49,12 +51,11 @@ class Park
         //       array into a Park object
         // TODO: return an array of Park objects
         self::dbConnect();
-
         $query = "SELECT * FROM national_parks";
         $stmt = self::$connection->query($query);
-
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $parks = [];
+
         foreach($results as $result){
             $park = new Park();
             $park->id = $result['id'];
@@ -65,9 +66,23 @@ class Park
             $park->description = $result['description'];
             $parks[] = $park;
         }
-            return $parks;
-
+        return $parks;
     }
+
+    public function update()
+    {
+        $updateString = "UPDATE national_parks SET (name=:name, location=:location, date_established=:date_established,
+            area_in_acres=:area_in_acres, description=$description) WHERE id=:id;";
+            $stmt = self::$connection>prepare($updatedString);
+            $stmt->bindValue(':name', $this->name, PDO::PARAM_STR);
+            $stmt->bindValue(':location', $this->location, PDO::PARAM_STR);
+            $stmt->bindValue(':date_established', $this->dateEstablished, PDO::PARAM_STR);
+            $stmt->bindValue(':area_in_acres', $this->areaInAcres, PDO::PARAM_STR);
+            $stmt->bindValue(':description', $this->description, PDO::PARAM_STR);
+            $stmt->bindValue(':id',$this->id, PDO::PARAM_INT);
+
+            $stmt->execute();
+        }
 
     /**
      * returns $resultsPerPage number of results for the given page number
