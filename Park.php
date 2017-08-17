@@ -1,32 +1,4 @@
 <?php
-
-
- // * A Class for interacting with the national_parks database table
-    // -- contains static methods for retrieving records from the database
-    // -- contains an instance method for persisting a record to the database
-
- // * Usage Examples
- 
- // * Retrieve a list of parks and display some values for each record
- 
- // $parks = Park::all();
- //       foreach($parks as $park) {
- //           echo $park->id . PHP_EOL;
- //           echo $park->name . PHP_EOL;
- //           echo $park->location . PHP_EOL;
- //           echo $park->description . PHP_EOL;
- //           echo $park->areaInAcres . PHP_EOL;
- //       }
-  
- // * Inserting a new record into the database
- 
-       //  $park = new Park();
-       //  $park->name = 'Acadia';
-       //  $park->location = 'Maine';
-       //  $park->areaInAcres = 48995.91;
-       //  $park->dateEstablished = '1919-02-26';
- 
-       // $park->insert();
  
 class Park
 {
@@ -40,7 +12,7 @@ class Park
      */
     public static $connection = null;
     // public static $parks = 'national_parks';
-           
+
     /**
      * establish a database connection if we do not have one
      */
@@ -58,7 +30,7 @@ class Park
         // TODO: call dbConnect to ensure we have a database connection
         // TODO: use the $dbc static property to query the database for the
         //       number of existing park records
-        
+
         self::dbConnect();
         $stmt = self::$connection->query("SELECT count(id) FROM national_parks");
         $count = $stmt->fetch(PDO::FETCH_NUM);
@@ -77,10 +49,10 @@ class Park
         //       array into a Park object
         // TODO: return an array of Park objects
         self::dbConnect();
-       
+
         $query = "SELECT * FROM national_parks";
         $stmt = self::$connection->query($query);
-       
+
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $parks = [];
         foreach($results as $result){
@@ -93,7 +65,7 @@ class Park
             $park->description = $result['description'];
             $parks[] = $park;
         }
-            return $parks;     
+            return $parks;
 
     }
 
@@ -146,7 +118,7 @@ class Park
         // TODO: excute the statement and set the $id property of this object to
         //       the newly created id
         self::dbConnect();
-        
+
         $newPark = ('INSERT INTO national_parks (name, location, date_established, area_in_acres, description) VALUES (:name, :location, :date_established, :area_in_acres, :description)');
         $stmt = self::$connection->prepare($newPark);
         $stmt->bindValue(':name', $this->name, PDO::PARAM_STR);
@@ -155,7 +127,7 @@ class Park
         $stmt->bindValue(':area_in_acres', $this->area_in_acres, PDO::PARAM_INT);
         $stmt->bindValue(':description', $this->description, PDO::PARAM_STR);
         $stmt->execute();
-        
+
         $this->id = self::$connection->lastInsertId();
 
     }
