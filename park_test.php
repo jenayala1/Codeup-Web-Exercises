@@ -5,7 +5,7 @@ require_once "Model.php";
 
 
 
-echo "There are " . Park::count() . " parks in the parks table.";
+//echo "There are " . Park::count() . " parks in the parks table.";
 
 $parks = Park::all();
 
@@ -35,25 +35,37 @@ $parks = Park::all();
 
 
 
+
+
+
 // test Park::paginate()
 
-	print_r(Park::paginate(1));
-	print_r(Park::paginate(2));
-	print_r(Park::paginate(2, 2));
-	print_r(Park::paginate(1, 8));
+	// print_r(Park::paginate(1));
+	// print_r(Park::paginate(2));
+	// print_r(Park::paginate(2, 2));
+	// print_r(Park::paginate(1, 8));
 
 
 
 // test inserting a new park
+//test park array:
+$parkArry = [
+// 'name' => "Guadalupe Valley",
+// 'location' => "Texas",
+// 'area_in_acres' => 700,
+// 'date_established' => '2017-08-02',
+// 'description' => 'this is a test'
 
-$park = new Park();
+$park = new Park($parkArry);
 
-$park->name = "Guadalupe Valley";
-$park->location = "Texas";
-$park->area_in_acres = 700;
-$park->date_established = '2017-08-02';
-$park->description = 'this is a test';
-$park->insert();
+
+]
+
+
+
+$park->save();
 
 Model::find($id);
+
+
 

@@ -26,8 +26,8 @@ abstract class Model
 
     public function __get($name)
     {
-        if(array_key_exists($name, $this->item)) {  //check for existence of array key $name
-            return $this->item[$name];  //over writes default behavior
+        if(array_key_exists($name, $this->attribute)) {  //check for existence of array key $name
+            return $this->attrbute[$name];  //over writes default behavior
         }
         return null;
     }
@@ -50,7 +50,8 @@ abstract class Model
         }
     }
 
-    public function find();
+
+
 
     //  * Insert new entry into database -- NOTE: Because this method is abstract, any child class MUST have it defined.
      protected abstract function insert();
@@ -61,7 +62,15 @@ abstract class Model
     protected abstract function update();
 
 
-public function delete();
+    public function delete()
+    {
+        self::dbConnect();
+        $delete = "DELETE FROM" . static::table . " WHERE id = :id";
+        $statement = self::$connection->prepare($delete);
+        $statement->bindValue(':id', $this->id, PDO::PARAM_INT);
+        $result = $statement->execute();
+        
+    }
 
 
     public static function getTableName()
