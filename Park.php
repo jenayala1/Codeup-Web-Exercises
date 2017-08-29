@@ -47,8 +47,8 @@ class Park extends Model
         $query = "SELECT * FROM national_parks";
         $stmt = self::$connection->query($query);
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        $parks = [];
 
+        $parks = [];
         foreach($results as $result){
             $park = new Park();
             $park->id = $result['id'];
@@ -62,11 +62,76 @@ class Park extends Model
         return $parks;
     }
 
+    public static function paginate($page, $resultsPerPage = 4) {
+
+            self::dbConnect();
+            $limit = $resultsPerPage;
+            $offset = ($page * $resultsPerPage) - $resultsPerPage;
+
+            $paginateQuery = "SELECT * from national_parks ORDER BY name LIMIT :limit OFFSET :offset";
+            $preparedStmt = self::$connection->prepare($paginateQuery);
+            $preparedStmt->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
+            $preparedStmt->bindValue(':offset', (int)$limit, PDO::PARAM_INT);
+            $preparedStmt->execute();
+
+            $results =  $preparedStmt->fetchAll(PDO::FETCH_ASSOC);
+            $ouput = [];
+
+            foreach($results as $result) {
+                $park = new Park();
+                $park->id = $result['id'];
+                $park->name = $result['name'];
+                $park->location = $result['location'];
+                $park->date_established = $result['date_established'];
+                $park->area_in_acres = $result['area_in_acres'];
+                $park->description = $results['description'];
+
+                $output[] = $park;
+            }
+            return $output;
+    }
+
+    /////////////////////////////////////
+    // Instance Methods and Properties //
+    /////////////////////////////////////
+
+    public $id;
+    public $name;
+    public $location;
+    public $date_established;
+    public $area_in_acres;
+    public $description;
+
+    protected function insert() {
+        self:: dbConnect();
+
+        $newPark = ('INSERT INTO national_parks (name, location, date_established, area_in_acres, description) VALUES (:name, :location, :date_established, :area_in_acres, :description)');
+        $stmt = self::$connection->prepare($newPark);
+        $stmt->bindValue(':name', $this->name, PDO::PARAM_STR);
+        $stmt->bindValue(':location', $this->location, PDO::PARAM_STR);
+        $stmt->bindValue(':date_established', $this->date_established, PDO::PARAM_STR);
+        $stmt->bindValue(':area_in_acres', $this->area_in_acres, PDO::PARAM_INT);
+        $stmt->bindValue(':description', $this->description, PDO::PARAM_STR);
+        $stmt->execute();
+
+        $this->id = self::$connection->lastInsertId();
+
+    }
+
     protected function update()
     {
-        $update = "UPDATE " . static::$table .  SET (name=:name, location=:location, date_established=:date_established,
-            area_in_acres=:area_in_acres, description=:description) WHERE id=:id";
+        self::dbConnect();
+
+        $update = "UPDATE " . static::$table .  "SET
+            name=:name,
+            location=:location,
+            date_established=:date_established,
+            area_in_acres=:area_in_acres,
+            description=:description
+            WHERE id=:id";
+
             $stmt = self::$connection>prepare($update);
+
             $stmt->bindValue(':name', $this->name, PDO::PARAM_STR);
             $stmt->bindValue(':location', $this->location, PDO::PARAM_STR);
             $stmt->bindValue(':date_established', $this->date_established, PDO::PARAM_STR);
@@ -87,67 +152,4 @@ class Park extends Model
             $park = new Park($result);
             return $park;
         }
-
-    public static function paginate($page, $resultsPerPage = 4) {
-        //  returns $resultsPerPage number of results for the given page number
-        // TODO: call dbConnect to ensure we have a database connection
-        // TODO: calculate the limit and offset needed based on the passed
-        //       values
-        // TODO: use the $dbc static property to query the database with the
-        //       calculated limit and offset
-        // TODO: return an array of the found Park objects
-            self::dbConnect();
-            $limit = $resultsPerPage;
-            $offset = ($page * $resultsPerPage) - $resultsPerPage;
-
-            $paginateQuery = "SELECT * from national_parks ORDER BY name LIMIT :limit OFFSET :offset";
-            $preparedStmt = self::$connection->prepare($paginateQuery);
-            $preparedStmt->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
-            $preparedStmt->bindValue(':offset', (int)$limit, PDO::PARAM_INT);
-            $preparedStmt->execute();
-
-            return $preparedStmt->fetchAll(PDO::FETCH_OBJ);
-    }
-
-
-
-    /////////////////////////////////////
-    // Instance Methods and Properties //
-    /////////////////////////////////////
-
-    /**
-     * properties that represent columns from the database
-     */
-    public $id;
-    public $name;
-    public $location;
-    public $date_established;
-    public $area_in_acres;
-    public $description;
-
-    /**
-     * inserts a record into the database
-     */
-    protected function insert() {
-        // TODO: call dbConnect to ensure we have a database connection
-        // TODO: use the $dbc static property to create a perpared statement for
-        //       inserting a record into the parks table
-        // TODO: use the $this keyword to bind the values from this object to
-        //       the prepared statement
-        // TODO: excute the statement and set the $id property of this object to
-        //       the newly created id
-        self::dbConnect();
-
-        $newPark = ('INSERT INTO national_parks (name, location, date_established, area_in_acres, description) VALUES (:name, :location, :date_established, :area_in_acres, :description)');
-        $stmt = self::$connection->prepare($newPark);
-        $stmt->bindValue(':name', $this->name, PDO::PARAM_STR);
-        $stmt->bindValue(':location', $this->location, PDO::PARAM_STR);
-        $stmt->bindValue(':date_established', $this->date_established, PDO::PARAM_STR);
-        $stmt->bindValue(':area_in_acres', $this->area_in_acres, PDO::PARAM_INT);
-        $stmt->bindValue(':description', $this->description, PDO::PARAM_STR);
-        $stmt->execute();
-
-        $this->id = self::$connection->lastInsertId();
-
-    }
 }

@@ -50,11 +50,12 @@ class Input
     public static function getString($key)
     {
         $input = self::get($key);
-        i
+
         if(is_numeric($input) || !is_string($input)) {
             throw new Exception('Entry must be a string alpha value');
         } else if (empty($input)) {
             throw new Exception("Cannot be empty");
+        }
         return $input;
     }
 
